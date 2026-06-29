@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>한국사 시험 범위 정리 노트 — 개항기 · 근대</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f5f3ec;
+  --paper2:#fbfaf5;
+  --ink:#23282b;
+  --ink-soft:#3a4145;
+  --muted:#6f7873;
+  --green:#2b6157;
+  --green-d:#1d433c;
+  --green-l:#5d8d83;
+  --red:#a5392c;
+  --red-d:#7e2b21;
+  --brass:#b8924e;
+  --brass-d:#8a6a32;
+  --parch:#efe9d8;
+  --parch-line:#ddd2b4;
+  --line:#dcd6c6;
+  --line-soft:#e6e1d3;
+  --shadow:0 1px 2px rgba(40,40,30,.05),0 6px 18px rgba(40,40,30,.06);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:'Noto Sans KR',sans-serif;font-weight:400;
+  line-height:1.85;font-size:16px;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+.wrap{max-width:980px;margin:0 auto;padding:0 22px 120px}
+
+/* ---------- COVER ---------- */
+.cover{
+  position:relative;margin:0 -22px 0;padding:64px 22px 54px;
+  background:
+    radial-gradient(120% 140% at 80% -10%, rgba(43,97,87,.14), transparent 55%),
+    linear-gradient(180deg,#26514a 0%, #1d433c 100%);
+  color:#f3efe3;overflow:hidden;
+}
+.cover:before{
+  content:"";position:absolute;inset:0;
+  background-image:repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0 1px, transparent 1px 46px);
+  pointer-events:none;
+}
+.cover .eyebrow{
+  font-family:'Noto Sans KR';font-weight:500;letter-spacing:.32em;font-size:12.5px;
+  color:#cdb98a;text-transform:uppercase;margin:0 0 16px;
+}
+.cover h1{
+  font-family:'Nanum Myeongjo',serif;font-weight:800;
+  font-size:clamp(31px,6vw,52px);line-height:1.18;margin:0 0 14px;letter-spacing:-.01em;
+}
+.cover h1 .accent{color:#e3b04f;display:block;font-size:.62em;font-weight:700;margin-top:8px;letter-spacing:.02em;color:#d9c79a}
+.cover .sub{max-width:640px;font-size:15.5px;color:#d6cfba;font-weight:300;line-height:1.7;margin:0}
+.cover .scope-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.cover .scope-tags span{
+  font-size:12.5px;font-weight:500;color:#e8e0cb;
+  border:1px solid rgba(220,205,160,.4);border-radius:40px;padding:5px 13px;
+  background:rgba(255,255,255,.04);
+}
+
+/* ---------- MASTER TIMELINE ---------- */
+.mtl-wrap{margin:0 -22px;padding:30px 22px 34px;background:#eceadf;border-bottom:1px solid var(--line)}
+.mtl-h{font-family:'Nanum Myeongjo',serif;font-weight:700;font-size:14px;letter-spacing:.06em;color:var(--green-d);margin:0 0 6px}
+.mtl-note{font-size:12.5px;color:var(--muted);margin:0 0 18px}
+.mtl{display:flex;gap:0;overflow-x:auto;padding-bottom:8px;scrollbar-width:thin}
+.mtl .ev{flex:0 0 auto;min-width:118px;text-align:center;position:relative;padding-top:26px}
+.mtl .ev:before{content:"";position:absolute;top:5px;left:0;right:0;height:2px;background:var(--brass)}
+.mtl .ev:first-child:before{left:50%}
+.mtl .ev:last-child:before{right:50%}
+.mtl .ev .dot{position:absolute;top:0;left:50%;transform:translateX(-50%);width:11px;height:11px;border-radius:50%;background:var(--green);border:2px solid #eceadf;box-shadow:0 0 0 1px var(--green)}
+.mtl .ev .yr{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:18px;color:var(--red)}
+.mtl .ev .lb{font-size:12.5px;font-weight:500;color:var(--ink-soft);margin-top:2px;padding:0 6px;line-height:1.45}
+
+/* ---------- TOC ---------- */
+.toc{margin:34px 0 6px;background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:22px 24px;box-shadow:var(--shadow)}
+.toc h2{font-family:'Nanum Myeongjo',serif;font-size:17px;margin:0 0 14px;color:var(--green-d);font-weight:800;display:flex;align-items:center;gap:9px}
+.toc h2 .ic{width:20px;height:20px;border-radius:5px;background:var(--green);display:inline-block}
+.toc ol{margin:0;padding:0;list-style:none;columns:2;column-gap:34px}
+.toc li{break-inside:avoid;margin:0 0 4px}
+.toc a{color:var(--ink-soft);text-decoration:none;font-size:14.3px;font-weight:400;display:flex;gap:9px;padding:3px 6px;border-radius:6px;transition:background .15s,color .15s}
+.toc a:hover{background:#eef1ec;color:var(--green-d)}
+.toc a .n{color:var(--brass-d);font-weight:700;font-family:'Nanum Myeongjo',serif;min-width:20px}
+@media(max-width:620px){.toc ol{columns:1}}
+
+/* ---------- PART ---------- */
+.part{margin:60px 0 0;scroll-margin-top:14px}
+.part-head{border-bottom:3px solid var(--green);padding-bottom:12px;margin-bottom:6px;position:relative}
+.part-eye{font-family:'Noto Sans KR';font-weight:700;letter-spacing:.22em;font-size:12px;color:var(--brass-d);text-transform:uppercase;display:block;margin-bottom:7px}
+.part-head h2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:clamp(24px,4.6vw,33px);margin:0;line-height:1.22;color:var(--ink);letter-spacing:-.01em}
+.part-head h2 .pn{color:var(--green);margin-right:12px}
+
+/* sub-section */
+h3.sub{font-family:'Nanum Myeongjo',serif;font-weight:700;font-size:21px;margin:38px 0 4px;color:var(--green-d);display:flex;align-items:baseline;gap:11px;letter-spacing:-.005em}
+h3.sub .bar{flex:0 0 5px;height:21px;background:var(--brass);border-radius:2px;transform:translateY(3px)}
+h4.subsub{font-family:'Noto Sans KR';font-weight:700;font-size:16.5px;color:var(--red-d);margin:24px 0 2px;letter-spacing:-.005em}
+
+p{margin:12px 0}
+.lead{font-size:16px;color:var(--ink-soft)}
+
+/* key terms */
+.term{color:var(--red);font-weight:700}
+.term2{color:var(--green-d);font-weight:700}
+b,strong{font-weight:700;color:var(--ink)}
+.hanja{color:var(--muted);font-weight:400;font-size:.9em}
+.yr{display:inline-block;font-family:'Nanum Myeongjo',serif;font-weight:700;font-size:.86em;color:#fff;background:var(--green);border-radius:5px;padding:1px 7px;margin:0 1px;letter-spacing:.01em;vertical-align:.05em}
+.yr.r{background:var(--red)}
+
+/* bullet lists */
+ul.clean{list-style:none;margin:12px 0;padding:0}
+ul.clean>li{position:relative;padding:4px 0 4px 22px;line-height:1.78}
+ul.clean>li:before{content:"";position:absolute;left:3px;top:14px;width:6px;height:6px;border-radius:50%;background:var(--green-l)}
+ul.clean ul{list-style:none;margin:4px 0 4px;padding:0}
+ul.clean ul>li{position:relative;padding:2px 0 2px 20px;font-size:14.7px;color:var(--ink-soft)}
+ul.clean ul>li:before{content:"–";position:absolute;left:3px;top:2px;color:var(--brass-d);font-weight:700}
+
+/* ---------- SOURCE BOX (사료) ---------- */
+.src{margin:22px 0;background:var(--parch);border:1px solid var(--parch-line);border-left:5px solid var(--brass);border-radius:0 10px 10px 0;overflow:hidden;box-shadow:var(--shadow)}
+.src-top{display:flex;align-items:center;gap:10px;padding:11px 18px 9px;background:linear-gradient(180deg,#e8dfc6,#e3d9bd);border-bottom:1px dashed var(--brass)}
+.src-badge{font-family:'Noto Sans KR';font-weight:700;font-size:11.5px;letter-spacing:.18em;color:#fff;background:#4a3f26;border-radius:4px;padding:3px 10px;flex:0 0 auto}
+.src-title{font-family:'Nanum Myeongjo',serif;font-weight:700;font-size:15.5px;color:#4a3a1c;letter-spacing:-.005em}
+.src-body{padding:14px 20px 6px}
+.src-body p{margin:0 0 9px}
+.src-q{font-family:'Gowun Batang','Nanum Myeongjo',serif;font-size:15px;color:#3a3322;line-height:1.82}
+.src-q .em{color:var(--red-d);font-weight:700;font-family:'Noto Sans KR'}
+.src-cite{display:block;text-align:right;font-size:12.5px;color:var(--brass-d);font-weight:500;margin:2px 0 12px;font-style:italic}
+.src .multi{border-top:1px dotted var(--parch-line);padding-top:11px;margin-top:4px}
+.src .multi:first-child{border-top:none;padding-top:0}
+.src-sub{font-weight:700;color:var(--green-d);font-size:14px;margin:0 0 4px;font-family:'Noto Sans KR'}
+.src ol.art{margin:4px 0 10px;padding-left:0;list-style:none;counter-reset:art}
+.src ol.art>li{position:relative;padding:3px 0 3px 30px;font-size:14.5px;color:#3a3322;line-height:1.7}
+.src ol.art>li .anum{position:absolute;left:0;top:3px;font-family:'Nanum Myeongjo',serif;font-weight:700;color:var(--brass-d);font-size:13px}
+
+/* ---------- NOTE / 용어 aside ---------- */
+.note{margin:16px 0;background:#edf1ea;border:1px solid #d6e0d4;border-radius:10px;padding:13px 17px}
+.note .nh{font-weight:700;font-size:13.5px;color:var(--green-d);margin:0 0 3px;display:flex;align-items:center;gap:7px}
+.note .nh:before{content:"用";font-family:'Nanum Myeongjo',serif;font-size:12px;background:var(--green);color:#fff;width:18px;height:18px;display:grid;place-items:center;border-radius:4px;flex:0 0 auto}
+.note p{margin:0;font-size:14px;color:var(--ink-soft);line-height:1.7}
+.note + .note{margin-top:9px}
+
+/* ---------- VERDICT (의의·한계) ---------- */
+.verdict{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+.verdict .v{border-radius:11px;padding:14px 17px;font-size:14.4px;line-height:1.72}
+.verdict .v.pro{background:#e8f0ec;border:1px solid #c7ddd2}
+.verdict .v.con{background:#f3e8e4;border:1px solid #e2c8bf}
+.verdict .v h5{margin:0 0 6px;font-size:13.5px;font-weight:700;letter-spacing:.02em}
+.verdict .v.pro h5{color:var(--green-d)}
+.verdict .v.con h5{color:var(--red-d)}
+@media(max-width:620px){.verdict{grid-template-columns:1fr}}
+
+/* ---------- TABLE ---------- */
+.tbl-wrap{margin:20px 0;overflow-x:auto;border-radius:11px;border:1px solid var(--line);box-shadow:var(--shadow)}
+table.tbl{border-collapse:collapse;width:100%;min-width:440px;background:var(--paper2);font-size:14.3px}
+table.tbl th,table.tbl td{padding:10px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line-soft);line-height:1.6}
+table.tbl thead th{background:var(--green-d);color:#f1ede0;font-weight:700;font-size:13.5px;letter-spacing:.02em;border-bottom:none}
+table.tbl tbody tr:last-child td{border-bottom:none}
+table.tbl tbody tr:nth-child(even){background:#f0eee5}
+table.tbl td.k{font-weight:700;color:var(--green-d);white-space:nowrap;background:#eef1ea}
+table.tbl .em{color:var(--red);font-weight:700}
+
+/* ---------- MINI TIMELINE (연표) ---------- */
+.ftl{margin:18px 0;border-left:2px solid var(--brass);padding-left:0}
+.ftl .row{position:relative;padding:5px 0 5px 26px;font-size:14.5px}
+.ftl .row:before{content:"";position:absolute;left:-5px;top:13px;width:8px;height:8px;border-radius:50%;background:var(--green);border:2px solid var(--paper)}
+.ftl .row .d{font-family:'Nanum Myeongjo',serif;font-weight:700;color:var(--red);margin-right:9px}
+
+/* flow arrow chain */
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:7px 4px;margin:16px 0;padding:14px 16px;background:var(--paper2);border:1px dashed var(--line);border-radius:11px}
+.flow .step{background:#eef1ea;border:1px solid #d4ddd0;border-radius:8px;padding:6px 11px;font-size:13.6px;font-weight:500;color:var(--green-d)}
+.flow .step.hot{background:#f4e7e3;border-color:#e3c7be;color:var(--red-d);font-weight:700}
+.flow .ar{color:var(--brass-d);font-weight:700;font-size:14px}
+
+/* divider */
+.dvd{height:1px;background:var(--line);margin:30px 0;border:0}
+.special-tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.08em;color:#fff;background:var(--brass-d);border-radius:20px;padding:3px 11px;margin-bottom:4px}
+
+/* back to top */
+#top{position:fixed;right:18px;bottom:18px;width:46px;height:46px;border-radius:50%;background:var(--green-d);color:#f1ede0;border:none;cursor:pointer;box-shadow:0 4px 14px rgba(29,67,60,.4);font-size:19px;opacity:0;pointer-events:none;transition:opacity .25s;z-index:50}
+#top.show{opacity:1;pointer-events:auto}
+#top:hover{background:var(--green)}
+
+/* print */
+@media print{
+  body{background:#fff;font-size:11pt;line-height:1.5}
+  .cover{background:#1d433c !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #top{display:none}
+  .part{page-break-inside:auto}
+  .src,.tbl-wrap,.verdict{page-break-inside:avoid}
+  .toc a{color:#333}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+@media(max-width:600px){
+  body{font-size:15.3px}
+  .wrap{padding:0 16px 90px}
+  .cover{margin:0 -16px;padding:48px 16px 40px}
+  .mtl-wrap{margin:0 -16px;padding:24px 16px 28px}
+}
+</style>
+</head>
+<body>
+<button id="top" aria-label="맨 위로">↑</button>
+
+<!-- ===== COVER ===== -->
+<header class="cover">
+  <p class="eyebrow">한국사 · 시험 범위 총정리</p>
+  <h1>개항기에서 근대까지<span class="accent">흥선 대원군 · 개항 · 근대 국가 수립 · 국권 침탈과 수호</span></h1>
+  <p class="sub">교과서의 본문 흐름을 그대로 따라가며, 사소한 사항부터 핵심까지 한곳에 정리했습니다. 특히 각 단원의 <b style="color:#e3b04f">사료(史料)</b>는 시험에 자주 나오므로 따로 박스로 묶어 출처와 핵심 내용을 함께 담았습니다.</p>
+  <div class="scope-tags">
+    <span>흥선 대원군</span><span>한국의 서원</span><span>개항·불평등 조약</span><span>개화 vs 위정척사</span><span>임오군란·갑신정변</span><span>동학 농민 운동</span><span>갑오·을미개혁</span><span>독립 협회·대한 제국</span><span>경제 침탈·수호 운동</span><span>국권 침탈 조약</span><span>의병·애국 계몽</span><span>독도·간도</span>
+  </div>
+</header>
+
+<!-- ===== MASTER TIMELINE ===== -->
+<section class="mtl-wrap">
+  <p class="mtl-h">전체 흐름 한눈에 보기 — 핵심 연도</p>
+  <p class="mtl-note">근대사의 큰 줄기는 「개항 → 개혁과 반발 → 국권 피탈」로 이어집니다. (가로로 넘겨 보세요)</p>
+  <div class="mtl">
+    <div class="ev"><span class="dot"></span><div class="yr">1876</div><div class="lb">강화도 조약<br>(최초 근대적·불평등)</div></div>
+    <div class="ev"><span class="dot"></span><div class="yr">1882</div><div class="lb">임오군란<br>조청 상민 수륙 무역 장정</div></div>
+    <div class="ev"><span class="dot"></span><div class="yr">1884</div><div class="lb">갑신정변<br>(삼일천하)</div></div>
+    <div class="ev"><span class="dot"></span><div class="yr">1894</div><div class="lb">동학 농민 운동<br>· 갑오개혁</div></div>
+    <div class="ev"><span class="dot"></span><div class="yr">1895</div><div class="lb">을미사변<br>· 을미개혁</div></div>
+    <div class="ev"><span class="dot"></span><div class="yr">1897</div><div class="lb">대한 제국 수립<br>(광무개혁)</div></div>
+    <div class="ev"><span class="dot"></span><div class="yr">1905</div><div class="lb">을사늑약<br>(외교권 박탈)</div></div>
+    <div class="ev"><span class="dot"></span><div class="yr">1910</div><div class="lb">국권 피탈<br>(한국 병합 조약)</div></div>
+  </div>
+</section>
+
+<div class="wrap">
+
+<!-- ===== TOC ===== -->
+<nav class="toc">
+  <h2><span class="ic"></span>목차</h2>
+  <ol>
+    <li><a href="#p1"><span class="n">1</span><span>흥선 대원군의 개혁 정치</span></a></li>
+    <li><a href="#p2"><span class="n">2</span><span>통상 수교 거부 정책과 양요</span></a></li>
+    <li><a href="#p3"><span class="n">3</span><span>개항과 불평등 조약</span></a></li>
+    <li><a href="#p4"><span class="n">4</span><span>개화 정책과 위정척사 운동</span></a></li>
+    <li><a href="#p5"><span class="n">5</span><span>임오군란 (1882)</span></a></li>
+    <li><a href="#p6"><span class="n">6</span><span>갑신정변 (1884)</span></a></li>
+    <li><a href="#p7"><span class="n">7</span><span>동학 농민 운동 (1894)</span></a></li>
+    <li><a href="#p8"><span class="n">8</span><span>갑오개혁 · 을미개혁</span></a></li>
+    <li><a href="#p9"><span class="n">9</span><span>독립 협회</span></a></li>
+    <li><a href="#p10"><span class="n">10</span><span>대한 제국과 광무개혁</span></a></li>
+    <li><a href="#p11"><span class="n">11</span><span>열강의 경제 침탈과 수호 운동</span></a></li>
+    <li><a href="#p12"><span class="n">12</span><span>국권 침탈 과정 (조약)</span></a></li>
+    <li><a href="#p13"><span class="n">13</span><span>항일 의병 운동</span></a></li>
+    <li><a href="#p14"><span class="n">14</span><span>애국 계몽 운동과 신민회</span></a></li>
+    <li><a href="#p15"><span class="n">15</span><span>독도와 간도</span></a></li>
+  </ol>
+</nav>
+
+<!-- ===== PART 1 ===== -->
+<section class="part" id="p1">
+  <div class="part-head">
+    <span class="part-eye">Ⅰ. 흥선 대원군</span>
+    <h2><span class="pn">1</span>흥선 대원군의 개혁 정치</h2>
+  </div>
+  <p class="lead">세도 정치로 국가 기강이 흔들리고 서양 세력의 통상 요구가 거세지던 가운데 <span class="yr">1863</span> 고종이 즉위하자, 어린 고종을 대신해 아버지 <span class="term">흥선 대원군</span>(이하응)이 국정을 주도했다. 핵심은 <b>왕권 강화</b>와 <b>민생 안정</b>이다.</p>
+
+  <h3 class="sub"><span class="bar"></span>통치 체제의 재정비</h3>
+  <ul class="clean">
+    <li>안동 김씨를 비롯한 <b>세도 가문</b>을 몰아내고, 당파를 가리지 않고 인재를 등용했으며 <span class="term2">종친</span><span class="hanja">(宗親)</span>을 등용해 왕실의 울타리로 삼음.</li>
+    <li>세도 정권의 권력 기반이던 <b>비변사</b>를 축소·사실상 폐지하고, <b>의정부</b>(행정권)와 <b>삼군부</b>(군사권)의 기능을 부활시켜 분리.</li>
+    <li>통치 규범을 재정비하기 위해 『<b>대전회통</b>』과 『<b>육전조례</b>』 등 법전을 편찬.</li>
+  </ul>
+  <div class="note"><div class="nh">종친(宗親)</div><p>임금의 부계(父系) 친족. 대원군은 종친 중에서 왕위를 계승하는 경우 국왕의 생부에게 주는 칭호로, 흥선 대원군이 유일하게 살아서 칭호를 받은 인물이다.</p></div>
+
+  <h3 class="sub"><span class="bar"></span>경복궁 중건</h3>
+  <p>왕실의 권위를 높이기 위해 임진왜란 때 불탄 뒤 방치되어 있던 <span class="term">경복궁</span>을 중건. 그러나 공사비 마련 과정에서 경제적 혼란이 발생했다.</p>
+  <ul class="clean">
+    <li><b>원납전</b>(기부금)을 강제로 거두고, 고액 화폐인 <b>당백전</b>을 발행 → 유통으로 <b>물가 폭등</b>.</li>
+    <li>토목 공사에 백성을 강제 동원하고, 부족한 목재 확보를 위해 양반의 <b>묘지림을 벌목</b> → 양반 반발.</li>
+  </ul>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">원납전과 당백전으로 지은 경복궁</span></div>
+    <div class="src-body">
+      <div class="multi">
+        <p class="src-sub">원납전 부과</p>
+        <p class="src-q">(경복궁 짓는 일의) 재정이 메말라 8도의 부자 명단을 뽑아서 돈을 거두니, 백성들은 이를 비꼬아 <span class="em">"원납전(願納錢), 스스로 내는 돈이 아니라 원망하며 바친 돈(怨納錢)"</span>이라 하였다.</p>
+        <span class="src-cite">— 황현, 『매천야록』</span>
+      </div>
+      <div class="multi">
+        <p class="src-sub">당백전 발행</p>
+        <p class="src-q">당백전을 혁파해야 합니다. 전하께서 경비가 부족한 것을 근심하여 이렇게 의로운 정책을 한 것은 훌륭한 조치이나, 시행한 지 2년 동안에 사·농·공·상이 모두 해를 입었습니다.</p>
+        <span class="src-cite">— 『고종실록』</span>
+      </div>
+    </div>
+  </div>
+  <p style="font-size:13.5px;color:var(--muted);margin-top:-8px">※ 당백전은 명목 가치가 상평통보 1문전의 100배에 해당했으나, 실제 가치는 5~6배 정도에 불과했다.</p>
+
+  <h3 class="sub"><span class="bar"></span>민생 안정과 수취 체제 개편</h3>
+  <p>농민 봉기의 주요 원인이던 <b>삼정의 문란</b>을 바로잡고자 했다.</p>
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>삼정</th><th>개혁 내용</th><th>효과</th></tr></thead>
+    <tbody>
+      <tr><td class="k">전정</td><td>양전 사업을 시행해 토지 대장에서 누락된 땅(<b>은결</b>)을 찾아 세금 부과</td><td>재정 확충</td></tr>
+      <tr><td class="k">군정</td><td><span class="em">호포제</span> 시행 — 양반에게도 군포를 징수</td><td>평민에게 집중되던 군포 부담 감소</td></tr>
+      <tr><td class="k">환곡</td><td><span class="em">사창제</span> 시행 — 마을 단위 공동 운영</td><td>환곡의 폐단 자치적 개선</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="note"><div class="nh">사창제</div><p>민간에서 곡식을 저장해 두고 백성들에게 대여해 주던 제도. 흥선 대원군은 사창제를 마을 단위로 공동 운영하도록 하였다.</p></div>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">호포제와 사창제 시행</span></div>
+    <div class="src-body">
+      <div class="multi">
+        <p class="src-sub">호포제의 실시</p>
+        <p class="src-q">근래에 각 고을 군정의 폐단이 매우 심하다고 한다. … 양반 호(戶)는 노비의 이름으로 포(布)를 내게 하였고, 소민(小民)은 신포(身布)로 내게 하였다. 지금은 백골(白骨)이나 황구(黃口: 어린아이)의 원성이 없으니 …</p>
+        <span class="src-cite">— 『고종실록』</span>
+      </div>
+      <div class="multi">
+        <p class="src-sub">사창제 시행</p>
+        <p class="src-q">사창에는 관장할 사람이 없어서는 안 되니 반드시 면에서 근면 성실하고 넉넉한 자를 택하여 관에 보고한 뒤 뽑는다. … 창고지기 1명도 사수가 지역민 중에서 잘 선택한다.</p>
+        <span class="src-cite">— 『일성록』</span>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sub"><span class="bar"></span>서원의 철폐</h3>
+  <p>조선 후기 서원은 <b>면세·면역의 특권</b>을 누리고 지역 농민을 가혹하게 수탈하였다. 흥선 대원군은 양반 유생들의 횡포로부터 농민을 보호하고 국가 재정을 확충하기 위해 전국의 서원을 <span class="term">47개소만 남기고 철폐</span>하였다. → 양반 유생들이 크게 반발했고, 훗날 흥선 대원군이 <b>실각하는 배경</b>이 되었다.</p>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">서원 철폐와 유생들의 반발</span></div>
+    <div class="src-body">
+      <p class="src-q">대원군이 … 영을 내려 나라 안 서원을 모두 헐고 서원 유생들을 쫓아 버리도록 하였다. … 대원군이 크게 노하여 말하기를, <span class="em">"진실로 백성에게 해가 되는 것이 있으면 비록 공자가 다시 살아난다 하더라도 용서하지 않겠다. 하물며 지금 서원은 도둑의 소굴이 되지 않았더냐."</span>라고 하였다.</p>
+      <span class="src-cite">— 박제형, 『근세조선정감』</span>
+    </div>
+  </div>
+
+  <div class="ftl">
+    <div class="row"><span class="d">1863</span>고종 즉위, 흥선 대원군의 섭정 시작</div>
+    <div class="row"><span class="d">1865</span>경복궁 중건 시작</div>
+    <div class="row"><span class="d">1873</span>흥선 대원군 하야, 고종의 친정 시작</div>
+  </div>
+
+  <hr class="dvd">
+  <span class="special-tag">역사 특집</span>
+  <h3 class="sub"><span class="bar"></span>세계유산 '한국의 서원'</h3>
+  <p>서원은 지방에 설립된 민간 교육 기관. <span class="yr">1543</span> 풍기 군수 <b>주세붕</b>이 세운 <b>백운동 서원</b>(후에 영주 소수서원)이 그 시작이며, <span class="yr">2019</span> 9개 서원이 <b>유네스코 세계유산</b>에 등재되었다.</p>
+  <h4 class="subsub">세계유산 9곳과 주요 배향 인물</h4>
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>서원</th><th>배향 인물</th><th>서원</th><th>배향 인물</th></tr></thead>
+    <tbody>
+      <tr><td class="k">영주 소수서원</td><td>안향 <span style="color:var(--muted);font-size:12px">(최초 사액)</span></td><td class="k">함양 남계서원</td><td>정여창</td></tr>
+      <tr><td class="k">안동 도산서원</td><td>이황</td><td class="k">정읍 무성서원</td><td>최치원</td></tr>
+      <tr><td class="k">안동 병산서원</td><td>유성룡</td><td class="k">장성 필암서원</td><td>김인후</td></tr>
+      <tr><td class="k">경주 옥산서원</td><td>이언적</td><td class="k">논산 돈암서원</td><td>김장생</td></tr>
+      <tr><td class="k">달성 도동서원</td><td>김굉필</td><td class="k"></td><td></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <ul class="clean">
+    <li><b>서원의 구성</b>: <b>전학후묘</b>(前學後廟) 배치. 앞쪽은 강학 영역(강당 + 기숙사인 <b>동재·서재</b>), 뒤쪽은 유학자를 배향하는 제향 공간인 <b>사당</b>.</li>
+    <li><b>서원의 변천</b>: 일부는 왕에게 현판을 받아 <b>사액 서원</b>이 됨 → 국가로부터 토지·노비 하사. 백운동 서원이 <span class="yr">1550</span> '소수서원' 현판을 받아 최초의 사액 서원. 17세기에 급증, 숙종 때 전국 1,000여 개 → 면역·면세 특권 남용 → 영조·흥선 대원군의 서원 철폐로 이어짐.</li>
+  </ul>
+</section>
+
+<!-- ===== PART 2 ===== -->
+<section class="part" id="p2">
+  <div class="part-head">
+    <span class="part-eye">Ⅰ. 흥선 대원군</span>
+    <h2><span class="pn">2</span>통상 수교 거부 정책과 양요</h2>
+  </div>
+  <p class="lead">18세기 후반부터 영국·프랑스 등의 군함이 조선 해안을 불법으로 측량했고, 아편 전쟁으로 청의 문호가 개방된 뒤로는 자주 나타나 통상을 요구했다. 조선은 이를 '모양이 다른 배', 즉 <span class="term">이양선</span>이라 불렀다. 고종 즉위 후 실권을 잡은 흥선 대원군은 통상 요구를 거절하면서도 수뢰포 등 각종 무기를 개발하였고, 침략에는 단호하게 대응해 무력 충돌이 빚어졌다.</p>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">이양선의 출몰</span></div>
+    <div class="src-body">
+      <p class="src-q">의정부에서 "이양선이 … 동래 첫째 섬에 번쩍하는 판국에 우리나라 사람 중 이에 호응하는 자가 없을지 어찌 알겠습니까. 무릇 행동거지가 수상한 무리를 엄히 벌하는 것이 어떻겠습니까?" 하니, 윤허한다고 전교하였다.</p>
+      <span class="src-cite">— 『승정원일기』</span>
+    </div>
+  </div>
+
+  <h3 class="sub"><span class="bar"></span>병인박해와 병인양요 <span class="yr">1866</span></h3>
+  <ul class="clean">
+    <li>러시아가 청으로부터 연해주를 획득한 후 남하하자 위기감이 높아짐. 흥선 대원군은 국내의 프랑스 선교사를 통해 프랑스를 끌어들여 러시아를 견제하려 했으나 무산 → 천주교 금지 요구가 거세짐.</li>
+    <li><b>병인박해</b>: 청에서 천주교 박해 소식이 전해지자, <b>9명의 프랑스 선교사</b>를 비롯해 <b>8천여 명의 천주교 신자</b>를 처형.</li>
+    <li><b>병인양요</b>: 프랑스가 병인박해를 구실로 군함을 보내 <b>강화도</b>를 공격, 점령하여 약탈·살육. 이에 맞서 <b>한성근</b> 부대가 <b>문수산성</b>에서, <b>양헌수</b> 부대가 <b>정족산성(삼랑성)</b>에서 프랑스군을 격퇴 → 프랑스군은 약 1개월 만에 철수하면서 <b>외규장각</b>의 의궤 등 서적과 재물을 약탈.</li>
+  </ul>
+  <div class="note"><div class="nh">러시아의 연해주 획득</div><p>제2차 아편 전쟁 발발 이후 청은 강화를 알선한 러시아와도 조약을 체결하여 연해주를 할양하였다. 이후 러시아는 연해주를 근거지로 한반도에 진출하고자 하였다.</p></div>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">강화 삼랑성에서의 전투</span></div>
+    <div class="src-body">
+      <p class="src-q">정족산성에서 양헌수가 보낸 보고에 의하면 "그날 밤에 우리 군사가 잠입한 사실을 저놈(프랑스군)들은 알지 못하였습니다. … 죽은 자는 6명이고 아군의 죽은 자는 1명입니다. 적들은 도망치면서 짐바리, 술, 음식, 무기 등을 모두 버리고 갔기 때문에 거두어 보관해 두고 있습니다."라고 아뢰었다.</p>
+      <span class="src-cite">— 『고종실록』 1866. 10. 3.</span>
+    </div>
+  </div>
+
+  <h3 class="sub"><span class="bar"></span>제너럴 셔먼호 사건 · 오페르트 도굴 사건</h3>
+  <ul class="clean">
+    <li><b>제너럴 셔먼호 사건</b> <span class="yr">1866</span>: 무장한 미국 상선 제너럴 셔먼호가 대동강을 거슬러 평양까지 올라와 통상 요구. 평안도 관찰사 <b>박규수</b>가 퇴거를 요구했으나 약탈·인명 살상 → 분노한 평양 관민이 배를 불태워 침몰시킴.</li>
+    <li><b>오페르트 도굴 사건</b> <span class="yr">1868</span>: 독일 상인 <b>오페르트</b>가 통상을 거절당하자, 흥선 대원군의 아버지 <b>남연군</b>의 묘를 도굴하려다 실패 → 서양인에 대한 반감이 더욱 커지고 통상 수교 거부 정책이 한층 강화됨.</li>
+  </ul>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">오페르트 관련 사료</span></div>
+    <div class="src-body">
+      <div class="multi">
+        <p class="src-sub">오페르트가 대원군에게 보낸 편지</p>
+        <p class="src-q">남의 무덤을 파는 것은 예의가 없는 행동에 가깝지만 무력을 동원하여 백성을 도탄 속에 빠뜨리는 것보다 낫기 때문에 하는 수 없이 그렇게 하였습니다. …</p>
+        <span class="src-cite">— 『고종실록』</span>
+      </div>
+      <div class="multi">
+        <p class="src-sub">오페르트 도굴 사건에 대한 대원군의 입장</p>
+        <p class="src-q">이번 덕산 묘소에서 저지른 사건은 … 차마 할 수 없는 일이 아닌가? 우리나라 신하와 백성들은 힘을 다하여 한마음으로 <span class="em">귀국과는 한 하늘을 이고 살 수 없다는 것</span>을 다짐할 따름이다.</p>
+        <span class="src-cite">— 『고종실록』 1868. 4. 23.</span>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sub"><span class="bar"></span>신미양요와 척화비 건립 <span class="yr">1871</span></h3>
+  <p>미국은 제너럴 셔먼호 사건을 구실로 조선에 배상금 지급과 개항을 요구했으나 흥선 대원군이 거부. 미국은 군함과 병력을 동원해 <b>강화도</b>를 공격(<span class="term">신미양요</span>). 미군이 초지진과 덕진진을 점령하고 <b>광성보</b>를 공격해 오자 <b>어재연</b>이 이끄는 부대가 결사 항전했으나 패배. 흥선 대원군이 개항을 거부하자 미군은 20여 일 만에 물러감.</p>
+  <p>두 차례의 양요를 극복한 흥선 대원군은 전국 각지에 <span class="term2">척화비</span>를 세워 통상 수교 거부 의지를 널리 알렸다.</p>
+  <div class="note"><div class="nh">평가</div><p>흥선 대원군의 대외 정책은 서양 세력의 침략을 일시적으로 막을 수 있었지만, 조선의 근대화가 늦어졌다는 비판도 받는다.</p></div>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">서구 문물 수용을 통한 군사력 강화</span></div>
+    <div class="src-body">
+      <p class="src-q">전교하기를, "수뢰포의 규격이 비록 『<b>해국도지</b>』에서 나와서 우리나라의 군사 일에는 익숙하지 못하지만 이번에 이것을 모방하여 만들었고 어제 또 시험해 본 결과 큰 배를 능히 격파할 수 있었으니, 왜구에 대하여 무엇을 근심할 것이 있겠는가? …"</p>
+      <span class="src-cite">— 『고종실록』 1867. 9. 11.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PART 3 ===== -->
+<section class="part" id="p3">
+  <div class="part-head">
+    <span class="part-eye">Ⅲ-1. 국제 질서의 변동과 개항</span>
+    <h2><span class="pn">3</span>개항과 불평등 조약</h2>
+  </div>
+
+  <h3 class="sub"><span class="bar"></span>제국주의와 동아시아의 개항</h3>
+  <p class="lead">19세기경 서구 열강이 약소국을 식민 지배하려는 <span class="term">제국주의</span>가 등장. 산업 혁명 이후 값싼 원료 공급지와 상품 판매 시장, 잉여 자본 투자처로 식민지가 필요해졌다. 이를 정당화하는 논리로 <b>사회 진화론</b>(적자생존·약육강식)과 <b>백인 우월주의</b>를 내세웠다.</p>
+  <h4 class="subsub">청과 일본의 개항</h4>
+  <ul class="clean">
+    <li><b>청</b>: 공행 무역(광저우)으로 교역 제한 → 영국이 인도 아편을 청에 밀수출하는 <b>삼각 무역</b>. 청이 아편 몰수·폐기 → <b>제1차 아편 전쟁</b>(<span class="yr">1840</span>~<span class="yr">1842</span>) → <b>난징 조약</b>(<span class="yr">1842</span>): 청·서양 최초의 근대적·불평등 조약, 5개 항구 개항. 이후 <b>제2차 아편 전쟁</b> → 톈진 조약·베이징 조약.</li>
+    <li><b>일본</b>: 에도 막부의 쇄국 → 미국 동인도 함대 사령관 <b>페리</b>가 '흑선'을 이끌고 무력 시위 → <b>미일 화친 조약</b>(<span class="yr">1854</span>, 시모다·하코다테 개항) → <b>미일 수호 통상 조약</b>(<span class="yr">1858</span>) 추가 체결.</li>
+    <li><b>조선</b>: 이양선 출몰 + 청·일 개항 소식 → 사회적 불안 확산.</li>
+  </ul>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">조약으로 살펴보는 중국과 일본의 개항</span></div>
+    <div class="src-body">
+      <div class="multi">
+        <p class="src-sub">① 난징 조약 (1842)</p>
+        <ol class="art">
+          <li><span class="anum">2조</span> 영국 국민이 광저우·아모이·푸저우·닝보·상하이에서 박해나 구속을 받지 않고 자유롭게 거주·상업에 종사하는 것을 보장한다.</li>
+          <li><span class="anum">3조</span> 청은 영국에 홍콩을 할양하고 영국이 적당하다고 인정하는 법률로 통치한다.</li>
+          <li><span class="anum">8조</span> 대영국인은 … 중국의 관할 아래 있는 지방에서 구금된 경우 대청 황제가 즉각 석방을 승인한다.</li>
+        </ol>
+      </div>
+      <div class="multi">
+        <p class="src-sub">② 미일 수호 통상 조약 (1858)</p>
+        <ol class="art">
+          <li><span class="anum">3조</span> 시모다·하코다테 외에 가나가와·나가사키·니가타·효고(고베) 등을 개항한다.</li>
+          <li><span class="anum">4조</span> 일본에 수출입하는 모든 상품은 미국·일본 정부가 협의해 정한 세율에 따라 일본 정부에 관세를 납부한다.</li>
+          <li><span class="anum">6조</span> 일본에 대한 범법 행위를 한 미국인은 미국 영사 재판소에서 조사한 후 미국의 법으로 처벌한다.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sub"><span class="bar"></span>운요호 사건과 강화도 조약</h3>
+  <ul class="clean">
+    <li><b>배경</b>: 일본의 <b>메이지 유신</b>과 <b>정한론</b> 대두. <span class="yr">1873</span> 흥선 대원군 실각 → 고종 친정 → 통상 수교 거부 정책 완화.</li>
+    <li><b>운요호 사건</b> <span class="yr">1875</span>: 일본 군함이 조선 해안을 측량하며 시위, <b>강화도 초지진</b> 포격, <b>영종도</b>에 침입해 약탈.</li>
+    <li><b>강화도 조약</b>(조일 수호 조규) <span class="yr">1876</span>: 운요호 사건의 책임을 구실로 체결. <span class="term">우리 역사상 최초의 근대적 조약</span>이자 <span class="term">불평등 조약</span>. <b>영사 재판권</b>(치외법권)과 <b>해안 측량권</b> 인정 → 주권 침해. <b>만국 공법</b> 질서에 편입(일본 제국주의 침략의 출발점).</li>
+    <li><b>부속 조약</b>: <b>조일 수호 조규 부록</b>, <b>조일 무역 규칙</b>.</li>
+  </ul>
+  <div class="note"><div class="nh">만국 공법</div><p>주권 국가는 조약을 통해 대등한 관계임을 인정받는다는 내용을 포함하여 다양한 국가 관계를 설명한 '국제법'을 번역한 말. 제국주의 국가들이 불평등 조약 체결을 합리화하는 명분으로 이를 이용해 많은 나라에 불평등 조약을 체결하게 하였다.</p></div>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">강화도 조약과 부속 조약 — 불평등 조항</span></div>
+    <div class="src-body">
+      <div class="multi">
+        <p class="src-sub">강화도 조약 (1876)</p>
+        <ol class="art">
+          <li><span class="anum">1관</span> 조선국은 자주의 나라이며 일본과는 평등한 권리를 가진다. <span style="color:var(--muted);font-size:12.5px">(→ 청의 종주권 부정 의도)</span></li>
+          <li><span class="anum">4관</span> 조선국은 부산 외에 두 곳을 개항하고 일본인의 왕래·통상함을 허가한다.</li>
+          <li><span class="anum">7관</span> 일본국의 항해자가 자유로이 해안을 측량하도록 허가한다. <span style="color:var(--red);font-size:12.5px;font-weight:700">(해안 측량권)</span></li>
+          <li><span class="anum">10관</span> 일본국 인민이 조선국 지정 항구에 머무는 동안 죄를 범한 것이 조선국 인민에게 관계되는 사건일 때에는 모두 일본 관원이 심판한다. <span style="color:var(--red);font-size:12.5px;font-weight:700">(영사 재판권)</span></li>
+        </ol>
+        <span class="src-cite">— 『고종실록』 1876. 2. 3.</span>
+      </div>
+      <div class="multi">
+        <p class="src-sub">조일 수호 조규 부록 (1876)</p>
+        <ol class="art">
+          <li><span class="anum">4관</span> 부산항에서 일본국 인민이 통행할 수 있는 도로의 범위는 부두로부터 동서남북 각 직경 10리(거류지)로 정한다.</li>
+          <li><span class="anum">7관</span> 일본국 인민은 본국의 현행 여러 화폐를 사용해 조선국 인민이 소유한 물품과 교환할 수 있다.</li>
+        </ol>
+        <span class="src-cite">— 『고종실록』 1876. 7. 6.</span>
+      </div>
+      <div class="multi">
+        <p class="src-sub">조일 무역 규칙 (1876)</p>
+        <ol class="art">
+          <li><span class="anum">6칙</span> 조선국 항구에 거주하는 일본 인민은 쌀과 잡곡을 수출입할 수 있다.</li>
+          <li><span class="anum">7칙</span> 일본국 정부에 소속된 모든 선박은 항세를 납부하지 않는다. <span style="color:var(--red);font-size:12.5px;font-weight:700">(무관세·무항세)</span></li>
+        </ol>
+        <span class="src-cite">— 『고종실록』 1876. 7. 6.</span>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sub"><span class="bar"></span>서구 국가들과의 조약 체결</h3>
+  <ul class="clean">
+    <li><b>『조선책략』</b>(황준헌): 러시아의 남하를 막기 위해 조선이 <b>중국·일본·미국</b>과 연대해야 한다는 외교 방향 제시. 국내에 유포되며 미국과의 수교 관심이 높아짐(↔ 위정척사파 반발).</li>
+    <li><b>조미 수호 통상 조약</b> <span class="yr">1882</span>: <b>제물포</b>에서 체결, <span class="term">조선이 서양 국가와 맺은 최초의 조약</span>. <b>거중 조정</b> 조항과 관세 규정(강화도 조약보다 유리)이 있었으나, <b>영사 재판권 + 최혜국 대우</b>를 인정한 <b>불평등 조약</b>.</li>
+    <li>이후 차례로: 조영(<span class="yr">1883</span>) · 조독(<span class="yr">1883</span>) · 조러(<span class="yr">1884</span>) · 조불(<span class="yr">1886</span>, 천주교 포교 인정 문제로 가장 늦게 체결).</li>
+  </ul>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">조미 수호 통상 조약 주요 내용 (1882)</span></div>
+    <div class="src-body">
+      <ol class="art">
+        <li><span class="anum">1관</span> 타국의 어떠한 불공평이나 경멸하는 일이 있을 때 일단 통지하면 서로 도와주고 중간에서 잘 조처하여 두터운 우의를 보여 준다. <span style="color:var(--green-d);font-size:12.5px;font-weight:700">(거중 조정)</span></li>
+        <li><span class="anum">4관</span> 미국 인민이 … 조선 인민의 생명과 재산에 손해를 끼치는 등의 일이 있을 때 … 미국 법률에 따라 조사하고 체포하여 처벌한다. <span style="color:var(--red);font-size:12.5px;font-weight:700">(영사 재판권)</span></li>
+        <li><span class="anum">14관</span> 대조선국 군주가 어떠한 은혜로운 정사, 법, 이익 등을 다른 나라 혹은 그 상인에게 베풀 경우 미국 관원과 백성이 일체 균점하는 것을 승인한다. <span style="color:var(--red);font-size:12.5px;font-weight:700">(최혜국 대우)</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PART 4 ===== -->
+<section class="part" id="p4">
+  <div class="part-head">
+    <span class="part-eye">Ⅲ-2. 근대 국가 수립을 위한 노력</span>
+    <h2><span class="pn">4</span>개화 정책과 위정척사 운동</h2>
+  </div>
+
+  <h3 class="sub"><span class="bar"></span>개화파의 형성과 분화</h3>
+  <p class="lead">흥선 대원군이 통상 수교 거부 정책을 펼치는 가운데 <b>박규수·오경석·유홍기</b> 등이 통상 개화론을 주장하며 <span class="term2">개화사상</span>을 확산. 그 영향을 받은 <b>김옥균·박영효·김윤식</b> 등이 개화파로 성장해 개항 이후 정부의 개화 정책에 주도적으로 참여했다.</p>
+  <div class="flow">
+    <span class="step">북학파 (박지원·박제가)</span><span class="ar">→</span>
+    <span class="step">통상 개화론 (박규수·오경석·유홍기)</span><span class="ar">→</span>
+    <span class="step hot">개화파</span>
+  </div>
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>구분</th><th>온건 개화파</th><th>급진 개화파</th></tr></thead>
+    <tbody>
+      <tr><td class="k">대표 인물</td><td>김홍집 · 김윤식 · 어윤중</td><td>김옥균 · 박영효 · 홍영식 · 서광범</td></tr>
+      <tr><td class="k">모델</td><td>청의 <b>양무운동</b></td><td>일본의 <b>메이지 유신</b></td></tr>
+      <tr><td class="k">개혁 방향</td><td><b>동도서기론</b>, 전통 질서 유지 + 서양 과학 기술 수용, 점진적 개혁</td><td>근대적 사상·제도까지 적극 수용, 급진적 개혁</td></tr>
+      <tr><td class="k">대외 인식</td><td>청과 전통적 우호 관계 유지, 민씨 정권과 타협</td><td>청의 내정 간섭에서 벗어난 <b>자주적 근대 국가</b> 수립</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="note"><div class="nh">청의 양무운동</div><p>청에서 서양 문물을 도입하여 부국강병하는 것을 목표로 일으킨 운동. 증국번·이홍장 등의 한인 관료들이 주도한 운동으로, '중체서용(中體西用)'의 입장에서 추진되었다.</p></div>
+
+  <h3 class="sub"><span class="bar"></span>사절단 파견</h3>
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>사절단</th><th>대상국 · 시기</th><th>대표</th><th>특징</th></tr></thead>
+    <tbody>
+      <tr><td class="k">수신사</td><td>일본 · <span class="yr">1876</span></td><td>김기수</td><td>강화도 조약 직후 일본의 근대화·국제 정세 파악</td></tr>
+      <tr><td class="k">조사 시찰단</td><td>일본 · <span class="yr">1881</span></td><td>박정양</td><td>비밀리에 파견, 귀국 후 보고서 → 개화 정책 뒷받침</td></tr>
+      <tr><td class="k">영선사</td><td>청 · <span class="yr">1881</span></td><td>김윤식</td><td>서양식 근대 무기 제조 기술·군사 훈련법 학습 → <b>기기창</b> 설립 계기</td></tr>
+      <tr><td class="k">보빙사</td><td>미국 · <span class="yr">1883</span></td><td>민영익</td><td>미국 공사 부임 답례, 미국 문물·제도 시찰</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 class="sub"><span class="bar"></span>정부의 개화 정책 추진</h3>
+  <ul class="clean">
+    <li><b>통리기무아문</b> <span class="yr">1880</span>: 외교·군사·산업·통상 등 개화 정책을 총괄하는 기구.</li>
+    <li>국방력 강화를 위해 신식 군대인 <b>별기군</b> 창설, 일본인 교관 초빙. 군제 개편으로 기존 <b>5군영 → 2영</b>으로 축소.</li>
+    <li><b>기기창</b>(<span class="yr">1883</span>, 근대식 무기 제조 공장), <b>전환국</b>(화폐 발행), <b>박문국</b>(인쇄·출판, 한성순보 발간) 등 근대 시설 마련.</li>
+  </ul>
+
+  <h3 class="sub"><span class="bar"></span>위정척사 운동의 전개</h3>
+  <p>보수적 유생들이 개화 정책에 반대하며 성리학적 사회 질서를 지켜야 한다는 <span class="term">위정척사</span> 운동을 전개. 시기별로 그 대상과 논리가 달라졌다.</p>
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>시기</th><th>주장(논리)</th><th>대표 인물</th></tr></thead>
+    <tbody>
+      <tr><td class="k">1860년대</td><td>통상 반대 운동 (<b>척화 주전론</b>)</td><td>이항로 · 기정진</td></tr>
+      <tr><td class="k">1870년대</td><td>개항 반대 운동 (<b>왜양일체론</b>)</td><td>최익현 <span style="color:var(--muted);font-size:12px">(지부복궐척화의소)</span></td></tr>
+      <tr><td class="k">1880년대</td><td>개화 반대 운동 (<b>영남 만인소</b>)</td><td>이만손 · 홍재학</td></tr>
+      <tr><td class="k">1890년대 이후</td><td><b>항일 의병 운동</b>으로 계승</td><td>유인석 · 이소응</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="font-size:14px;color:var(--ink-soft)">※ 1880년대: 『조선책략』이 유포되어 미국과 수교하려는 움직임이 나타나자, <b>이만손</b>을 중심으로 한 영남 유생들이 <b>만인소</b>를 올려 반발.</p>
+  <div class="note"><div class="nh">평가</div><p>위정척사 운동은 열강의 침략성을 파악하고 조선의 자주성을 지키려 한 반침략·반외세 운동이었다. 하지만 양반 중심의 성리학적 질서를 유지하려는 점에서 당시 정부의 개화 정책 추진에 걸림돌이 되었다는 한계를 지닌다.</p></div>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">시기별 위정척사 운동</span></div>
+    <div class="src-body">
+      <div class="multi">
+        <p class="src-sub">① 이항로의 '척화 주전론' (1860년대)</p>
+        <p class="src-q">오늘날 서양 오랑캐의 화가 홍수나 맹수의 해로움보다도 더 심합니다. 전하께서는 … 안으로 관리들로 하여금 사학(邪學)의 무리를 잡아 베게 하시고, 밖으로 장병들로 하여금 바다를 건너오는 적을 정벌하게 하소서.</p>
+        <span class="src-cite">— 이항로, 『화서집』</span>
+      </div>
+      <div class="multi">
+        <p class="src-sub">② 최익현의 '왜양일체론' (1870년대)</p>
+        <p class="src-q">저들이 비록 왜인이라고 하지만 본질적으로는 서양 오랑캐와 다를 것이 없습니다. 강화가 이루어지면 사악한 서적과 천주교가 다시 들어와 사악한 기운이 온 나라를 덮게 될 것입니다.</p>
+        <span class="src-cite">— 최익현, 『면암집』</span>
+      </div>
+      <div class="multi">
+        <p class="src-sub">③ 영남 유생들의 만인소 (1880년대)</p>
+        <p class="src-q">수신사 김홍집이 들여와 유포한 황쭌셴(황준헌)의 사사로운 책자를 보노라면 … 미국은 우리가 본래 모르던 나라입니다. … 공연히 타인의 권유로 불러들였다가 그들이 재물을 요구하고 우리의 약점을 알아차려 어려운 청을 강요하면 장차 이에 어떻게 대응할 것입니까?</p>
+        <span class="src-cite">— 『일성록』</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">개화파 vs 위정척사파의 주장</span></div>
+    <div class="src-body">
+      <div class="multi">
+        <p class="src-sub">개화파의 주장</p>
+        <p class="src-q">오늘날 우주의 운세가 크게 변하여 모든 나라가 서로 교통하여 화륜선이 바다에 오가며 전선이 전 지구에 설치되었다. … 일본은 법을 변경(변법)한 이후 모든 것을 경장하였다고 들었다.</p>
+        <span class="src-cite">— 김옥균, 『치도약론』 1883</span>
+      </div>
+      <div class="multi">
+        <p class="src-sub">위정척사파의 주장</p>
+        <p class="src-q">저들의 물화는 모두 지나치게 사치하고 기이한 노리개로 손으로 만든 것이어서 그 양이 무궁하지만, 우리 물화는 모두 백성들의 생명과 관계있고 땅에서 나는 것이어서 한정되어 있습니다. … 서양 물건과 사학(邪學)의 위세로 공명의 태도는 날로 사라져 가정에는 윤리가 깨지고 …</p>
+        <span class="src-cite">— 최익현, 『지부복궐척화의소』 / 홍재학, 『만언척사소』</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PART 5 ===== -->
+<section class="part" id="p5">
+  <div class="part-head">
+    <span class="part-eye">Ⅲ-2. 근대 국가 수립을 위한 노력</span>
+    <h2><span class="pn">5</span>임오군란 <span style="font-size:.6em;color:var(--green-l);font-weight:700">(1882)</span></h2>
+  </div>
+
+  <h3 class="sub"><span class="bar"></span>임오군란의 전개</h3>
+  <ul class="clean">
+    <li>개화 정책 추진과 외세 침략에 대한 반발이 <b>구식 군인</b>과 <b>도시 하층민</b> 사이에서 폭발. 세금 부담 증가 + 일본으로 쌀 유출 → 쌀값 폭등 → 도시 하층민 생활 악화.</li>
+    <li>신식 군인(별기군)에 비해 <b>구식 군인 차별</b> 대우. 군제 개편으로 구식 군인 다수 실직, 13개월 밀린 급료로 지급된 쌀에 <b>겨와 모래가 섞인 사건</b> 발생 → 봉기.</li>
+    <li>정부 고관과 별기군의 일본인 교관을 살해하고 <b>일본 공사관</b>을 습격. 도시 하층민까지 가담하며 규모 확대.</li>
+  </ul>
+
+  <h3 class="sub"><span class="bar"></span>임오군란의 결과</h3>
+  <ul class="clean">
+    <li>고종이 <b>흥선 대원군</b>에게 사태 수습을 맡김 → 대원군 재집권(통리기무아문·별기군 폐지, 5군영 복구 → 개화 정책 중단).</li>
+    <li>그러나 민씨 정권(민비)이 <b>청</b>에 파병을 요청 → 청군이 군란을 진압하고 흥선 대원군을 군란의 주동자로 지목해 <b>톈진으로 압송</b>.</li>
+    <li>이후 청이 군대를 주둔시키고 내정·외교 고문을 파견하여 <b>내정에 간섭</b>.</li>
+    <li>청과 <b>조청 상민 수륙 무역 장정</b>(<span class="yr">1882</span>) 체결 → 조선이 청의 속국임을 규정하고 청 상인의 내륙 진출 인정.</li>
+    <li>일본과 <b>제물포 조약</b>(<span class="yr">1882</span>) 체결 → 배상금 지급 + 일본 경비병의 공사관 주둔 인정.</li>
+  </ul>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">임오군란의 영향으로 체결된 두 조약</span></div>
+    <div class="src-body">
+      <div class="multi">
+        <p class="src-sub">① 조청 상민 수륙 무역 장정</p>
+        <p class="src-q" style="margin-bottom:8px">이 수륙 무역 장정은 청이 속방을 우대하는 뜻에서 상정한 것이고 각 대등 국가 간의 일체 동등한 혜택을 받는 예와는 다르다.</p>
+        <ol class="art">
+          <li><span class="anum">1조</span> … 청의 북양 대신과 조선 국왕은 대등한 지위를 가진다.</li>
+          <li><span class="anum">2조</span> 조선의 개항장에서 청의 상무위원이 청 상인에 대한 재판권을 행사한다.</li>
+          <li><span class="anum">4조</span> 베이징·한성·양화진에 상점을 열어 무역하는 것을 허락하되 양국 상민의 내지 행상을 금한다. 다만 내지 행상이 필요할 경우 지방관의 허가서를 받아야 한다.</li>
+        </ol>
+      </div>
+      <div class="multi">
+        <p class="src-sub">② 제물포 조약</p>
+        <ol class="art">
+          <li><span class="anum">3조</span> 조선국은 5만 원을 내어 해를 당한 일본 관리들의 유족과 부상자에게 주도록 한다.</li>
+          <li><span class="anum">5조</span> 일본 공사관에 군인 약간을 두어 경비한다. 그 비용은 조선국이 부담한다.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PART 6 ===== -->
+<section class="part" id="p6">
+  <div class="part-head">
+    <span class="part-eye">Ⅲ-2. 근대 국가 수립을 위한 노력</span>
+    <h2><span class="pn">6</span>갑신정변 <span style="font-size:.6em;color:var(--green-l);font-weight:700">(1884)</span></h2>
+  </div>
+  <p class="lead">임오군란 이후 청의 내정 간섭이 강화되고 친청적인 민씨 정권이 개화 정책을 지연시키자, 청에 대한 입장과 개화 방법을 두고 개화파가 분화. 급진 개화파(김옥균·박영효·홍영식·서광범)가 정변을 일으켰다.</p>
+
+  <h3 class="sub"><span class="bar"></span>갑신정변의 배경</h3>
+  <ul class="clean">
+    <li>민씨 정권의 친청 정책으로 개화 정책 지연. 개화에 필요한 자금이 부족한 상황.</li>
+    <li>급진 개화파가 일본에서 <b>차관</b> 도입을 시도했으나 실패 → 개혁 주도권을 잃고 입지 불안.</li>
+    <li>베트남 문제로 청·프랑스 간 전쟁 조짐 → 조선에 주둔하던 <b>청군의 절반이 빠져나감</b> → 이를 기회로 일본 공사의 군사 지원 약속을 믿고 정변 계획.</li>
+  </ul>
+
+  <h3 class="sub"><span class="bar"></span>전개와 결과</h3>
+  <div class="flow">
+    <span class="step hot">우정총국 개국 축하연 이용 (1884)</span><span class="ar">→</span>
+    <span class="step">개혁 정강 발표 (청 사대 청산·내각제·문벌 폐지)</span><span class="ar">→</span>
+    <span class="step">청군 개입 → 일본군 철수</span><span class="ar">→</span>
+    <span class="step hot">삼일천하 (실패)</span>
+  </div>
+  <ul class="clean">
+    <li>김옥균 중심 급진 개화파가 <b>우정총국</b> 개국 축하연을 이용해 정변을 일으켜 민씨 정권 핵심 세력을 살해하고 새 정부 수립 시도. 청에 대한 사대 청산, 내각 제도 수립, 문벌 폐지와 인민 평등권 확립 등 개혁 정강을 내세움.</li>
+    <li>그러나 <b>청군</b>이 개입하자 일본군이 철수 → <span class="term">삼일천하</span>로 끝. 주도 인사들은 죽임을 당하거나 일본으로 망명.</li>
+    <li><b>한성 조약</b>(<span class="yr">1884</span>): 일본이 책임을 조선에 돌려 배상금·공사관 신축비 지불.</li>
+    <li><b>톈진 조약</b>(<span class="yr">1885</span>, 청·일 체결): 양국 군대 동시 철수 + 향후 조선에 파병할 때 사전에 서로 통보. → 이후 청의 내정 간섭 강화, <b>위안스카이</b> 파견.</li>
+  </ul>
+  <div class="verdict">
+    <div class="v pro"><h5>의의</h5>청의 간섭을 물리치고 자주적 근대 국가 건설을 목표로 일으킨 <b>우리나라 최초의 정치 개혁 운동</b>. 이후 근대화 운동에 영향.</div>
+    <div class="v con"><h5>한계</h5>일본에 의존하여 성급하게 추진. <b>소수의 개화 관료들이 중심</b>이 된 위로부터의 개혁으로 민중의 지지를 이끌어 내지 못함.</div>
+  </div>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">급진 개화파가 내세운 개혁 정강 (일부)</span></div>
+    <div class="src-body">
+      <ol class="art">
+        <li><span class="anum">1.</span> 대원군을 조속히 귀국하게 하고 청에 조공하는 허례의 행사를 폐지한다.</li>
+        <li><span class="anum">2.</span> 문벌을 폐지하여 인민 평등의 권리를 제정하고 능력에 따라 관리를 등용한다.</li>
+        <li><span class="anum">12.</span> 국내 재정은 호조가 관할하고 그 밖의 모든 재무 관청은 폐지한다.</li>
+        <li><span class="anum">13.</span> 대신과 참찬은 합문 안의 의정부에서 회의를 통해 결정하고 정령을 공포해서 시행한다.</li>
+      </ol>
+      <p style="font-size:13px;color:var(--brass-d);margin:2px 0 8px">※ 총 14개 조항이 전해짐. 청의 속국화 거부, 자주독립, 문벌 폐지·평등 사회 지향.</p>
+      <span class="src-cite">— 김옥균, 『갑신일록』</span>
+    </div>
+  </div>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">톈진 조약 (1885)</span></div>
+    <div class="src-body">
+      <ol class="art">
+        <li><span class="anum">1조</span> 청은 조선에 주둔시키고 있는 군대를 철수하고 일본은 공사관 경비를 위해 조선에 주둔한 군대를 철수한다.</li>
+        <li><span class="anum">3조</span> 장래 조선국에 만약 변란이나 중대 사건이 일어나 청·일 양국 혹은 어떤 한 국가가 파병을 요할 때는 응당 앞서 쌍방이 문서로 통지해야 한다.</li>
+      </ol>
+    </div>
+  </div>
+
+  <hr class="dvd">
+  <h3 class="sub"><span class="bar"></span>한반도를 둘러싼 외세의 각축</h3>
+  <ul class="clean">
+    <li><b>거문도 사건</b> <span class="yr">1885</span>: 조선이 러시아와 비밀 협약을 모색하자, <b>영국</b>이 러시아의 남하를 견제한다는 구실로 <b>거문도</b>를 불법 점령. 청의 중재로 약 2년 후 철수.</li>
+    <li><b>중립국 논의</b>: 독일 부영사 <b>부들러</b>가 영세 중립국화 건의, <b>유길준</b>이 열강이 보장하는 중립국화 구상. 그러나 현실성 부족으로 정책에 반영되지 못함.</li>
+  </ul>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">갑신정변·중립화론 관련 자료</span></div>
+    <div class="src-body">
+      <div class="multi">
+        <p class="src-sub">유길준의 중립화론</p>
+        <p class="src-q">대저 우리나라가 아시아의 중립국이 된다면 러시아를 방어하는 큰 기틀이 될 것이고 또한 아시아의 여러 대국이 서로 보전하는 전략도 될 것이다.</p>
+        <span class="src-cite">— 『유길준 전서』</span>
+      </div>
+      <div class="multi">
+        <p class="src-sub">갑신정변에 대한 평가</p>
+        <p class="src-q">(서재필) 김옥균은 청의 종주권 아래 놓여 있는 굴욕감을 이겨 내지 못하여 … 조선도 강력한 현대 국가가 되어야 함을 절실히 바랐다.<br>(윤치호) 아아, 김옥균 무리의 경망스러운 행동은 위로 나랏일을 실패하게 하고 아래로 민심을 흔들리게 하였으며 …</p>
+        <span class="src-cite">— 서재필 『회고 갑신정변』 / 윤치호 『윤치호 일기』</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PART 7 ===== -->
+<section class="part" id="p7">
+  <div class="part-head">
+    <span class="part-eye">Ⅲ-2. 근대 국가 수립을 위한 노력</span>
+    <h2><span class="pn">7</span>동학 농민 운동 <span style="font-size:.6em;color:var(--green-l);font-weight:700">(1894)</span></h2>
+  </div>
+
+  <h3 class="sub"><span class="bar"></span>배경 — 지방관의 횡포와 외세의 침탈</h3>
+  <ul class="clean">
+    <li>개화 정책 비용과 임오군란·갑신정변 배상금으로 재정 지출 증가 → 농민 세금 부담 ↑, 삼정 문란, 지방관 수탈 심화.</li>
+    <li>청·일 상인이 영국산 면직물을 들여옴 → 면포 짜던 농민 타격. 일본으로 곡물 수출 → 곡물 가격 폭등(일부 지역 <b>방곡령</b>) → 일본·외세에 대한 반감 ↑.</li>
+    <li>1880년대 이후 전국에서 농민 봉기 + <b>동학</b>에 가담하는 농민 증가.</li>
+  </ul>
+  <div class="note"><div class="nh">방곡령 / 포접제</div><p><b>방곡령</b>: 일본 상인들의 곡물 유출로 발생한 식량난을 해소하기 위해 곡물의 수출을 금지한 명령. <b>포접제</b>: 전국을 포와 접으로 나누어 구성한 동학의 조직망. 동학은 교주를 중심으로 교주 아래 포를 두고 포 아래에 접을 두어 체계적인 조직을 구성하였다.</p></div>
+
+  <h3 class="sub"><span class="bar"></span>교조 신원 운동</h3>
+  <p>제2대 교주 <b>최시형</b>이 포접제를 정비하며 삼남 지방 중심으로 동학 급속 확산. <b>공주·삼례</b> 집회에서 처형당한 교조 <b>최제우</b>의 누명을 벗기고 포교의 자유를 요구. <b>보은</b> 집회에서는 탐관오리 처벌·외세 배척 등 정치·사회적 요구까지 제기.</p>
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">교조 신원 운동</span></div>
+    <div class="src-body">
+      <div class="multi">
+        <p class="src-sub">공주 집회 (1892)</p>
+        <p class="src-q">동학은 사학(邪學)이 아니라 유·불·선을 합일한 것으로 유교와는 대동소이하고 이단이 아니다. 가혹한 탄압으로 교도들이 극심한 고통을 당하고 있다. 체포된 교도들을 석방해 달라.</p>
+        <span class="src-cite">— 『각도동학유생의송단자』</span>
+      </div>
+      <div class="multi">
+        <p class="src-sub">보은 집회 (1893)</p>
+        <p class="src-q">왜양을 물리치려는 창의가 어찌 큰 죄가 되어 체포하고 소탕하려고 합니까? … 임금이 욕되면 신하가 죽음으로 막는다는 의리는 어디에 있습니까?</p>
+        <span class="src-cite">— 보은 집회 때 동학교도가 어사에게 보낸 글</span>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sub"><span class="bar"></span>전개 과정</h3>
+  <div class="flow">
+    <span class="step hot">고부 농민 봉기 (1894.1)</span><span class="ar">→</span>
+    <span class="step">제1차 봉기 (백산 집결)</span><span class="ar">→</span>
+    <span class="step">황토현·황룡촌 전투</span><span class="ar">→</span>
+    <span class="step">전주성 점령 (1894.4)</span><span class="ar">→</span>
+    <span class="step">전주 화약 (1894.5)</span><span class="ar">→</span>
+    <span class="step hot">제2차 봉기 (1894.9)</span><span class="ar">→</span>
+    <span class="step hot">우금치 전투 패배 (1894.11)</span>
+  </div>
+  <h4 class="subsub">① 고부 농민 봉기 (1894.1)</h4>
+  <p>고부 군수 <b>조병갑</b>의 부정부패와 횡포(만석보 강제 축조 후 물세 징수) → <b>전봉준</b> 등이 <b>사발통문</b>을 돌려 봉기, 고부 관아 습격. 이후 안핵사 <b>이용태</b>가 봉기 가담 농민을 동학교도로 몰아 탄압 → 분노 재폭발.</p>
+  <h4 class="subsub">② 제1차 농민 봉기</h4>
+  <p>전봉준·<b>손화중</b>·<b>김개남</b>이 <b>백산</b>에 집결, '<b>제폭구민</b>'·'<b>보국안민</b>'의 격문과 <b>4대 강령</b> 발표. <b>황토현·황룡촌 전투</b> 승리 → <b>전주성</b> 점령(<span class="yr">1894.4</span>). 정부가 <b>청</b>에 군사 지원 요청 → 일본도 군대 파견. 농민군이 <b>폐정 개혁안</b>을 제출하고 <b>전주 화약</b> 체결(<span class="yr">1894.5</span>) → 전라도 50여 개 군현에 자치 조직 <b>집강소</b> 설치, 행정·치안 담당하며 폐정 개혁 실천.</p>
+  <h4 class="subsub">③ 제2차 농민 봉기 (1894.9)</h4>
+  <p>전주 화약 후 정부는 <b>교정청</b>을 설치해 자주적 개혁 추진 + 청·일 철병 요구. 그러나 일본군이 <b>경복궁</b>을 무력 점령, <b>청일 전쟁</b>(<span class="yr">1894</span>)에서 승리하며 조선 내정에 깊숙이 관여. 위기의식을 느낀 농민군이 일본을 몰아내고자 재봉기 → 전봉준의 <b>남접군</b>과 손병희의 <b>북접군</b>이 <b>논산</b>에서 합류. <b>공주 우금치 전투</b>(<span class="yr">1894.11</span>)에서 근대식 무기로 무장한 일본군·관군에 대패. 전봉준·김개남·손화중 등 지도자가 체포·처형되며 실패.</p>
+  <div class="verdict">
+    <div class="v pro"><h5>의의</h5>안으로는 정치·사회 개혁을 통해 양반 중심 지배 체제를 타파하려는 <b>반봉건</b> 운동, 밖으로는 외세 침략에 맞선 <b>반외세</b> 운동. 일부 요구는 갑오개혁에 반영.</div>
+    <div class="v con"><h5>이후</h5>근대 국가 건설을 위한 구체적 개혁 방안 제시 부족. 일부는 항일 의병에 합류하거나 <b>영학당·활빈당</b> 등 무장 조직을 만들어 반외세 투쟁 전개.</div>
+  </div>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">농민군 4대 강령</span></div>
+    <div class="src-body">
+      <ol class="art">
+        <li><span class="anum">1.</span> 사람을 죽이거나 가축을 잡아먹지 말라.</li>
+        <li><span class="anum">2.</span> 충효를 다하여 세상을 구하고 백성을 편안하게 하라.</li>
+        <li><span class="anum">3.</span> 일본 오랑캐를 몰아내고 나라의 정치를 깨끗이 한다.</li>
+        <li><span class="anum">4.</span> 군대를 몰고 서울로 들어가 권세가와 귀족을 모두 없앤다.</li>
+      </ol>
+      <span class="src-cite">— 정교, 『대한계년사』</span>
+    </div>
+  </div>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">동학 농민군의 폐정 개혁안 (12개조)</span></div>
+    <div class="src-body">
+      <ol class="art">
+        <li><span class="anum">1.</span> 동학교도는 정부와의 원한을 씻고 모든 정사에 협력한다.</li>
+        <li><span class="anum">2.</span> 탐관오리는 그 죄상을 조사하여 엄중히 징벌한다.</li>
+        <li><span class="anum">3.</span> 횡포한 부호(富豪)를 엄중히 징벌한다.</li>
+        <li><span class="anum">4.</span> 불량한 유림과 양반의 무리를 징벌한다.</li>
+        <li><span class="anum">5.</span> 노비 문서를 소각한다.</li>
+        <li><span class="anum">6.</span> 천인 차별을 개선하고 백정이 쓰는 평량갓은 없앤다.</li>
+        <li><span class="anum">7.</span> 젊어서 과부가 된 여성의 개가를 허용한다.</li>
+        <li><span class="anum">8.</span> 무명잡세를 일체 거두지 않는다.</li>
+        <li><span class="anum">9.</span> 관리 채용에는 지벌을 타파하고 인재를 등용한다.</li>
+        <li><span class="anum">10.</span> 왜와 통하는 자는 엄중히 징벌한다.</li>
+        <li><span class="anum">11.</span> 공채이든 사채이든 기왕의 것은 모두 무효로 한다.</li>
+        <li><span class="anum">12.</span> 토지는 균등히 나누어 경작하게 한다.</li>
+      </ol>
+      <span class="src-cite">— 오지영, 『동학사』</span>
+    </div>
+  </div>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">전봉준 공초 · 제2차 봉기 격문</span></div>
+    <div class="src-body">
+      <div class="multi">
+        <p class="src-sub">전봉준 공초 (재판 기록)</p>
+        <p class="src-q">(고부 1차 봉기) 당시 고부 군수가 정해진 액수 외의 가렴주구가 몇만 냥이므로 민심이 억울하여 이런 행동을 하였다. (2차 봉기) 일본이 개화라고 칭하며 군대를 거느리고 우리 서울에 들어와 밤중에 왕궁을 공격하여 임금을 놀라게 하였다 …</p>
+        <span class="src-cite">— 국사 편찬 위원회, 『동학란 기록 하』</span>
+      </div>
+      <div class="multi">
+        <p class="src-sub">제2차 봉기 당시 격문</p>
+        <p class="src-q">일본 오랑캐가 구실을 만들어 군대를 동원하여 우리 임금을 핍박하고 우리 백성을 근심케 하니 어찌 그대로 참을 수 있겠습니까.</p>
+        <span class="src-cite">— 『선유방문병동도상서소지등서』</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PART 8 ===== -->
+<section class="part" id="p8">
+  <div class="part-head">
+    <span class="part-eye">Ⅲ-2. 근대 국가 수립을 위한 노력</span>
+    <h2><span class="pn">8</span>갑오개혁 · 을미개혁</h2>
+  </div>
+  <p class="lead">동학 농민 운동을 계기로 조선 정부와 일본이 각각 개혁에 나섰다. 일본의 강요라는 외부 요인과 개화파의 자주적 개혁 의지가 함께 작용한 근대적 개혁으로, 갑신정변·동학 농민 운동에서 제기된 개혁 요구가 일부 반영되었다.</p>
+
+  <h3 class="sub"><span class="bar"></span>제1차 갑오개혁 <span class="yr">1894.7</span></h3>
+  <ul class="clean">
+    <li>일본이 <b>경복궁</b>을 점령하고 흥선 대원군을 내세워 <b>제1차 김홍집 내각</b> 수립. 초정부적 개혁 기구인 <span class="term">군국기무처</span> 설치.</li>
+    <li>당시 일본은 <b>청일 전쟁</b>에 집중하느라 간섭이 약해, 비교적 <b>자율적</b>으로 개혁 추진.</li>
+  </ul>
+
+  <h3 class="sub"><span class="bar"></span>제2차 갑오개혁 <span class="yr">1894.12</span></h3>
+  <ul class="clean">
+    <li>청일 전쟁에서 우세해진 일본이 적극 간섭. 군국기무처 폐지, <b>박영효</b> 귀국 → <b>김홍집·박영효 연립 내각</b>.</li>
+    <li>고종이 종묘에서 <b>홍범 14조</b>를 반포해 자주독립과 개혁 방향을 국내외에 선포.</li>
+  </ul>
+
+  <h3 class="sub"><span class="bar"></span>을미개혁 (제3차) <span class="yr">1895.8</span></h3>
+  <ul class="clean">
+    <li><b>청일 전쟁</b> 후 <b>시모노세키 조약</b>(<span class="yr">1895</span>)으로 일본이 배상금 + 랴오둥반도·타이완 획득. → <b>삼국 간섭</b>(러·프·독)으로 일본이 랴오둥반도 반환 → 일본의 약점 노출.</li>
+    <li>조선 정부가 러시아를 끌어들여 일본 견제(친러 경향) → 일본이 <b>을미사변</b>(<span class="yr">1895</span>)을 일으켜 경복궁에 침입, <b>명성 황후를 시해</b>.</li>
+    <li>이후 친일적 김홍집 내각이 <b>태양력</b> 사용, '<b>건양</b>' 연호 제정, <b>종두법</b> 시행, <b>단발령</b> 실시, 우편 사무 재개 등 추진.</li>
+    <li>단발령과 을미사변에 반발해 <b>을미의병</b> 발생. <span class="term">아관 파천</span>(<span class="yr">1896.2</span>)으로 김홍집 내각이 붕괴되며 개혁 중단.</li>
+  </ul>
+  <div class="note"><div class="nh">아관 파천</div><p>을미사변 이후 신변에 위협을 느낀 고종이 러시아 공사관으로 거처를 옮긴 사건(1896). 이로 인해 친일 내각이 무너지고 을미개혁이 중단되었으며, 러시아를 비롯한 열강의 이권 침탈이 심해졌다.</p></div>
+
+  <h3 class="sub"><span class="bar"></span>개혁 내용 정리</h3>
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>분야</th><th>제1차 갑오개혁</th><th>제2차 갑오개혁</th><th>을미개혁</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="k">정치</td>
+        <td>· <b>개국 기년</b> 사용(청 연호 폐지)<br>· <b>궁내부</b> 설치(왕실·정부 사무 분리)<br>· 6조 → <b>8아문</b><br>· <b>과거제 폐지</b><br>· 경무청 설치(근대적 경찰)</td>
+        <td>· <b>홍범 14조</b> 반포<br>· 8아문 → <b>7부</b><br>· 8도 → <b>23부</b><br>· <b>재판소</b> 설치(사법권 독립)</td>
+        <td>· '건양' 연호 제정<br>· 친위대(중앙)·진위대(지방) 설치</td>
+      </tr>
+      <tr>
+        <td class="k">경제</td>
+        <td>· <b>탁지아문</b>으로 재정 일원화<br>· <b>은본위제</b> 채택<br>· <b>도량형 통일</b><br>· 조세 <b>금납화</b></td>
+        <td>· (재정·행정 정비 지속)</td>
+        <td>· <b>태양력</b> 사용<br>· 우편 사무 재개</td>
+      </tr>
+      <tr>
+        <td class="k">사회<br>·문화</td>
+        <td>· <b>신분제 폐지</b>(공·사노비제 혁파)<br>· <b>조혼 금지</b>, 과부 재가 허용<br>· <b>고문·연좌제 폐지</b></td>
+        <td>· <b>교육입국 조서</b> 반포<br>· 한성 사범 학교·소학교·외국어 학교 관제 마련</td>
+        <td>· <b>단발령</b> 시행<br>· <b>종두법</b> 실시</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="verdict">
+    <div class="v pro"><h5>의의</h5>갑신정변과 동학 농민 운동에서 제기된 개혁 의지를 반영한 <b>근대적 개혁</b>. 신분제·과거제 폐지 등은 이후 독립 협회·애국 계몽 운동·대한 제국으로 계승.</div>
+    <div class="v con"><h5>한계</h5>일본의 간섭 아래 추진되어 자주성에 한계. <b>민중의 지지 부족</b>, 국방·토지 제도 개혁 소홀.</div>
+  </div>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">권력을 빼앗긴 고종의 분노 · 단발령</span></div>
+    <div class="src-body">
+      <div class="multi">
+        <p class="src-sub">고종의 분노 (제1차 갑오개혁 당시)</p>
+        <p class="src-q">짐(고종)이 한 가지 일, 한 가지 정사도 들어서 알지 못하니 (군국기무처를 통한) 변경과 시행을 짐은 모른다. … 모든 명령이 다 (일본의) 지휘를 받게 되니 …</p>
+        <span class="src-cite">— 국사 편찬 위원회, 『주한 일본 공사관 기록 제7권』</span>
+      </div>
+      <div class="multi">
+        <p class="src-sub">단발령 시행 모습</p>
+        <p class="src-q">고종이 먼저 머리를 깎고 내외 신민에게 모두 머리를 깎도록 명하였다. … 곡소리가 하늘을 진동하고 사람들은 분노하여 목숨을 끊으려 하였다. … 형세가 바야흐로 거센 물결과 같았다.</p>
+        <span class="src-cite">— 황현, 『매천야록』 권2</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PART 9 ===== -->
+<section class="part" id="p9">
+  <div class="part-head">
+    <span class="part-eye">Ⅲ-2. 근대 국가 수립을 위한 노력</span>
+    <h2><span class="pn">9</span>독립 협회 <span style="font-size:.6em;color:var(--green-l);font-weight:700">(1896~1898)</span></h2>
+  </div>
+  <p class="lead">아관 파천 이후 러시아를 비롯한 열강의 이권 침탈(삼림 채벌권·광산 채굴권·철도 부설권)이 심해지자, 자주독립과 국민 참정을 내세운 단체가 등장했다.</p>
+
+  <h3 class="sub"><span class="bar"></span>창립과 활동</h3>
+  <ul class="clean">
+    <li><b>서재필</b>이 정부 지원으로 <b>독립신문</b>(<span class="yr">1896.4</span>) 창간 → 우리나라 최초의 민간 신문, 한글판·영문판 발행. 이후 <span class="term">독립 협회</span> 창립(<span class="yr">1896.7</span>).</li>
+    <li>청 사신을 맞이하던 영은문 자리 부근에 <b>독립문</b> 건립, <b>독립관</b>에서 토론회·강연회를 열어 민중 계몽.</li>
+    <li><b>만민 공동회</b>(<span class="yr">1898.3</span>): 우리나라 최초의 근대적 <b>민중 대회</b>. 러시아의 <b>절영도 조차</b> 요구와 한러 은행 설치에 반대 → <b>러시아 군사·재정 고문 철수</b>, 절영도 조차 요구 철회를 이끌어 냄.</li>
+    <li><b>관민 공동회</b>(<span class="yr">1898.10</span>): 정부 대신도 참여. <b>헌의 6조</b>를 결의해 황제의 재가를 받음. <b>중추원 관제</b> 반포로 의회 설립 추진.</li>
+  </ul>
+  <div class="note"><div class="nh">절영도 조차</div><p>러시아가 자국 선박에 연료를 공급하기 위해 부산 영도(절영도)의 조차(빌려 쓰는 것)를 요구한 일. 독립 협회는 만민 공동회를 열어 이를 저지하였다.</p></div>
+
+  <h3 class="sub"><span class="bar"></span>해산</h3>
+  <p>보수 세력이 '독립 협회가 <b>공화정</b>을 수립하려 한다'고 모함 → 고종이 해산을 명령. 정부가 <b>황국 협회</b>(보부상 단체)와 군대를 동원해 강제 해산(<span class="yr">1898</span>).</p>
+  <div class="verdict">
+    <div class="v pro"><h5>의의</h5>민중을 계몽하고 정치에 참여시켜 <b>자주 국권·자유 민권·자강 개혁</b> 운동을 전개. 의회 설립 운동으로 입헌 군주제를 지향.</div>
+    <div class="v con"><h5>한계</h5>러시아의 침탈은 강하게 비판하면서도 미국·영국·일본에는 비교적 우호적이어서 이들의 침략 의도를 제대로 파악하지 못함.</div>
+  </div>
+
+  <div class="ftl">
+    <div class="row"><span class="d">1896.4</span>독립신문 창간</div>
+    <div class="row"><span class="d">1896.7</span>독립 협회 창립</div>
+    <div class="row"><span class="d">1897.11</span>독립문 완공</div>
+    <div class="row"><span class="d">1898.3</span>만민 공동회 개최</div>
+    <div class="row"><span class="d">1898.10</span>관민 공동회 → 헌의 6조</div>
+    <div class="row"><span class="d">1898.12</span>강제 해산</div>
+  </div>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">독립 협회의 주장 — 자주독립과 참정권</span></div>
+    <div class="src-body">
+      <div class="multi">
+        <p class="src-sub">자주독립 의식</p>
+        <p class="src-q">조선이 독립이 되었은즉 조선 인민도 차차 학문이 늘고 지식이 열려 의리를 알게 될 터이니 … 우리는 바라건대 정부에서 일하는 관인은 임금의 신하요 백성의 종이니, 받은 월급은 모두 백성의 세납이라 …</p>
+        <span class="src-cite">— 『독립신문』 1898. 1. 20.</span>
+      </div>
+      <div class="multi">
+        <p class="src-sub">국민 참정권 주장</p>
+        <p class="src-q">나라의 흥망은 국민에게 책임이 있는 것이지 한두 사람에게 있는 것이 아니다. … 관민이 합심하여 정부와 백성이 서로 믿고 의지한 후에야 나라가 굳건해질 수 있다.</p>
+        <span class="src-cite">— 관민 공동회, 1898. 10.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">헌의 6조 (1898. 10. 29.)</span></div>
+    <div class="src-body">
+      <ol class="art">
+        <li><span class="anum">1.</span> 외국인에게 의지하지 말고 관민이 한마음으로 힘을 합하여 <b>전제 황권</b>을 견고하게 할 것.</li>
+        <li><span class="anum">2.</span> 외국과의 이권에 관한 조약은 각부 대신과 <b>중추원 의장</b>이 합동 날인하여 시행할 것.</li>
+        <li><span class="anum">3.</span> 국가 재정은 모두 <b>탁지부</b>에서 관리하고, 예산과 결산을 국민에게 공포할 것.</li>
+        <li><span class="anum">4.</span> 중대한 범죄는 공개 재판하고, 피고가 충분히 설명하여 마침내 자복한 후에 시행할 것.</li>
+        <li><span class="anum">5.</span> 칙임관(고위 관리)은 정부에 그 뜻을 물어 <b>과반수의 동의</b>를 받아 임명할 것.</li>
+        <li><span class="anum">6.</span> 정해진 규정을 실천할 것.</li>
+      </ol>
+      <span class="src-cite">— 『고종실록』 1898. 10. 29.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PART 10 ===== -->
+<section class="part" id="p10">
+  <div class="part-head">
+    <span class="part-eye">Ⅲ-2. 근대 국가 수립을 위한 노력</span>
+    <h2><span class="pn">10</span>대한 제국과 광무개혁 <span style="font-size:.6em;color:var(--green-l);font-weight:700">(1897~)</span></h2>
+  </div>
+
+  <h3 class="sub"><span class="bar"></span>대한 제국의 수립</h3>
+  <ul class="clean">
+    <li>독립 협회와 국민의 환궁 요구 → 고종이 러시아 공사관에서 <b>경운궁</b>(덕수궁)으로 환궁(<span class="yr">1897.2</span>).</li>
+    <li>연호를 '<b>광무</b>'로 정하고, <b>환구단</b>에서 황제 즉위식을 거행하여 <span class="term">대한 제국</span> 선포(<span class="yr">1897.10</span>) → 자주독립 국가임을 국내외에 천명.</li>
+  </ul>
+
+  <h3 class="sub"><span class="bar"></span>광무개혁 — 구본신참</h3>
+  <p>'옛것을 근본으로 하고 새것을 참고한다'는 <span class="term2">구본신참</span>(舊本新參)의 원칙 아래 점진적 개혁을 추진.</p>
+  <ul class="clean">
+    <li><b>정치</b>: <b>대한국 국제</b>(<span class="yr">1899</span>) 반포 → 대한 제국이 자주독립 국가이며 황제가 군 통수권·입법권·사법권·행정권을 모두 가진 <b>전제 군주국</b>임을 규정. 황제 직속 군 통수 기관 <b>원수부</b> 설치, 친위대·시위대·진위대 증강.</li>
+    <li><b>경제</b>: <b>양전 사업</b>을 실시해 토지를 측량하고, 근대적 토지 소유 증명서인 <span class="term">지계</span>(地契, 관계)를 발급. <b>식산흥업</b> 정책으로 공장·회사 설립 지원, 외국에 유학생 파견, 실업·기술 학교 설립, 전화·우편·전차·철도 등 근대 시설 도입.</li>
+  </ul>
+  <div class="note"><div class="nh">지계</div><p>대한 제국이 토지 소유자에게 발급한 근대적 토지 소유 증명서. 양전 사업을 통해 토지를 조사한 후 지계를 발급하여 국가의 토지 관리와 조세 수입의 안정을 꾀하였다.</p></div>
+  <div class="verdict">
+    <div class="v pro"><h5>의의</h5>자주적인 근대 국가를 지향하며 국방·산업·교육 등 여러 분야에서 개혁을 추진.</div>
+    <div class="v con"><h5>한계</h5>열강의 간섭과 <b>러일 전쟁</b> 발발로 중단. 황제권 강화에 치우쳐 국민의 <b>민권 신장에는 소홀</b>.</div>
+  </div>
+
+  <div class="ftl">
+    <div class="row"><span class="d">1897.2</span>고종 경운궁 환궁</div>
+    <div class="row"><span class="d">1897.10</span>대한 제국 선포 (환구단 황제 즉위)</div>
+    <div class="row"><span class="d">1899</span>대한국 국제 반포</div>
+    <div class="row"><span class="d">1899.5</span>한성에 전차 개통 (서대문~청량리)</div>
+    <div class="row"><span class="d">1901</span>지계아문 설치 → 지계 발급</div>
+  </div>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">대한국 국제 (1899)</span></div>
+    <div class="src-body">
+      <ol class="art">
+        <li><span class="anum">1조</span> 대한국은 세계 만국이 공인한 <b>자주독립</b> 제국이다.</li>
+        <li><span class="anum">2조</span> 대한국의 정치는 만세에 변치 않을 <b>전제 정치</b>이다.</li>
+        <li><span class="anum">3조</span> 대한국 대황제는 무한한 <b>군권</b>을 누린다.</li>
+        <li><span class="anum">5조</span> 대한국 대황제는 육해군을 통솔하고 계엄·해엄을 명한다.</li>
+        <li><span class="anum">6조</span> 대한국 대황제는 법률을 제정하여 그 반포와 집행을 명한다.</li>
+        <li><span class="anum">9조</span> 대한국 대황제는 각국에 사신을 파견하고 선전·강화 및 제반 조약을 체결한다.</li>
+      </ol>
+      <span class="src-cite">— 『고종실록』 1899</span>
+    </div>
+  </div>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">대한 제국으로 국호를 정한 이유</span></div>
+    <div class="src-body">
+      <p class="src-q">의정부 의정 심순택이 아뢰기를 "우리나라는 곧 삼한(三韓)의 땅인데, 국초에 천명을 받고 하나의 나라로 통합되었습니다. 지금 국호를 '대한(大韓)'이라고 정한다고 해서 안 될 것이 없습니다 …" 하니, 윤허하였다.</p>
+      <span class="src-cite">— 『고종실록』 1897. 10.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PART 11 ===== -->
+<section class="part" id="p11">
+  <div class="part-head">
+    <span class="part-eye">Ⅲ-3. 사회·경제 변화와 문화 변동</span>
+    <h2><span class="pn">11</span>열강의 경제 침탈과 경제 주권 수호 운동</h2>
+  </div>
+
+  <h3 class="sub"><span class="bar"></span>열강의 경제적 침탈</h3>
+  <h4 class="subsub">① 거류지 무역과 청·일 상권 경쟁</h4>
+  <ul class="clean">
+    <li>부산·원산·인천이 차례로 개항. 초기에는 외국 상인의 활동 범위가 개항장 사방 10리(약 4km)로 제한된 <b>거류지 무역</b> → 조선 중개 상인(객주·여각·보부상)이 활발히 활동.</li>
+    <li>일본 상인의 <b>중계 무역</b>: 영국산 면제품을 들여와 팔고 곡물을 대량 구매 → <b>쌀값 폭등</b>, 국내 면방직업 타격.</li>
+    <li>임오군란 후 <b>조청 상민 수륙 무역 장정</b>(<span class="yr">1882</span>)으로 청 상인의 내륙 진출 허용 → <b>청·일 상권 경쟁</b> 심화. <b>조일 통상 장정</b>(<span class="yr">1883</span>)으로 관세권 일부 회복했으나 최혜국 대우 인정. 청일 전쟁 이후 일본이 조선 시장 독점.</li>
+  </ul>
+  <h4 class="subsub">② 이권 침탈</h4>
+  <p>아관 파천을 전후해 열강이 최혜국 대우를 앞세워 <b>광산 채굴권·철도 부설권·삼림 채벌권</b> 등을 빼앗아 감. 철도: <b>경인선</b>(일본이 미국으로부터 부설권 인수), <b>경의선</b>(프랑스로부터 인수), <b>경부선·경원선</b> 등.</p>
+  <h4 class="subsub">③ 금융 장악과 토지 침탈</h4>
+  <ul class="clean">
+    <li>러일 전쟁 중 <b>제1차 한일 협약</b>으로 재정 고문 <b>메가타</b> 파견 → <span class="term">화폐 정리 사업</span>(<span class="yr">1905</span>) 시행. 기존 <b>백동화</b>를 일본 <b>제일 은행</b>권으로 교환하되, 화폐의 질에 따라 액면가 이하로 바꿔 주거나 교환을 거부 → 국내 상인·은행 큰 피해, 일본에서 <b>차관</b> 도입 강요.</li>
+    <li><b>동양 척식 주식회사</b>(<span class="yr">1908</span>) 설립 → 일본의 토지 약탈 본격화.</li>
+  </ul>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">조일 통상 장정 (1883)</span></div>
+    <div class="src-body">
+      <ol class="art">
+        <li><span class="anum">9관</span> 입항하거나 출항하는 각 화물이 일정한 세금을 납부해야 하는 것은 모두 본 조약에 첨부된 세칙에 따라 처리한다. <span style="color:var(--green-d);font-size:12.5px;font-weight:700">(관세 규정)</span></li>
+        <li><span class="anum">37관</span> 만약 조선국에 가뭄·수해·병란 등의 일이 있어 국내 식량 부족을 우려하여 잠정적으로 쌀 수출을 금지하고자 할 때에는, 1개월 전에 지방관이 일본 영사관에 통고한다. <span style="color:var(--red);font-size:12.5px;font-weight:700">(방곡령 규정)</span></li>
+        <li><span class="anum">42관</span> 현재나 앞으로 조선 정부가 어떤 권리와 특전 및 혜택과 우대를 다른 나라에 베풀 때 일본 관리와 백성이 똑같이 누리도록 한다. <span style="color:var(--red);font-size:12.5px;font-weight:700">(최혜국 대우)</span></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">화폐 정리 사업 — 백동화 교환의 조건</span></div>
+    <div class="src-body">
+      <p class="src-q">상태가 매우 좋은 갑(甲)종 백동화는 개당 2전 5리의 값으로 새 돈으로 교환한다. 상태가 좋지 않은 을(乙)종 백동화는 개당 1전의 값으로 정부에서 사들인다. 단 형태와 품질이 조악하여 화폐로 인정하기 어려운 병(丙)종 백동화는 사들이지 않는다.</p>
+      <span class="src-cite">— 『탁지부령 제1호』 1905. 6.</span>
+    </div>
+  </div>
+
+  <h3 class="sub"><span class="bar"></span>경제 주권 수호 운동</h3>
+  <ul class="clean">
+    <li><b>방곡령</b>: 함경도(<span class="yr">1889</span>)·황해도 등에서 일본으로의 곡물 유출을 막기 위해 시행. 그러나 일본이 '1개월 전 통보' 규정 위반을 구실로 항의 → 방곡령 철회 + 배상금 지불.</li>
+    <li><b>상권 수호</b>: 외국 상인의 내륙 진출에 맞서 <b>상회사</b>(대동 상회·장통 상회 등) 설립(1880년대~). 시전 상인이 <b>철시</b> 투쟁, <b>황국 중앙 총상회</b>(<span class="yr">1898</span>) 조직. 근대적 은행 설립(<b>조선은행</b> 1896 — 최초의 민간 은행, 한성은행, 대한 천일 은행).</li>
+    <li><b>이권 수호</b>: <b>독립 협회</b>가 러시아의 절영도 조차를 좌절시키고 한러 은행을 철수시킴, 프랑스·독일의 광산 채굴 요구 저지. <b>보안회</b>(<span class="yr">1904</span>)가 일본의 <b>황무지 개간권</b> 요구를 저지(농광 회사 설립 추진).</li>
+  </ul>
+
+  <div class="ftl">
+    <div class="row"><span class="d">1889</span>함경도 방곡령 선포</div>
+    <div class="row"><span class="d">1898</span>독립 협회, 절영도 조차 저지 / 황국 중앙 총상회 조직</div>
+    <div class="row"><span class="d">1904</span>보안회, 일본의 황무지 개간권 요구 저지</div>
+    <div class="row"><span class="d">1907</span>국채 보상 운동 (→ 14장 참고)</div>
+  </div>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">보안회의 황무지 개간권 반대 상소</span></div>
+    <div class="src-body">
+      <p class="src-q">지금 일본 공사가 황무지의 개척권을 청구하고 있습니다. … 만약 이를 허락한다면 그 폐해가 헤아릴 수 없을 것이니, 우리 강토를 보전할 수 없게 되고 우리 백성이 살 곳을 잃게 될 것입니다. 엎드려 바라건대 일본의 요구를 단호히 거절하소서.</p>
+      <span class="src-cite">— 『황성신문』 1904. 7. 23.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PART 12 ===== -->
+<section class="part" id="p12">
+  <div class="part-head">
+    <span class="part-eye">Ⅲ-4. 국권 침탈과 국권 수호 운동</span>
+    <h2><span class="pn">12</span>일본의 국권 침탈 과정</h2>
+  </div>
+  <p class="lead">러일 전쟁을 전후하여 일본은 여러 조약을 단계적으로 강요하며 대한 제국의 주권을 빼앗아 갔다. 조약의 <b>순서와 핵심 내용</b>, 그리고 서양 열강이 일본의 한국 지배를 묵인한 비밀 거래가 시험의 핵심이다.</p>
+
+  <h3 class="sub"><span class="bar"></span>국권 피탈 마스터 연표</h3>
+  <div class="ftl">
+    <div class="row"><span class="d">1902</span><b>제1차 영일 동맹</b> — 일본, 영국과 동맹으로 러시아 견제</div>
+    <div class="row"><span class="d">1904.1</span>대한 제국, <b>국외 중립 선언</b></div>
+    <div class="row"><span class="d">1904.2</span><b>러일 전쟁</b> 발발 → <b>한일 의정서</b> (군사 요지 사용권)</div>
+    <div class="row"><span class="d">1904.8</span><b>제1차 한일 협약</b> — 재정 고문 메가타, 외교 고문 스티븐스</div>
+    <div class="row"><span class="d">1905.7</span><b>가쓰라·태프트 밀약</b> (미국 ↔ 일본)</div>
+    <div class="row"><span class="d">1905.8</span><b>제2차 영일 동맹</b> (영국 ↔ 일본)</div>
+    <div class="row"><span class="d">1905.9</span><b>포츠머스 강화 조약</b> — 러시아, 일본의 한국 우월권 인정</div>
+    <div class="row"><span class="d">1905.11</span><b>을사늑약</b> (제2차 한일 협약) — 외교권 박탈, 통감부 설치</div>
+    <div class="row"><span class="d">1907.6</span><b>헤이그 특사</b> 파견 → 실패</div>
+    <div class="row"><span class="d">1907.7</span>고종 강제 퇴위 → <b>한일 신협약</b>(정미 7조약) + <b>군대 해산</b></div>
+    <div class="row"><span class="d">1909.7</span><b>기유각서</b> — 사법권·감옥 사무 박탈</div>
+    <div class="row"><span class="d">1910.6</span><b>경찰권</b> 박탈</div>
+    <div class="row"><span class="d">1910.8</span><b>한국 병합 조약</b> → <span style="color:var(--red);font-weight:700">국권 피탈</span></div>
+  </div>
+
+  <h3 class="sub"><span class="bar"></span>러일 전쟁과 초기 조약</h3>
+  <ul class="clean">
+    <li><b>배경</b>: 삼국 간섭 후 러시아와 일본이 만주·한반도를 두고 대립. 일본은 <b>제1차 영일 동맹</b>(<span class="yr">1902</span>)을 맺어 러시아를 견제. 대한 제국은 <b>국외 중립</b>을 선언(<span class="yr">1904.1</span>).</li>
+    <li><b>러일 전쟁</b>(<span class="yr">1904.2</span>): 일본이 제물포·뤼순의 러시아 함대를 기습. 전쟁 중 <b>한일 의정서</b> 체결 → 전쟁 수행을 위해 한반도의 군사적 요지를 마음대로 사용.</li>
+    <li><b>제1차 한일 협약</b>(<span class="yr">1904.8</span>): 일본이 추천하는 재정 고문(<b>메가타</b>)·외교 고문(<b>스티븐스</b>)을 두게 하는 <b>고문 정치</b> 시작.</li>
+  </ul>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">한일 의정서 · 제1차 한일 협약</span></div>
+    <div class="src-body">
+      <div class="multi">
+        <p class="src-sub">한일 의정서 (1904. 2.)</p>
+        <ol class="art">
+          <li><span class="anum">3조</span> 일본 제국 정부는 대한 제국의 독립과 영토 보전을 확실히 보증한다.</li>
+          <li><span class="anum">4조</span> … 일본 제국 정부는 … <b>군사 전략상 필요한 지점을 형편에 따라 차지하여 이용</b>할 수 있다.</li>
+        </ol>
+      </div>
+      <div class="multi">
+        <p class="src-sub">제1차 한일 협약 (1904. 8.)</p>
+        <ol class="art">
+          <li><span class="anum">1조</span> 대한 정부는 일본 정부가 추천하는 일본인 1명을 <b>재정 고문</b>으로 삼아 재무에 관한 사항은 모두 그의 의견을 물어서 시행할 것.</li>
+          <li><span class="anum">2조</span> 대한 정부는 일본 정부가 추천하는 외국인 1명을 <b>외교 고문</b>으로 삼아 외교에 관한 사항은 모두 그의 의견을 물어서 시행할 것.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sub"><span class="bar"></span>을사늑약과 열강의 묵인 <span class="yr">1905</span></h3>
+  <p>일본은 러일 전쟁에서 러시아 <b>발트 함대</b>를 격파해 승기를 잡은 뒤, 미국·영국·러시아로부터 한국 지배를 차례로 묵인받았다.</p>
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>거래</th><th>시기</th><th>핵심 내용</th></tr></thead>
+    <tbody>
+      <tr><td class="k">가쓰라·태프트 밀약</td><td><span class="yr">1905.7</span></td><td><b>미국</b>의 필리핀 지배 ↔ <b>일본</b>의 한국 지배 상호 인정</td></tr>
+      <tr><td class="k">제2차 영일 동맹</td><td><span class="yr">1905.8</span></td><td><b>영국</b>이 일본의 한국 보호·지도·감리권 인정</td></tr>
+      <tr><td class="k">포츠머스 강화 조약</td><td><span class="yr">1905.9</span></td><td><b>러시아</b>가 일본의 한국 우월권 인정 (러일 전쟁 종결)</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <ul class="clean">
+    <li><b>을사늑약</b>(제2차 한일 협약, <span class="yr">1905.11</span>): <b>이토 히로부미</b>가 군대로 궁궐을 위협하며 강요. <b>고종이 끝내 비준하지 않았고</b> 일부 대신만 찬성 → <b>외교권 박탈</b>, 통감부 설치(초대 통감 이토 히로부미).</li>
+    <li><span class="term">을사오적</span>: 이완용·이지용·이근택·박제순·권중현(조약에 찬성한 다섯 대신).</li>
+  </ul>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">한국 지배를 묵인한 열강의 밀약</span></div>
+    <div class="src-body">
+      <div class="multi">
+        <p class="src-sub">가쓰라·태프트 밀약 (1905. 7.)</p>
+        <p class="src-q">미국은 일본이 한국에서 보호권을 확립하는 것이 러일 전쟁의 논리적 귀결이며 극동의 평화에 직접 이바지할 것으로 인정한다. (그 대가로 일본은 미국의 필리핀 지배를 인정한다.)</p>
+      </div>
+      <div class="multi">
+        <p class="src-sub">제2차 영일 동맹 (1905. 8.)</p>
+        <p class="src-q" style="margin-bottom:0">일본은 한국에서 정치·군사·경제상의 탁월한 이익을 가지므로, 영국은 일본이 그 이익을 옹호·증진하기 위하여 필요하다고 인정하는 <b>지도·감리 및 보호의 조치</b>를 한국에서 취할 권리를 승인한다.</p>
+      </div>
+      <div class="multi">
+        <p class="src-sub">포츠머스 강화 조약 (1905. 9.)</p>
+        <p class="src-q" style="margin-bottom:0">러시아 제국 정부는 일본이 한국에서 정치·군사·경제상의 탁월한 이익을 갖는다는 것을 승인하고, 일본이 한국에서 필요하다고 인정하는 조치를 취하는 데 이를 저지하거나 간섭하지 않을 것을 약속한다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">을사늑약 (제2차 한일 협약, 1905. 11.)</span></div>
+    <div class="src-body">
+      <ol class="art">
+        <li><span class="anum">2조</span> 일본국 정부는 한국과 타국 사이에 현존하는 조약의 실행을 담당하고, 한국 정부는 일본국 정부의 중개를 거치지 않고는 국제적 성질을 가진 어떤 조약이나 약속을 하지 않기로 약속한다.</li>
+        <li><span class="anum">3조</span> 일본국 정부는 그 대표자로 한국 황제 밑에 1명의 <b>통감</b>을 두되, 통감은 오로지 <b>외교에 관한 사항</b>을 관리하기 위하여 경성에 주재한다.</li>
+      </ol>
+      <p style="font-size:13px;color:var(--brass-d);margin:2px 0 8px">※ 핵심: 대한 제국의 <b>외교권을 일본 외무성으로 이관</b>하고 통감부를 설치.</p>
+    </div>
+  </div>
+
+  <h3 class="sub"><span class="bar"></span>을사늑약의 불법성과 저항</h3>
+  <ul class="clean">
+    <li><b>불법성</b>: ① 조약의 정식 <b>명칭이 없음</b> ② 고종의 <b>위임장·비준서가 없음</b> ③ 군대를 동원한 <b>강제</b>에 의한 체결. → 국제법상 무효라는 근거.</li>
+    <li><b>저항</b>: <b>민영환</b> 등 자결 순국, 장지연이 <b>황성신문</b>에 「<b>시일야방성대곡</b>」 발표, 상소 운동·항일 의병(을사의병).</li>
+    <li><b>헤이그 특사</b>(<span class="yr">1907</span>): 고종이 <b>이준·이상설·이위종</b>을 만국 평화 회의에 파견해 을사늑약의 부당함을 알리려 했으나, 일본·열강의 방해로 회의 참석 거부 → 실패.</li>
+  </ul>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">을사늑약에 대한 저항</span></div>
+    <div class="src-body">
+      <div class="multi">
+        <p class="src-sub">민영환의 유서</p>
+        <p class="src-q">아, 국치와 민욕이 이에 이르렀으니 우리 인민은 장차 생존 경쟁 속에서 모두 멸망하려는도다. … 영환은 죽을지언정 죽지 않고 저세상에서도 여러분을 기필코 돕기를 기약하노라. 우리 동포 형제여 …</p>
+        <span class="src-cite">— 『대한매일신보』 1905. 12. 1.</span>
+      </div>
+      <div class="multi">
+        <p class="src-sub">장지연, 「시일야방성대곡」</p>
+        <p class="src-q">… 저 개돼지만도 못한 우리 정부 대신이라는 자들이 영달과 이익을 바라고 거짓 위협에 겁을 먹어 머뭇거리고 벌벌 떨면서 나라를 팔아먹는 도적이 되었도다. … <b>아, 원통하고 분하도다. 우리 2천만 동포여!</b></p>
+        <span class="src-cite">— 『황성신문』 1905. 11.</span>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sub"><span class="bar"></span>고종 강제 퇴위와 군대 해산 <span class="yr">1907</span></h3>
+  <ul class="clean">
+    <li>일본은 헤이그 특사 파견을 구실로 <b>고종을 강제 퇴위</b>시키고 <b>순종</b>을 즉위시킴.</li>
+    <li><b>한일 신협약</b>(정미 7조약, <span class="yr">1907.7</span>): 통감의 내정 간섭 권한 강화, 각 부에 <b>일본인 차관</b> 임명(<b>차관 정치</b>). 부수 비밀 각서로 <b>대한 제국 군대 해산</b>.</li>
+    <li><b>언론·집회 탄압</b>: <b>신문지법</b>·<b>보안법</b> 제정(1907)으로 언론·출판·집회·결사의 자유 박탈.</li>
+  </ul>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">한일 신협약 (정미 7조약, 1907. 7.)</span></div>
+    <div class="src-body">
+      <ol class="art">
+        <li><span class="anum">1조</span> 한국 정부는 시정 개선에 관하여 통감의 <b>지도</b>를 받을 것.</li>
+        <li><span class="anum">2조</span> 한국 정부의 법령 제정 및 중요한 행정상의 처분은 미리 통감의 <b>승인</b>을 거칠 것.</li>
+        <li><span class="anum">4조</span> 한국 고등 관리의 임면은 통감의 <b>동의</b>로써 이를 행할 것.</li>
+        <li><span class="anum">5조</span> 한국 정부는 통감이 추천한 <b>일본인을 한국 관리로 임명</b>할 것.</li>
+      </ol>
+      <p style="font-size:13px;color:var(--brass-d);margin:2px 0 8px">※ 부수 비밀 각서: 대한 제국 <b>군대를 해산</b>한다.</p>
+    </div>
+  </div>
+
+  <h3 class="sub"><span class="bar"></span>국권 피탈 <span class="yr">1910</span></h3>
+  <ul class="clean">
+    <li><b>기유각서</b>(<span class="yr">1909</span>): 사법권과 감옥 사무 박탈. 이어 <b>경찰권</b>까지 박탈(1910.6).</li>
+    <li>친일 단체 <b>일진회</b>가 합방 청원. 제3대 통감 <b>데라우치</b>가 부임.</li>
+    <li><b>한국 병합 조약</b>(<span class="yr">1910.8</span>): 이완용과 데라우치가 조인 → 국권 상실, <b>조선 총독부</b> 설치.</li>
+  </ul>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">한국 병합 조약 (1910. 8.) · 병탄의 진실</span></div>
+    <div class="src-body">
+      <div class="multi">
+        <ol class="art">
+          <li><span class="anum">1조</span> 한국 황제 폐하는 한국 전부에 관한 일체의 통치권을 완전히 또 영구히 일본국 황제 폐하에게 양여한다.</li>
+          <li><span class="anum">2조</span> 일본국 황제 폐하는 앞 조항에 기재한 양여를 수락하고 한국을 일본 제국에 병합함을 승낙한다.</li>
+        </ol>
+      </div>
+      <div class="multi">
+        <p class="src-sub">'병합'이라는 용어를 고른 이유</p>
+        <p class="src-q">한국이 완전히 폐멸(廢滅)되어 일본의 일부가 된다는 뜻을 명확히 하면서도 그 어조가 너무 과격하지 않은 문자를 고르려고 … 여러 차례 고심한 끝에 당시 아직 일반적으로 사용되지 않던 '<b>병합(倂合)</b>'이라는 문자를 새로 고안해 사용하였다.</p>
+        <span class="src-cite">— 일본 외무성 구라치 데쓰키치, 『한국 병합의 경위』</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">매천 황현의 절명시 (1910)</span></div>
+    <div class="src-body">
+      <p class="src-q">새 짐승도 슬피 울고 강산도 찡그리네 / 무궁화 이 강산이 속절없이 망했구나 / 가을 등불 아래 책 덮고 옛일 곰곰 생각하니 / <b>인간 세상에 글 아는 사람 노릇 어렵기만 하구나</b>.</p>
+      <span class="src-cite">— 황현, 국권 피탈 소식을 듣고 자결하며 (1910. 8.)</span>
+    </div>
+  </div>
+
+  <hr class="dvd">
+  <h3 class="sub"><span class="bar"></span>국권 회복을 위한 의거 활동</h3>
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>인물</th><th>의거 내용</th></tr></thead>
+    <tbody>
+      <tr><td class="k">나철 · 오기호</td><td><b>자신회(오적 암살단)</b> 조직 → 을사오적 처단 시도 (1907)</td></tr>
+      <tr><td class="k">장인환 · 전명운</td><td>미국 샌프란시스코에서 친일 외교 고문 <b>스티븐스 사살</b> (1908)</td></tr>
+      <tr><td class="k em">안중근</td><td>만주 <b>하얼빈역에서 이토 히로부미 사살</b> (1909)</td></tr>
+      <tr><td class="k">이재명</td><td>명동 성당 앞에서 <b>이완용 습격</b> (1909)</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <span class="special-tag">역사 특집</span>
+  <h3 class="sub"><span class="bar"></span>안중근의 마지막 1년</h3>
+  <p><b>대한 의군 참모 중장</b> 안중근은 <span class="yr">1909.10.26</span> 하얼빈역에서 이토 히로부미를 처단. 재판에서 자신은 전쟁 포로이므로 <b>만국 공법</b>(국제법)에 따라 재판받아야 한다고 주장했으나, 일본은 일반 살인죄를 적용했다.</p>
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">안중근이 밝힌 '이토 히로부미를 처단한 이유' (15가지 중 일부)</span></div>
+    <div class="src-body">
+      <ul class="clean" style="margin:4px 0">
+        <li>명성 황후를 시해한 죄 · 고종 황제를 강제로 폐위시킨 죄</li>
+        <li>을사늑약과 한일 신협약(정미 7조약)을 강제로 체결한 죄</li>
+        <li>무고한 한국인을 학살하고 정권을 강제로 빼앗은 죄</li>
+        <li>철도·광산·산림 등 이권을 강제로 빼앗고, 제일 은행권 지폐를 강제로 사용하게 한 죄</li>
+        <li>한국 군대를 강제로 해산하고 교육을 방해한 죄</li>
+        <li>한국인의 외국 유학을 금지하고 교과서를 압수해 불태운 죄</li>
+        <li>한국인이 일본의 보호를 받고 싶어 한다고 거짓 선전한 죄 …</li>
+      </ul>
+      <span class="src-cite">— 안중근, 『안응칠 역사』</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PART 13 ===== -->
+<section class="part" id="p13">
+  <div class="part-head">
+    <span class="part-eye">Ⅲ-4. 국권 침탈과 국권 수호 운동</span>
+    <h2><span class="pn">13</span>항일 의병 운동</h2>
+  </div>
+  <p class="lead">국권 침탈에 맞서 유생·농민·해산 군인 등 다양한 계층이 무장 투쟁에 나섰다. 세 차례 의병(을미·을사·정미)의 <b>계기·주도 세력·특징</b>을 구분하는 것이 핵심이다.</p>
+
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>구분</th><th>계기</th><th>주도 인물</th><th>특징</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="k">을미의병<br><span class="yr">1895</span></td>
+        <td>을미사변 + <b>단발령</b></td>
+        <td>유인석 · 이소응<br><span style="color:var(--muted);font-size:12px">(위정척사 유생)</span></td>
+        <td>유생이 주도, 농민·동학 잔여 세력 가담. 아관 파천 후 단발령 철회 + 고종의 해산 권고로 자진 해산.</td>
+      </tr>
+      <tr>
+        <td class="k">을사의병<br><span class="yr">1905</span></td>
+        <td><b>을사늑약</b> 체결</td>
+        <td>민종식 · 최익현 ·<br><b>신돌석</b></td>
+        <td>전직 관료·유생 + <b>평민 의병장</b> 등장. 민종식(홍주성), 최익현(태인 → 쓰시마섬 유배·순국), 신돌석('태백산 호랑이').</td>
+      </tr>
+      <tr>
+        <td class="k">정미의병<br><span class="yr">1907</span></td>
+        <td>고종 강제 퇴위 + <b>군대 해산</b></td>
+        <td>이인영 · 허위</td>
+        <td><b>해산 군인 합류</b>로 전투력 강화, 노동자·상인·학생 등 참여 확대. <b>13도 창의군</b> 결성 → <b>서울 진공 작전</b>(1908) 전개.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 class="sub"><span class="bar"></span>정미의병과 의병 전쟁의 전개</h3>
+  <ul class="clean">
+    <li>군대 해산으로 해산 군인이 합류하며 의병이 <b>의병 전쟁</b>으로 발전. <b>13도 창의군</b>(총대장 <b>이인영</b>, 군사장 허위) 결성 → 각국 영사관에 <b>국제법상 교전 단체</b>로 인정해 줄 것을 요구.</li>
+    <li><b>서울 진공 작전</b>(<span class="yr">1908</span>): 양주에 집결해 서울로 진격하려 했으나 실패.</li>
+    <li>이후 <b>호남 지역</b>을 중심으로 의병 항쟁이 가장 치열 → 일본이 <b>'남한 대토벌' 작전</b>(<span class="yr">1909</span>)으로 대대적 탄압 → 많은 의병이 <b>간도·연해주</b>로 이동해 독립군의 기반이 됨.</li>
+    <li><b>윤희순</b> 등 여성도 의병가를 짓고 군자금을 모으며 참여(안사람 의병단).</li>
+  </ul>
+  <div class="note"><div class="nh">참고</div><p>의병 운동은 국권 회복을 위한 무장 투쟁으로, 일제 강점기 만주·연해주 지역 무장 독립 전쟁으로 이어졌다는 점에서 의의가 크다.</p></div>
+
+  <div class="ftl">
+    <div class="row"><span class="d">1895</span>을미의병 (을미사변·단발령)</div>
+    <div class="row"><span class="d">1905</span>을사의병 (을사늑약)</div>
+    <div class="row"><span class="d">1907</span>정미의병 (고종 퇴위·군대 해산) → 13도 창의군</div>
+    <div class="row"><span class="d">1908</span>서울 진공 작전</div>
+    <div class="row"><span class="d">1909</span>일본의 '남한 대토벌' 작전</div>
+  </div>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">의병장들의 격문</span></div>
+    <div class="src-body">
+      <div class="multi">
+        <p class="src-sub">유인석의 격문 (을미의병)</p>
+        <p class="src-q">원통함을 어찌하리. 국모(명성 황후)의 원수를 생각하며 이미 이를 갈았는데 … 더욱이 우리 부모에게서 받은 머리털을 풀 베듯이 베어 버리니 이 무슨 변고란 말인가. … 환란을 회피하기란 죽음보다 더 괴로우며 멸망을 앉아서 기다릴진대 싸우는 것만 같지 못하다.</p>
+        <span class="src-cite">— 유인석, 『의암집』</span>
+      </div>
+      <div class="multi">
+        <p class="src-sub">이인영의 격문 (정미의병)</p>
+        <p class="src-q">동포들이여, 우리는 함께 뭉쳐 우리 조국을 위해 헌신하여 우리의 독립을 회복해야 한다. … 우리는 일본인의 통치 아래 신음하고 있으나 … 모두 일치단결하여 일본인과 그 패거리 및 매국노들을 처단하기에 힘써야 한다.</p>
+        <span class="src-cite">— 이인영, 「해외 동포에게 보내는 격문」</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">외국인·역사가가 바라본 의병</span></div>
+    <div class="src-body">
+      <div class="multi">
+        <p class="src-sub">영국 언론인 매켄지가 만난 의병</p>
+        <p class="src-q">"우리는 어차피 죽게 되겠지요. 그러나 좋습니다. <b>일본의 노예가 되어 사느니 자유민으로 죽는 것이 훨씬 낫습니다.</b>" … 이 말은 가슴에서 우러나오는 말이었으며 나는 그것을 거짓 없이 적은 것이다.</p>
+        <span class="src-cite">— 매켄지, 『자유를 위한 한국의 투쟁』</span>
+      </div>
+      <div class="multi">
+        <p class="src-sub">박은식의 의병 평가</p>
+        <p class="src-q">의병은 우리 민족의 국수(國粹: 민족정신)이다. … 나라는 멸할 수 있어도 의병은 멸할 수 없다. 만일 이러한 민족정신이 없었다면 우리는 짐승과 같았을 것이다.</p>
+        <span class="src-cite">— 박은식, 『한국독립운동지혈사』</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PART 14 ===== -->
+<section class="part" id="p14">
+  <div class="part-head">
+    <span class="part-eye">Ⅲ-4. 국권 침탈과 국권 수호 운동</span>
+    <h2><span class="pn">14</span>애국 계몽 운동과 신민회</h2>
+  </div>
+  <p class="lead">의병이 무장 투쟁을 벌이는 한편, 개화 지식인과 관료들은 <b>실력을 길러 국권을 회복</b>하자는 애국 계몽 운동을 전개했다. 교육·언론·산업 진흥을 통한 민중 계몽이 핵심이었다.</p>
+  <div class="note"><div class="nh">사상적 배경</div><p>애국 계몽 운동은 사회 진화론의 영향을 받아 '실력을 키우면 국권을 지킬 수 있다'고 보았다. 다만 약육강식의 논리를 그대로 받아들여 일제의 침략을 어쩔 수 없는 것으로 여길 위험도 있었다.</p></div>
+
+  <h3 class="sub"><span class="bar"></span>주요 단체</h3>
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>단체</th><th>시기</th><th>활동 / 특징</th></tr></thead>
+    <tbody>
+      <tr><td class="k">보안회</td><td><span class="yr">1904</span></td><td>일본의 <b>황무지 개간권</b> 요구 반대 운동 → 저지 성공</td></tr>
+      <tr><td class="k">헌정 연구회</td><td><span class="yr">1905</span></td><td>독립 협회 계승, 의회 설립을 통한 <b>입헌 정치</b> 지향 → 일본 탄압으로 해산</td></tr>
+      <tr><td class="k">대한 자강회</td><td><span class="yr">1906</span></td><td>헌정 연구회 계승, 전국에 지회·월보 발간, <b>고종 강제 퇴위 반대</b> 운동 → 강제 해산(1907)</td></tr>
+      <tr><td class="k em">신민회</td><td><span class="yr">1907</span></td><td><b>비밀 결사</b>. 국권 회복 + <b>공화정</b> 수립 지향. 교육·산업·국외 독립운동 기지 건설</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="font-size:14px;color:var(--ink-soft)">※ 이 밖에 <b>기호 학회·서북 학회</b> 등 여러 학회가 설립되어 교육·계몽 활동 전개.</p>
+
+  <h3 class="sub"><span class="bar"></span>신민회 <span class="yr">1907~1911</span></h3>
+  <ul class="clean">
+    <li>을사늑약 후 통감부의 탄압이 심해지자 <b>안창호·양기탁</b> 등이 비밀 결사로 조직. <span class="term">국권 회복과 공화정에 바탕을 둔 근대 국민 국가 건설</span>을 지향(→ 기존 단체와 달리 공화정 추구).</li>
+    <li><b>교육·산업</b>: 평양에 <b>대성 학교</b>, 정주에 <b>오산 학교</b> 설립(민족 교육). 평양에 <b>태극 서관</b>(출판)과 <b>자기 회사</b>(민족 산업) 운영.</li>
+    <li><b>독립 전쟁 전략</b>: 실력 양성만으로는 국권 회복이 어렵다고 보고, 장기적 무장 투쟁을 위해 <b>국외 독립운동 기지 건설</b> 추진. <b>이회영·이상룡</b> 등이 남만주 <b>삼원보</b>에 한인촌과 <b>신흥 강습소</b>(→ 신흥 무관 학교) 설립.</li>
+    <li><b>해소</b>: 일본이 날조한 <span class="term">105인 사건</span>(<span class="yr">1911</span>)으로 와해. 그러나 참여 인사들은 이후에도 국내외에서 민족 운동을 이어 감.</li>
+  </ul>
+  <div class="note"><div class="nh">한국의 노블레스 오블리주 — 우당 이회영</div><p>이회영 일가는 대대로 고위 관료를 배출한 명문가였으나, 국권 피탈 후 전 재산을 처분해 6형제와 가족 전체가 만주로 이주, 신흥 무관 학교를 세워 독립군을 길러냈다. 이회영은 1932년 다롄에서 체포되어 옥사하였다.</p></div>
+
+  <div class="ftl">
+    <div class="row"><span class="d">1904</span>보안회 조직</div>
+    <div class="row"><span class="d">1905</span>헌정 연구회 조직</div>
+    <div class="row"><span class="d">1906</span>대한 자강회 조직</div>
+    <div class="row"><span class="d">1907</span>신민회 결성 · 국채 보상 운동</div>
+    <div class="row"><span class="d">1911</span>105인 사건 → 신민회 와해</div>
+  </div>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">애국 계몽 단체의 취지</span></div>
+    <div class="src-body">
+      <div class="multi">
+        <p class="src-sub">대한 자강회 취지서</p>
+        <p class="src-q">무릇 나라의 독립은 오직 자강(自强)의 여하에 달려 있는 것이다. 우리나라가 자강의 방도를 강구하지 않아 … 마침내 오늘날의 위기에 이르렀다. … 자강의 방도를 강구하려면 <b>교육을 진작</b>하고 <b>산업을 일으키는</b> 데 있다.</p>
+        <span class="src-cite">— 『대한 자강회 월보』 제1호, 1906. 7.</span>
+      </div>
+      <div class="multi">
+        <p class="src-sub">애국 계몽의 중요성 (이승훈)</p>
+        <p class="src-q">지금 우리나라 형편이 날로 나라가 기울어 가는데 그저 앉아만 있을 수 없다. … 가장 중요한 것은 <b>백성을 깨우치는 일</b>이다. … 내가 오늘 이 학교(오산 학교)를 세우는 것도 후손을 가르쳐 만분의 일이라도 나라에 도움이 되기를 원하기 때문이다.</p>
+        <span class="src-cite">— 이승훈, 오산 학교 개교식 식사, 1907. 12.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">신민회의 4대 강령</span></div>
+    <div class="src-body">
+      <ol class="art">
+        <li><span class="anum">1.</span> 국민에게 <b>민족의식과 독립사상</b>을 고취할 것.</li>
+        <li><span class="anum">2.</span> 동지를 발견하고 단합하여 <b>국민운동 역량</b>을 축적할 것.</li>
+        <li><span class="anum">3.</span> <b>상공업 기관</b>을 건설하여 국민의 부력(富力)을 증진할 것.</li>
+        <li><span class="anum">4.</span> <b>교육 기관</b>을 설립하여 청소년 교육을 진흥할 것.</li>
+      </ol>
+      <span class="src-cite">— 도산 안창호, 1947</span>
+    </div>
+  </div>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">신민회의 독립 전쟁 전략 (국외 기지 건설)</span></div>
+    <div class="src-body">
+      <p class="src-q">새로 건설된 한인촌에는 강력한 민간 단체를 조직하고 학교와 교회, 기타 교육 문화 시설, <b>무관 학교</b> 등을 설립하여 문무를 겸비한 교육을 하고 무관을 양성하도록 한다. … 독립군이 양성되면 기회를 보아 독립 전쟁을 일으켜 국내로 진공한다.</p>
+      <span class="src-cite">— 『105인 사건 판결문』, 1911 / 『안도산 전서』</span>
+    </div>
+  </div>
+
+  <hr class="dvd">
+  <h3 class="sub"><span class="bar"></span>국채 보상 운동 <span class="yr">1907</span></h3>
+  <p>통감부가 화폐 정리 사업 등을 명목으로 일본에서 <b>차관</b>을 도입하게 하여 대한 제국의 빚이 <b>1,300만 원</b>(당시 1년 예산 규모)에 달함. → 국민의 힘으로 빚을 갚아 경제 주권을 지키자는 운동이 <b>대구</b>에서 <b>김광제·서상돈</b>의 발의로 시작.</p>
+  <ul class="clean">
+    <li>국채 보상 기성회 조직, <b>대한매일신보</b> 등 언론의 지원으로 전국 확산.</li>
+    <li>남자는 <b>금연</b>, 부녀자는 <b>반지·비녀</b>를 내놓고, 일본 유학생·연해주 동포까지 의연금을 보냄.</li>
+    <li>통감부의 방해(양기탁에게 보상금 횡령 누명)로 중단됨.</li>
+  </ul>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">국채 보상 운동 취지서</span></div>
+    <div class="src-body">
+      <div class="multi">
+        <p class="src-sub">국채 보상 운동 취지서</p>
+        <p class="src-q">지금은 국채 1,300만 원이 있으니 이는 우리 대한 제국의 존망에 직결된 것이라. … 2천만 인민이 <b>3개월 동안 담배를 끊고</b> 그 대금으로 한 사람마다 매달 20전씩 거두면 1,300만 원을 모을 수 있을 것이다.</p>
+        <span class="src-cite">— 『대한매일신보』 1907. 2.</span>
+      </div>
+      <div class="multi">
+        <p class="src-sub">대구 남일동 부인회 — '부인 동포에게 고하노라'</p>
+        <p class="src-q">… 나라 위하는 마음과 백성 된 도리에는 남녀가 다를 바 없는데, 어찌 사람마다 의연금을 내라 할 때 부인은 참여하지 못하리오. 이에 우리 부인들도 패물을 팔아 국채 보상에 보태고자 하노라.</p>
+        <span class="src-cite">— 『대한매일신보』 1907</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PART 15 ===== -->
+<section class="part" id="p15">
+  <div class="part-head">
+    <span class="part-eye">Ⅲ-4. 국권 침탈과 국권 수호 운동</span>
+    <h2><span class="pn">15</span>독도와 간도</h2>
+  </div>
+
+  <h3 class="sub"><span class="bar"></span>우리 고유의 영토, 독도</h3>
+  <ul class="clean">
+    <li>독도는 울릉도의 부속 도서로서 <b>삼국 시대 이래</b> 우리 영토. 『<b>삼국사기</b>』에 신라 <b>이사부</b>가 지증왕 때(<span class="yr">512</span>) <b>우산국</b>을 정벌했다고 기록.</li>
+    <li>『<b>세종실록지리지</b>』에 육안으로 독도를 볼 수 있다고 기록. 조선 후기 <b>안용복</b>이 일본으로 건너가 울릉도·독도가 우리 땅임을 확인받고 돌아옴(<span class="yr">1696</span>).</li>
+    <li><span class="yr">1877</span> 일본 메이지 정부의 최고 기관 <b>태정관</b>이 '울릉도와 독도는 일본과 관계없음'을 명심하라는 지령을 내려 일본 스스로 독도가 조선 영토임을 인정.</li>
+  </ul>
+
+  <h3 class="sub"><span class="bar"></span>대한 제국의 독도 수호 노력</h3>
+  <ul class="clean">
+    <li><b>대한 제국 칙령 제41호</b>(<span class="yr">1900</span>): 울릉도를 군으로 승격해 독도(석도)를 관할하게 함. 이를 관보에 게재하여 독도가 대한 제국의 고유 영토임을 세계에 밝힘.</li>
+    <li><b>시마네현 고시 제40호</b>(<span class="yr">1905</span>): 일본이 러일 전쟁 중 '독도는 주인 없는 땅'이라며 시마네현에 불법 편입 → 국제법상 명백한 <b>불법 영토 침탈</b>이자 일본에 의한 한국 영토 강점의 시작.</li>
+  </ul>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">대한 제국 칙령 제41호 (1900)</span></div>
+    <div class="src-body">
+      <ol class="art">
+        <li><span class="anum">1조</span> 울릉도를 <b>울도(鬱島)</b>로 개칭하여 강원도에 부속하고, 도감(島監)을 <b>군수</b>로 개정하여 관제 중에 편입한다.</li>
+        <li><span class="anum">2조</span> 군청의 위치는 태하동으로 정하고, 구역은 <b>울릉 전도(全島)와 죽도(竹島), 석도(石島, 독도)</b>를 관할한다.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">독도를 기록한 우리 문헌 · 일본 측 문서</span></div>
+    <div class="src-body">
+      <div class="multi">
+        <p class="src-sub">우리나라 기록</p>
+        <p class="src-q">우산(독도)과 무릉(울릉도), 두 섬이 (울진)현의 정동쪽 바다 가운데에 있다. 두 섬이 서로 거리가 멀지 않아 날씨가 맑으면 가히 바라볼 수 있다.</p>
+        <span class="src-cite">— 『세종실록지리지』</span>
+      </div>
+      <div class="multi">
+        <p class="src-sub">에도 막부 ↔ 돗토리번 문답 (1695~1696)</p>
+        <p class="src-q">(막부의 질문) 다케시마(울릉도) 외에 이나바·호키에 속하는 섬이 있는가? — (돗토리번 답변) 다케시마(울릉도)와 마쓰시마(독도), 그 밖에 두 지방에 속하는 섬은 <b>없습니다</b>.</p>
+        <span class="src-cite">→ 일본 스스로 울릉도·독도가 자국 영토가 아님을 인정</span>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="subsub">독도 관련 연표</h4>
+  <div class="ftl">
+    <div class="row"><span class="d">512</span>신라 이사부, 우산국 정벌 (『삼국사기』)</div>
+    <div class="row"><span class="d">1454</span>『세종실록지리지』 편찬</div>
+    <div class="row"><span class="d">1531</span>『신증동국여지승람』</div>
+    <div class="row"><span class="d">1696</span>안용복, 일본 건너가 독도가 우리 땅임을 확인</div>
+    <div class="row"><span class="d">1770</span>『동국문헌비고』 「여지고」</div>
+    <div class="row"><span class="d">1877</span>일본 태정관 지령 (독도는 일본과 무관)</div>
+    <div class="row"><span class="d">1900</span>대한 제국 칙령 제41호 공포</div>
+    <div class="row"><span class="d">1905</span>일본 시마네현 고시 제40호 (불법 편입)</div>
+    <div class="row"><span class="d">1906</span>울도 군수 심흥택 보고서</div>
+  </div>
+
+  <hr class="dvd">
+  <h3 class="sub"><span class="bar"></span>간도</h3>
+  <ul class="clean">
+    <li>간도는 조선과 청의 국경이 맞닿은 지역. 조선 후기 숙종 때 국경을 확정하고자 <b>백두산정계비</b>를 세움(<span class="yr">1712</span>) → "서쪽은 <b>압록강</b>, 동쪽은 <b>토문강</b>을 경계로 한다."</li>
+    <li>19세기 후반 간도로 이주하는 조선인이 늘며 귀속 분쟁 발생. <b>토문강의 위치 해석</b>(쑹화강 지류냐 두만강이냐)을 둘러싸고 양측 주장이 대립.</li>
+    <li>대한 제국은 간도를 <b>함경도에 편입</b>(<span class="yr">1903</span>)하고 <b>이범윤</b>을 간도 관리사로 임명해 직접 관할.</li>
+    <li><b>간도 협약</b>(<span class="yr">1909</span>): 을사늑약으로 외교권을 빼앗긴 상황에서, 일본이 청으로부터 <b>남만주 철도 부설권과 탄광 채굴권</b> 등을 얻는 대가로 간도를 청의 영토로 넘김 → 우리 민족의 의사와 무관하게 체결된 협약.</li>
+  </ul>
+  <div class="note"><div class="nh">백두산정계비</div><p>조선과 청이 국경을 정하기 위해 백두산에 세운 비석(1712). 비문의 '토문강'이 어느 강을 가리키는지를 두고 후대에 영유권 분쟁이 일어났다.</p></div>
+</section>
+
+<!-- ===== CLOSING ===== -->
+<section class="part" id="close">
+  <div class="part-head">
+    <span class="part-eye">마무리</span>
+    <h2>전체 흐름 다시 보기</h2>
+  </div>
+  <p class="lead">시험 직전, 아래 핵심 연도만 다시 짚으면 전체 줄기를 한 번에 떠올릴 수 있다.</p>
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>연도</th><th>사건</th><th>한 줄 핵심</th></tr></thead>
+    <tbody>
+      <tr><td class="k">1876</td><td>강화도 조약</td><td>최초의 근대적·불평등 조약 (영사 재판권·해안 측량권)</td></tr>
+      <tr><td class="k">1882</td><td>임오군란</td><td>구식 군인 봉기 → 조청 상민 수륙 무역 장정·제물포 조약</td></tr>
+      <tr><td class="k">1884</td><td>갑신정변</td><td>급진 개화파의 최초 정치 개혁 운동 → 삼일천하</td></tr>
+      <tr><td class="k">1894</td><td>동학 농민 운동 · 갑오개혁</td><td>반봉건·반외세 / 신분제·과거제 폐지</td></tr>
+      <tr><td class="k">1895</td><td>을미사변 · 을미개혁</td><td>명성 황후 시해 / 단발령 → 을미의병·아관 파천</td></tr>
+      <tr><td class="k">1897</td><td>대한 제국 수립</td><td>광무개혁 (구본신참, 대한국 국제, 지계)</td></tr>
+      <tr><td class="k">1905</td><td>을사늑약</td><td>외교권 박탈, 통감부 설치 → 을사의병</td></tr>
+      <tr><td class="k">1910</td><td>국권 피탈</td><td>한국 병합 조약 → 조선 총독부</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="text-align:center;color:var(--muted);font-size:13.5px;margin-top:34px;font-family:'Nanum Myeongjo',serif">— 시험 잘 보세요. 사료의 <b style="color:var(--brass-d)">출처</b>와 조약의 <b style="color:var(--red)">핵심 조항</b>을 함께 기억하면 어떤 문제가 나와도 흔들리지 않습니다. —</p>
+</section>
+
+</div><!-- /.wrap -->
+
+<script>
+(function(){
+  var btn=document.getElementById('top');
+  function onScroll(){ if(window.scrollY>500){btn.classList.add('show');}else{btn.classList.remove('show');} }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  onScroll();
+})();
+</script>
+</body>
+</html>
