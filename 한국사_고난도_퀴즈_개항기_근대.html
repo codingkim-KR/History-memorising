@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>한국사 고난도 퀴즈 — 개항기 · 근대 (사료 해석 중심)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f5f3ec; --paper2:#fbfaf5; --ink:#23282b; --ink-soft:#3a4145; --muted:#6f7873;
+  --green:#2b6157; --green-d:#1d433c; --green-l:#5d8d83;
+  --red:#a5392c; --red-d:#7e2b21; --brass:#b8924e; --brass-d:#8a6a32;
+  --parch:#efe9d8; --parch-line:#ddd2b4; --line:#dcd6c6; --line-soft:#e6e1d3;
+  --ok:#2f7d4f; --ok-bg:#e4f0e6; --ok-line:#aacdb3;
+  --no:#b5392b; --no-bg:#f6e6e2; --no-line:#e6bdb2;
+  --shadow:0 1px 2px rgba(40,40,30,.05),0 6px 18px rgba(40,40,30,.06);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;line-height:1.8;font-size:16px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px 140px}
+
+/* ===== COVER ===== */
+.cover{position:relative;margin:0 -20px;padding:54px 20px 40px;background:radial-gradient(120% 140% at 85% -10%,rgba(43,97,87,.16),transparent 55%),linear-gradient(180deg,#26514a,#1d433c);color:#f3efe3;overflow:hidden}
+.cover:before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 44px);pointer-events:none}
+.cover .eyebrow{font-weight:500;letter-spacing:.3em;font-size:12px;color:#cdb98a;text-transform:uppercase;margin:0 0 14px}
+.cover h1{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:clamp(27px,5.4vw,42px);line-height:1.2;margin:0 0 12px}
+.cover h1 .ac{display:block;font-size:.55em;font-weight:700;color:#d9c79a;margin-top:8px}
+.cover .sub{max-width:600px;font-size:14.5px;color:#d6cfba;font-weight:300;margin:0}
+.cover .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.cover .meta span{font-size:12px;font-weight:500;color:#e8e0cb;border:1px solid rgba(220,205,160,.4);border-radius:40px;padding:5px 13px;background:rgba(255,255,255,.04)}
+.cover .meta span.hot{background:#b8924e;border-color:#b8924e;color:#2a230f;font-weight:700}
+
+/* ===== STICKY SCOREBAR ===== */
+.scorebar{position:sticky;top:0;z-index:40;margin:0 -20px 0;padding:10px 20px;background:rgba(245,243,236,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.scorebar .sb-item{font-size:13px;color:var(--muted);font-weight:500}
+.scorebar .sb-item b{font-family:'Nanum Myeongjo',serif;font-size:18px;color:var(--green-d);font-weight:800;margin:0 2px}
+.scorebar .sb-item.rate b{color:var(--red)}
+.scorebar .bar{flex:1;min-width:120px;height:8px;background:#e2ddcd;border-radius:6px;overflow:hidden}
+.scorebar .bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--green-l),var(--green));transition:width .4s}
+.scorebar .sb-reset{margin-left:auto;font-size:12px;color:var(--brass-d);background:none;border:1px solid var(--parch-line);border-radius:20px;padding:5px 12px;cursor:pointer;font-weight:600}
+.scorebar .sb-reset:hover{background:#efe9d8}
+
+/* ===== INTRO ===== */
+.intro{margin:26px 0 8px;background:var(--paper2);border:1px solid var(--line);border-left:4px solid var(--brass);border-radius:0 12px 12px 0;padding:16px 20px;box-shadow:var(--shadow)}
+.intro h2{font-family:'Nanum Myeongjo',serif;font-size:16px;margin:0 0 6px;color:var(--green-d);font-weight:800}
+.intro p{margin:6px 0;font-size:14px;color:var(--ink-soft)}
+.intro .types{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+.intro .types b{font-size:11.5px;font-weight:700;border-radius:20px;padding:4px 11px;letter-spacing:.02em}
+.tt-src{background:#efe2c8;color:#6b521f}
+.tt-seq{background:#dcebe5;color:#1f5249}
+.tt-cnt{background:#f3ddd7;color:#7e2b21}
+
+/* section divider for parts */
+.qgroup-label{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:14px;letter-spacing:.04em;color:var(--brass-d);margin:42px 0 -6px;display:flex;align-items:center;gap:10px}
+.qgroup-label:before,.qgroup-label:after{content:"";flex:1;height:1px;background:var(--line)}
+
+/* ===== QUESTION CARD ===== */
+.q{margin:22px 0;background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:20px 22px 18px;box-shadow:var(--shadow);scroll-margin-top:70px}
+.q-head{display:flex;align-items:center;gap:10px;margin-bottom:13px}
+.q-no{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:19px;color:var(--green-d);background:#e9efe9;border-radius:8px;width:42px;height:30px;display:grid;place-items:center;flex:0 0 auto}
+.q-type{font-size:11.5px;font-weight:700;letter-spacing:.05em;border-radius:20px;padding:4px 11px}
+.q-type.t-src{background:#efe2c8;color:#6b521f}
+.q-type.t-seq{background:#dcebe5;color:#1f5249}
+.q-type.t-cnt{background:#f3ddd7;color:#7e2b21}
+.q-type.t-cmp{background:#e4dcec;color:#4a3a63}
+.q-tag{margin-left:auto;font-size:11px;color:var(--muted);font-weight:500}
+
+.q-stem{font-size:15.5px;font-weight:500;color:var(--ink);margin:4px 0 14px;line-height:1.75}
+.q-stem .u{text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--brass)}
+.q-stem .em{color:var(--red);font-weight:700}
+
+/* source box (재사용) */
+.src{margin:6px 0 16px;background:var(--parch);border:1px solid var(--parch-line);border-left:5px solid var(--brass);border-radius:0 10px 10px 0;overflow:hidden}
+.src-top{display:flex;align-items:center;gap:9px;padding:9px 16px 8px;background:linear-gradient(180deg,#e8dfc6,#e3d9bd);border-bottom:1px dashed var(--brass)}
+.src-badge{font-weight:700;font-size:11px;letter-spacing:.16em;color:#fff;background:#4a3f26;border-radius:4px;padding:3px 9px;flex:0 0 auto}
+.src-title{font-family:'Nanum Myeongjo',serif;font-weight:700;font-size:14.5px;color:#4a3a1c}
+.src-body{padding:13px 18px 11px}
+.src-body .label{font-family:'Noto Sans KR';font-weight:700;color:var(--green-d);font-size:13.5px;margin:0 0 3px}
+.src-body .label.b{margin-top:11px;padding-top:11px;border-top:1px dotted var(--parch-line)}
+.src-q{font-family:'Gowun Batang','Nanum Myeongjo',serif;font-size:14.8px;color:#3a3322;line-height:1.85;margin:0}
+.src-q .hi{color:var(--red-d);font-weight:700;font-family:'Noto Sans KR'}
+.src-cite{display:block;text-align:right;font-size:12px;color:var(--brass-d);font-weight:500;margin-top:5px;font-style:italic}
+
+/* options */
+.opts{list-style:none;margin:0;padding:0;counter-reset:none}
+.opt{position:relative;display:flex;gap:11px;align-items:flex-start;padding:11px 14px;margin:7px 0;background:#fff;border:1.5px solid #e3ddcd;border-radius:10px;cursor:pointer;font-size:14.7px;line-height:1.65;transition:border-color .15s,background .15s,box-shadow .15s}
+.opt:hover{border-color:var(--green-l);background:#fcfdfb}
+.opt .oi{flex:0 0 auto;font-family:'Nanum Myeongjo',serif;font-weight:700;color:var(--brass-d);font-size:16px;line-height:1.5}
+.opt.sel{border-color:var(--green);background:#eef4f0;box-shadow:inset 0 0 0 1px var(--green)}
+.opt.sel .oi{color:var(--green-d)}
+.q.locked .opt{cursor:default}
+.q.locked .opt:hover{border-color:#e3ddcd;background:#fff}
+.opt.correct{border-color:var(--ok-line)!important;background:var(--ok-bg)!important;box-shadow:inset 0 0 0 1px var(--ok)!important}
+.opt.correct .oi{color:var(--ok)}
+.opt.correct:after{content:"정답";position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:11px;font-weight:700;color:var(--ok);background:#fff;border:1px solid var(--ok-line);border-radius:12px;padding:2px 8px}
+.opt.wrong{border-color:var(--no-line)!important;background:var(--no-bg)!important;box-shadow:inset 0 0 0 1px var(--no)!important}
+.opt.wrong .oi{color:var(--no)}
+.opt.wrong:after{content:"내 선택";position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:11px;font-weight:700;color:var(--no);background:#fff;border:1px solid var(--no-line);border-radius:12px;padding:2px 8px}
+
+.q-actions{margin-top:14px;display:flex;align-items:center;gap:12px}
+.check{font-family:'Noto Sans KR';font-weight:700;font-size:14px;color:#f3efe3;background:var(--green-d);border:none;border-radius:9px;padding:10px 22px;cursor:pointer;transition:background .15s,opacity .15s}
+.check:hover{background:var(--green)}
+.check:disabled{opacity:.4;cursor:not-allowed}
+.q-hint{font-size:12.5px;color:var(--muted)}
+
+/* solution */
+.sol{display:none;margin-top:15px;border-radius:11px;border:1px solid var(--line-soft);overflow:hidden}
+.q.checked .sol{display:block;animation:fade .3s ease}
+@keyframes fade{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.sol-ans{padding:9px 16px;font-weight:800;font-size:14.5px;font-family:'Nanum Myeongjo',serif;color:#fff;letter-spacing:.02em}
+.sol.r .sol-ans{background:var(--ok)}
+.sol.w .sol-ans{background:var(--no)}
+.sol-ex{margin:0;padding:13px 17px;background:#f4f6f1;font-size:14px;color:var(--ink-soft);line-height:1.78}
+.sol-ex b{color:var(--green-d)}
+.sol-ex .x{color:var(--red);font-weight:700}
+
+/* bottom controls */
+.bottom{margin-top:46px;text-align:center}
+.reveal-all{font-family:'Noto Sans KR';font-weight:700;font-size:14px;color:var(--brass-d);background:#efe9d8;border:1px solid var(--parch-line);border-radius:30px;padding:11px 26px;cursor:pointer}
+.reveal-all:hover{background:#e8dfc6}
+.final{margin-top:24px;padding:22px;background:var(--paper2);border:1px solid var(--line);border-radius:14px;display:none}
+.final.show{display:block;animation:fade .3s}
+.final h3{font-family:'Nanum Myeongjo',serif;margin:0 0 8px;color:var(--green-d);font-size:20px;font-weight:800}
+.final .big{font-family:'Nanum Myeongjo',serif;font-size:40px;font-weight:800;color:var(--red);text-align:center;margin:6px 0}
+.final p{margin:6px 0;font-size:14px;color:var(--ink-soft);text-align:center}
+
+/* back to top */
+#top{position:fixed;right:16px;bottom:16px;width:46px;height:46px;border-radius:50%;background:var(--green-d);color:#f1ede0;border:none;cursor:pointer;box-shadow:0 4px 14px rgba(29,67,60,.4);font-size:19px;opacity:0;pointer-events:none;transition:opacity .25s;z-index:50}
+#top.show{opacity:1;pointer-events:auto}
+
+@media print{.scorebar,#top,.check,.q-actions,.reveal-all{display:none}.q.checked .sol,.q .sol{display:block}.cover{-webkit-print-color-adjust:exact;print-color-adjust:exact}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+@media(max-width:600px){body{font-size:15px}.wrap{padding:0 14px 110px}.cover,.scorebar{margin:0 -14px}.cover{padding:42px 16px 34px}.q{padding:17px 16px 15px}.opt:after{display:none!important}}
+</style>
+</head>
+<body>
+<button id="top" aria-label="맨 위로">↑</button>
+
+<!-- COVER -->
+<header class="cover">
+  <p class="eyebrow">한국사 · 고난도 자가 진단 퀴즈</p>
+  <h1>개항기 · 근대 실전 문제<span class="ac">사료(史料) 해석 중심 · 총 28문항</span></h1>
+  <p class="sub">교과서 사료는 물론, 새로운 사료(홍범 14조·윤치호 일기·안중근 진술·태정관 지령 등)를 더해 '읽고 해석하는 힘'을 집중적으로 점검합니다. 보기는 인접 단원의 사실로 만든 함정을 섞었습니다.</p>
+  <div class="meta">
+    <span class="hot">난이도 ★★★</span><span>사료 해석 23문항</span><span>순서 배열 4</span><span>옳은 개수 1</span><span>5지선다</span>
+  </div>
+</header>
+
+<!-- STICKY SCOREBAR -->
+<div class="scorebar">
+  <div class="sb-item">채점 <b id="sb-done">0</b>/28</div>
+  <div class="sb-item">정답 <b id="sb-correct">0</b></div>
+  <div class="sb-item rate">정답률 <b id="sb-rate">0</b>%</div>
+  <div class="bar"><i id="sb-fill"></i></div>
+  <button class="sb-reset" id="sb-reset">처음부터</button>
+</div>
+
+<div class="wrap">
+
+<!-- INTRO -->
+<div class="intro">
+  <h2>풀이 방법</h2>
+  <p>① 보기를 눌러 선택 → ② <b>정답 확인</b>을 누르면 채점과 해설이 펼쳐집니다. 한 번 채점하면 그 문항은 잠깁니다. 위쪽 막대에서 정답률이 실시간으로 집계됩니다.</p>
+  <p style="font-size:13px;color:var(--muted)">사료 문제는 '누구의·언제·무엇에 관한' 자료인지 먼저 특정한 뒤, 그 사건의 전후 맥락을 떠올리는 순서로 접근하세요.</p>
+  <div class="types"><b class="tt-src">사료 해석</b><b class="tt-seq">순서 배열</b><b class="tt-cnt">옳은 개수</b></div>
+</div>
+
+<div class="qgroup-label">흥선 대원군 · 개항</div>
+
+<!-- Q1 -->
+<div class="q" id="q1" data-answer="4">
+  <div class="q-head"><span class="q-no">1</span><span class="q-type t-src">사료 해석</span><span class="q-tag">흥선 대원군</span></div>
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">어느 인물의 정책</span></div>
+    <div class="src-body">
+      <p class="src-q">토목 공사를 일으켜 백성의 노동력을 강제로 동원하고, '원납전'이라는 이름으로 돈을 거두었다. 또한 <span class="hi">당백전</span>을 발행하니 2년 동안에 사·농·공·상이 모두 그 폐해를 입었다.</p>
+      <span class="src-cite">— 『고종실록』</span>
+    </div>
+  </div>
+  <p class="q-stem">위 사료에 나타난 정책을 추진한 인물의 활동으로 옳은 것은?</p>
+  <ol class="opts">
+    <li class="opt" data-i="1"><span class="oi">①</span><span>군국기무처를 설치하여 신분제를 폐지하였다.</span></li>
+    <li class="opt" data-i="2"><span class="oi">②</span><span>통리기무아문을 두고 개화 정책을 총괄하였다.</span></li>
+    <li class="opt" data-i="3"><span class="oi">③</span><span>양전 사업을 실시하고 토지 소유자에게 지계를 발급하였다.</span></li>
+    <li class="opt" data-i="4"><span class="oi">④</span><span>환곡의 폐단을 시정하고자 사창제를 시행하였다.</span></li>
+    <li class="opt" data-i="5"><span class="oi">⑤</span><span>『조선책략』을 들여와 미국과의 수교를 주장하였다.</span></li>
+  </ol>
+  <div class="q-actions"><button class="check">정답 확인</button><span class="q-hint">보기를 먼저 선택하세요</span></div>
+  <div class="sol"><div class="sol-ans"></div><p class="sol-ex">사료는 경복궁 중건(원납전·당백전)으로, <b>흥선 대원군</b>의 정책이다. 대원군은 환곡의 폐단을 바로잡고자 마을 단위 <b>사창제</b>와, 양반에게도 군포를 거두는 호포제를 시행했다. <span class="x">①</span> 군국기무처는 제1차 갑오개혁(김홍집 내각), <span class="x">②</span> 통리기무아문은 1880년 개항 이후 정부, <span class="x">③</span> 지계는 대한 제국의 광무개혁, <span class="x">⑤</span> 『조선책략』 도입은 수신사 김홍집과 관련된다.</p></div>
+</div>
+
+<!-- Q2 -->
+<div class="q" id="q2" data-answer="4">
+  <div class="q-head"><span class="q-no">2</span><span class="q-type t-cmp">사료 해석 · 비교</span><span class="q-tag">위정척사</span></div>
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">두 시기의 상소</span></div>
+    <div class="src-body">
+      <p class="label">(가)</p>
+      <p class="src-q">서양 오랑캐의 화가 홍수나 맹수보다 심합니다. … 장병들로 하여금 바다를 건너오는 적을 정벌하게 하소서.</p>
+      <p class="label b">(나)</p>
+      <p class="src-q">(수신사가 들여온) 황쭌셴의 책자를 보니 … 미국은 우리가 본래 모르던 나라입니다. 공연히 타인의 권유로 불러들였다가 그들이 우리의 약점을 알아차려 어려운 청을 강요하면 어찌하겠습니까?</p>
+    </div>
+  </div>
+  <p class="q-stem">(가), (나)에 대한 설명으로 옳은 것은?</p>
+  <ol class="opts">
+    <li class="opt" data-i="1"><span class="oi">①</span><span>(가)는 강화도 조약 체결에 반대하는 과정에서 제기되었다.</span></li>
+    <li class="opt" data-i="2"><span class="oi">②</span><span>(나)는 왜양일체론을 내세워 개항에 반대하였다.</span></li>
+    <li class="opt" data-i="3"><span class="oi">③</span><span>(가)는 (나)보다 시기적으로 뒤에 나타났다.</span></li>
+    <li class="opt" data-i="4"><span class="oi">④</span><span>(나)는 『조선책략』의 유포가 직접적 배경이 되었다.</span></li>
+    <li class="opt" data-i="5"><span class="oi">⑤</span><span>(가), (나)는 모두 정부의 개화 정책을 적극 지지하였다.</span></li>
+  </ol>
+  <div class="q-actions"><button class="check">정답 확인</button><span class="q-hint">보기를 먼저 선택하세요</span></div>
+  <div class="sol"><div class="sol-ans"></div><p class="sol-ex">(가)는 이항로의 <b>척화 주전론</b>(1860년대, 통상 반대), (나)는 <b>영남 만인소</b>(1880년대, 이만손 — 『조선책략』 유포에 반발). <span class="x">①</span> 1860년대 통상 반대라 강화도 조약(1876)과 무관, <span class="x">②</span> 왜양일체론은 1870년대 최익현의 개항 반대 논리로 (나)와 다름, <span class="x">③</span> (가)1860s가 (나)1880s보다 앞섬, <span class="x">⑤</span> 위정척사는 개화에 반대했다.</p></div>
+</div>
+
+<!-- Q3 -->
+<div class="q" id="q3" data-answer="2">
+  <div class="q-head"><span class="q-no">3</span><span class="q-type t-seq">순서 배열</span><span class="q-tag">통상 수교 거부</span></div>
+  <p class="q-stem">다음 사건을 일어난 순서대로 옳게 나열한 것은?</p>
+  <div class="src" style="border-left-color:var(--green-l)">
+    <div class="src-body" style="padding:12px 18px">
+      <p class="src-q" style="font-family:'Noto Sans KR';font-size:14px;color:var(--ink-soft);margin:0">
+      ㄱ. 병인양요 &nbsp;·&nbsp; ㄴ. 제너럴 셔먼호 사건 &nbsp;·&nbsp; ㄷ. 오페르트 도굴 사건 &nbsp;·&nbsp; ㄹ. 신미양요 &nbsp;·&nbsp; ㅁ. 척화비 건립</p>
+    </div>
+  </div>
+  <ol class="opts">
+    <li class="opt" data-i="1"><span class="oi">①</span><span>ㄱ → ㄴ → ㄷ → ㄹ → ㅁ</span></li>
+    <li class="opt" data-i="2"><span class="oi">②</span><span>ㄴ → ㄱ → ㄷ → ㄹ → ㅁ</span></li>
+    <li class="opt" data-i="3"><span class="oi">③</span><span>ㄴ → ㄷ → ㄱ → ㄹ → ㅁ</span></li>
+    <li class="opt" data-i="4"><span class="oi">④</span><span>ㄱ → ㄴ → ㄹ → ㄷ → ㅁ</span></li>
+    <li class="opt" data-i="5"><span class="oi">⑤</span><span>ㄴ → ㄱ → ㄹ → ㄷ → ㅁ</span></li>
+  </ol>
+  <div class="q-actions"><button class="check">정답 확인</button><span class="q-hint">보기를 먼저 선택하세요</span></div>
+  <div class="sol"><div class="sol-ans"></div><p class="sol-ex">ㄴ <b>제너럴 셔먼호 사건</b>(1866. 7.~8.) → ㄱ <b>병인양요</b>(1866. 9.~10.) → ㄷ <b>오페르트 도굴 사건</b>(1868) → ㄹ <b>신미양요</b>(1871) → ㅁ <b>척화비 건립</b>(1871). 같은 1866년이라도 제너럴 셔먼호가 병인양요보다 앞선다는 점이 핵심.</p></div>
+</div>
+
+<!-- Q4 -->
+<div class="q" id="q4" data-answer="4">
+  <div class="q-head"><span class="q-no">4</span><span class="q-type t-src">사료 해석</span><span class="q-tag">강화도 조약</span></div>
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">어느 조약의 일부</span></div>
+    <div class="src-body">
+      <p class="src-q"><b>제7관</b> 일본국의 항해자가 자유로이 해안을 측량하도록 허가한다.<br><b>제10관</b> 일본국 인민이 조선국 항구에서 죄를 범한 것이 조선국 인민에게 관계되는 사건일 때에는 모두 일본 관원이 심판한다.</p>
+    </div>
+  </div>
+  <p class="q-stem">이 조약에 대한 설명으로 <span class="em">옳지 않은</span> 것은?</p>
+  <ol class="opts">
+    <li class="opt" data-i="1"><span class="oi">①</span><span>운요호 사건을 계기로 체결되었다.</span></li>
+    <li class="opt" data-i="2"><span class="oi">②</span><span>우리나라가 외국과 맺은 최초의 근대적 조약이다.</span></li>
+    <li class="opt" data-i="3"><span class="oi">③</span><span>제7관은 조선의 영토 주권을 침해하는 조항이다.</span></li>
+    <li class="opt" data-i="4"><span class="oi">④</span><span>제10관은 관세 자주권을 포기한 조항이다.</span></li>
+    <li class="opt" data-i="5"><span class="oi">⑤</span><span>부산 외 두 곳을 개항하는 내용이 포함되었다.</span></li>
+  </ol>
+  <div class="q-actions"><button class="check">정답 확인</button><span class="q-hint">보기를 먼저 선택하세요</span></div>
+  <div class="sol"><div class="sol-ans"></div><p class="sol-ex"><b>강화도 조약</b>(조일 수호 조규, 1876)이다. <span class="x">④</span> 제10관은 <b>영사 재판권(치외법권)</b> 조항이지 관세와는 무관하다. 강화도 조약 본조약에는 관세 규정 자체가 없었고, 무관세 문제는 부속 조약인 조일 무역 규칙에서 비롯되었다. ③ 해안 측량권은 영토 주권 침해가 맞다.</p></div>
+</div>
+
+<!-- Q5 -->
+<div class="q" id="q5" data-answer="2">
+  <div class="q-head"><span class="q-no">5</span><span class="q-type t-cmp">사료 해석 · 비교</span><span class="q-tag">임오군란</span></div>
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">한 사건의 결과로 맺어진 두 조약</span></div>
+    <div class="src-body">
+      <p class="label">(가)</p>
+      <p class="src-q">이 장정은 청이 속방을 우대하는 뜻에서 상정한 것이다. … 베이징·한성·양화진에 상점을 열어 무역하는 것을 허락한다.</p>
+      <p class="label b">(나)</p>
+      <p class="src-q">조선국은 5만 원을 내어 해를 당한 일본 관리들의 유족과 부상자에게 준다. … 일본 공사관에 군인 약간을 두어 경비한다.</p>
+    </div>
+  </div>
+  <p class="q-stem">(가), (나)에 대한 설명으로 옳은 것은?</p>
+  <ol class="opts">
+    <li class="opt" data-i="1"><span class="oi">①</span><span>(가)로 청 상인의 내지 통상이 아무 제한 없이 허용되었다.</span></li>
+    <li class="opt" data-i="2"><span class="oi">②</span><span>(가)는 조선이 청의 속방임을 명문화하였다.</span></li>
+    <li class="opt" data-i="3"><span class="oi">③</span><span>(나)는 갑신정변의 결과로 체결되었다.</span></li>
+    <li class="opt" data-i="4"><span class="oi">④</span><span>(가), (나)는 모두 일본과 체결한 조약이다.</span></li>
+    <li class="opt" data-i="5"><span class="oi">⑤</span><span>(나)로 일본은 조선에서 영사 재판권을 처음 획득하였다.</span></li>
+  </ol>
+  <div class="q-actions"><button class="check">정답 확인</button><span class="q-hint">보기를 먼저 선택하세요</span></div>
+  <div class="sol"><div class="sol-ans"></div><p class="sol-ex">(가)는 <b>조청 상민 수륙 무역 장정</b>, (나)는 <b>제물포 조약</b>으로 모두 <b>임오군란</b>(1882)의 결과다. (가) 전문에 '속방' 표현이 있어 조선이 청의 속방임을 명문화했다. <span class="x">①</span> 내지 행상은 원칙적으로 금지되고 지방관 허가서가 필요했다, <span class="x">③</span> (나)는 임오군란의 결과, <span class="x">④</span> (가)는 청과 맺은 조약, <span class="x">⑤</span> 영사 재판권은 이미 강화도 조약에서 인정되었다.</p></div>
+</div>
+
+<!-- Q6 -->
+<div class="q" id="q6" data-answer="1">
+  <div class="q-head"><span class="q-no">6</span><span class="q-type t-src">사료 해석</span><span class="q-tag">갑신정변</span></div>
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">어느 정치 세력의 개혁 정강</span></div>
+    <div class="src-body">
+      <p class="src-q">1. 대원군을 가까운 시일 내에 돌아오게 하고 <span class="hi">청에 대한 조공의 허례</span>를 폐지한다.<br>2. 문벌을 폐지하여 인민 평등의 권리를 세우고 능력에 따라 관리를 임명한다.<br>13. 대신과 참찬은 의정부에 모여 정령을 의결하고 반포한다.</p>
+      <span class="src-cite">— 『갑신일록』</span>
+    </div>
+  </div>
+  <p class="q-stem">이 개혁 정강을 발표한 정치 세력에 대한 설명으로 옳은 것은?</p>
+  <ol class="opts">
+    <li class="opt" data-i="1"><span class="oi">①</span><span>일본의 메이지 유신을 본받아 급진적 개혁을 추구하였다.</span></li>
+    <li class="opt" data-i="2"><span class="oi">②</span><span>청의 양무운동을 개혁의 모델로 삼았다.</span></li>
+    <li class="opt" data-i="3"><span class="oi">③</span><span>위정척사 사상을 계승하여 통상에 반대하였다.</span></li>
+    <li class="opt" data-i="4"><span class="oi">④</span><span>집강소를 설치하여 폐정 개혁을 추진하였다.</span></li>
+    <li class="opt" data-i="5"><span class="oi">⑤</span><span>구식 군인에 대한 차별 대우에 반발하여 봉기하였다.</span></li>
+  </ol>
+  <div class="q-actions"><button class="check">정답 확인</button><span class="q-hint">보기를 먼저 선택하세요</span></div>
+  <div class="sol"><div class="sol-ans"></div><p class="sol-ex">청에 대한 사대 폐지와 문벌 폐지를 내건 <b>급진 개화파</b>(김옥균 등)의 갑신정변(1884) 정강이다. 이들은 <b>메이지 유신</b>을 모델로 삼았다. <span class="x">②</span> 양무운동 모델은 온건 개화파, <span class="x">③</span> 위정척사와는 반대, <span class="x">④</span> 집강소는 동학 농민군, <span class="x">⑤</span> 구식 군인 봉기는 임오군란이다.</p></div>
+</div>
+
+<!-- Q7 -->
+<div class="q" id="q7" data-answer="3">
+  <div class="q-head"><span class="q-no">7</span><span class="q-type t-seq">순서 배열</span><span class="q-tag">1870~80년대</span></div>
+  <p class="q-stem">다음 사건을 일어난 순서대로 옳게 나열한 것은?</p>
+  <div class="src" style="border-left-color:var(--green-l)">
+    <div class="src-body" style="padding:12px 18px">
+      <p class="src-q" style="font-family:'Noto Sans KR';font-size:14px;color:var(--ink-soft);margin:0">(가) 임오군란 &nbsp;·&nbsp; (나) 강화도 조약 &nbsp;·&nbsp; (다) 톈진 조약 &nbsp;·&nbsp; (라) 조미 수호 통상 조약 &nbsp;·&nbsp; (마) 갑신정변</p>
+    </div>
+  </div>
+  <ol class="opts">
+    <li class="opt" data-i="1"><span class="oi">①</span><span>(나) → (가) → (라) → (마) → (다)</span></li>
+    <li class="opt" data-i="2"><span class="oi">②</span><span>(나) → (라) → (마) → (가) → (다)</span></li>
+    <li class="opt" data-i="3"><span class="oi">③</span><span>(나) → (라) → (가) → (마) → (다)</span></li>
+    <li class="opt" data-i="4"><span class="oi">④</span><span>(라) → (나) → (가) → (마) → (다)</span></li>
+    <li class="opt" data-i="5"><span class="oi">⑤</span><span>(나) → (가) → (마) → (라) → (다)</span></li>
+  </ol>
+  <div class="q-actions"><button class="check">정답 확인</button><span class="q-hint">보기를 먼저 선택하세요</span></div>
+  <div class="sol"><div class="sol-ans"></div><p class="sol-ex">(나) 강화도 조약(1876) → (라) 조미 수호 통상 조약(1882. 5.) → (가) 임오군란(1882. 7.) → (마) 갑신정변(1884) → (다) 톈진 조약(1885). 1882년 안에서 <b>조미 수호 통상 조약이 임오군란보다 앞선다</b>는 점에 주의.</p></div>
+</div>
+
+<div class="qgroup-label">동학 농민 운동 · 갑오개혁</div>
+
+<!-- Q8 -->
+<div class="q" id="q8" data-answer="5">
+  <div class="q-head"><span class="q-no">8</span><span class="q-type t-src">사료 해석</span><span class="q-tag">동학 농민 운동</span></div>
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">어느 세력의 개혁안</span></div>
+    <div class="src-body">
+      <p class="src-q">5. 노비 문서를 소각한다.<br>6. 칠반천인의 대우를 개선하고 백정이 쓰는 평량갓은 없앤다.<br>7. 젊어서 과부가 된 여성의 개가를 허용한다.<br>12. 토지는 균등히 나누어 경작하게 한다.</p>
+      <span class="src-cite">— 오지영, 『동학사』</span>
+    </div>
+  </div>
+  <p class="q-stem">이 개혁안을 제시한 세력의 활동으로 <span class="em">옳지 않은</span> 것은?</p>
+  <ol class="opts">
+    <li class="opt" data-i="1"><span class="oi">①</span><span>전주 화약을 맺고 집강소를 설치하여 폐정 개혁을 실천하였다.</span></li>
+    <li class="opt" data-i="2"><span class="oi">②</span><span>'보국안민'과 '제폭구민'을 기치로 내걸었다.</span></li>
+    <li class="opt" data-i="3"><span class="oi">③</span><span>공주 우금치에서 일본군·관군에 맞서 싸우다 패배하였다.</span></li>
+    <li class="opt" data-i="4"><span class="oi">④</span><span>신분제 철폐 등 봉건적 모순의 해결을 추구하였다.</span></li>
+    <li class="opt" data-i="5"><span class="oi">⑤</span><span>우정총국 개국 축하연을 이용해 정변을 일으켰다.</span></li>
+  </ol>
+  <div class="q-actions"><button class="check">정답 확인</button><span class="q-hint">보기를 먼저 선택하세요</span></div>
+  <div class="sol"><div class="sol-ans"></div><p class="sol-ex">노비 문서 소각·토지 균등 분작 등은 <b>동학 농민군</b>의 폐정 개혁안이다. <span class="x">⑤</span> 우정총국 정변은 급진 개화파의 <b>갑신정변</b>으로, 동학 농민군의 활동이 아니다. 나머지는 모두 동학 농민 운동의 전개와 일치한다.</p></div>
+</div>
+
+<!-- Q9 -->
+<div class="q" id="q9" data-answer="4">
+  <div class="q-head"><span class="q-no">9</span><span class="q-type t-src">사료 해석</span><span class="q-tag">동학 농민 운동</span></div>
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">전봉준의 재판 진술(공초)</span></div>
+    <div class="src-body">
+      <p class="src-q">일본이 개화라 칭하며 군대를 거느리고 우리 서울에 들어와 <span class="hi">밤중에 왕궁을 공격하여 임금을 놀라게</span> 하였으니, 초야의 사민(士民)들이 충군애국의 마음으로 비분강개하여 의병을 규합하였다.</p>
+      <span class="src-cite">— 『동학란 기록』</span>
+    </div>
+  </div>
+  <p class="q-stem">위 진술에서 언급한 사건 <span class="em">이후</span>에 전개된 농민군의 활동으로 옳은 것은?</p>
+  <ol class="opts">
+    <li class="opt" data-i="1"><span class="oi">①</span><span>고부 군수의 횡포에 맞서 고부 관아를 습격하였다.</span></li>
+    <li class="opt" data-i="2"><span class="oi">②</span><span>황토현에서 관군을 격파하였다.</span></li>
+    <li class="opt" data-i="3"><span class="oi">③</span><span>전주성을 점령한 뒤 정부와 화약을 맺었다.</span></li>
+    <li class="opt" data-i="4"><span class="oi">④</span><span>남접과 북접이 논산에서 연합하여 봉기하였다.</span></li>
+    <li class="opt" data-i="5"><span class="oi">⑤</span><span>교조 최제우의 신원을 요구하며 집회를 열었다.</span></li>
+  </ol>
+  <div class="q-actions"><button class="check">정답 확인</button><span class="q-hint">보기를 먼저 선택하세요</span></div>
+  <div class="sol"><div class="sol-ans"></div><p class="sol-ex">'밤중에 왕궁을 공격'은 일본군의 <b>경복궁 점령</b>(1894. 6.)을 가리킨다. 이를 계기로 일어난 것이 <b>제2차 봉기</b>로, <b>남접·북접이 논산에서 연합</b>해 우금치로 향했다. ①②③⑤는 모두 경복궁 점령 이전(고부 봉기·제1차 봉기·교조 신원 운동)의 일이다.</p></div>
+</div>
+
+<!-- Q10 -->
+<div class="q" id="q10" data-answer="1">
+  <div class="q-head"><span class="q-no">10</span><span class="q-type t-seq">순서 배열</span><span class="q-tag">동학 농민 운동</span></div>
+  <p class="q-stem">동학 농민 운동의 전개 과정을 순서대로 옳게 나열한 것은?</p>
+  <div class="src" style="border-left-color:var(--green-l)">
+    <div class="src-body" style="padding:12px 18px">
+      <p class="src-q" style="font-family:'Noto Sans KR';font-size:14px;color:var(--ink-soft);margin:0">(가) 우금치 전투 &nbsp;·&nbsp; (나) 고부 농민 봉기 &nbsp;·&nbsp; (다) 전주 화약 &nbsp;·&nbsp; (라) 황룡촌 전투 &nbsp;·&nbsp; (마) 보은 집회</p>
+    </div>
+  </div>
+  <ol class="opts">
+    <li class="opt" data-i="1"><span class="oi">①</span><span>(마) → (나) → (라) → (다) → (가)</span></li>
+    <li class="opt" data-i="2"><span class="oi">②</span><span>(나) → (마) → (라) → (다) → (가)</span></li>
+    <li class="opt" data-i="3"><span class="oi">③</span><span>(마) → (나) → (다) → (라) → (가)</span></li>
+    <li class="opt" data-i="4"><span class="oi">④</span><span>(나) → (라) → (마) → (다) → (가)</span></li>
+    <li class="opt" data-i="5"><span class="oi">⑤</span><span>(마) → (라) → (나) → (가) → (다)</span></li>
+  </ol>
+  <div class="q-actions"><button class="check">정답 확인</button><span class="q-hint">보기를 먼저 선택하세요</span></div>
+  <div class="sol"><div class="sol-ans"></div><p class="sol-ex">(마) 보은 집회(1893, 교조 신원 운동 단계) → (나) 고부 농민 봉기(1894. 1.) → (라) 황룡촌 전투(제1차 봉기) → (다) 전주 화약(1894. 5.) → (가) 우금치 전투(1894. 11., 제2차 봉기)의 순서다.</p></div>
+</div>
+
+<!-- Q11 -->
+<div class="q" id="q11" data-answer="2">
+  <div class="q-head"><span class="q-no">11</span><span class="q-type t-src">사료 해석</span><span class="q-tag">갑오개혁</span></div>
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">종묘에 고한 개혁 강령</span></div>
+    <div class="src-body">
+      <p class="src-q">1. <span class="hi">청에 의존하는 생각을 끊고</span> 자주독립의 기초를 굳건히 세운다.<br>7. 조세의 부과와 징수, 경비 지출은 모두 탁지아문이 관할한다.<br>14. 사람을 쓰는 데 문벌에 구애받지 않고 인재를 등용한다.</p>
+      <span class="src-cite">— 홍범 14조</span>
+    </div>
+  </div>
+  <p class="q-stem">이 강령이 반포된 개혁에 대한 설명으로 옳은 것은?</p>
+  <ol class="opts">
+    <li class="opt" data-i="1"><span class="oi">①</span><span>군국기무처를 중심으로 추진된 제1차 개혁이다.</span></li>
+    <li class="opt" data-i="2"><span class="oi">②</span><span>고종이 종묘에 나아가 독립 서고문과 함께 개혁 의지를 밝혔다.</span></li>
+    <li class="opt" data-i="3"><span class="oi">③</span><span>단발령 시행에 반발하여 을미의병이 일어나는 계기가 되었다.</span></li>
+    <li class="opt" data-i="4"><span class="oi">④</span><span>러시아의 간섭으로 중단되었다.</span></li>
+    <li class="opt" data-i="5"><span class="oi">⑤</span><span>'구본신참'을 원칙으로 삼았다.</span></li>
+  </ol>
+  <div class="q-actions"><button class="check">정답 확인</button><span class="q-hint">보기를 먼저 선택하세요</span></div>
+  <div class="sol"><div class="sol-ans"></div><p class="sol-ex">홍범 14조는 <b>제2차 갑오개혁</b>(1894. 12.) 때 반포되었고, 고종이 종묘에서 <b>독립 서고문</b>과 함께 발표했다. <span class="x">①</span> 군국기무처는 제1차 개혁의 기구(제2차 때 폐지), <span class="x">③</span> 단발령은 을미개혁, <span class="x">④</span> 갑오개혁 중단은 박영효 실각·삼국 간섭 등과 관련되며 '러시아 간섭으로 중단'은 부정확, <span class="x">⑤</span> 구본신참은 광무개혁의 원칙이다.</p></div>
+</div>
+
+<!-- Q12 -->
+<div class="q" id="q12" data-answer="3">
+  <div class="q-head"><span class="q-no">12</span><span class="q-type t-cnt">옳은 개수</span><span class="q-tag">갑오·을미개혁</span></div>
+  <p class="q-stem">갑오·을미개혁에 대한 다음 설명 중 옳은 것은 모두 <span class="em">몇 개</span>인가?</p>
+  <div class="src" style="border-left-color:var(--green-l)">
+    <div class="src-body" style="padding:13px 18px">
+      <p class="src-q" style="font-family:'Noto Sans KR';font-size:14px;color:var(--ink-soft);margin:0;line-height:1.95">
+      ㄱ. 제1차 갑오개혁 때 공·사 노비 제도를 혁파하였다.<br>
+      ㄴ. 제2차 갑오개혁 때 재판소를 설치하여 사법권을 행정권에서 분리하였다.<br>
+      ㄷ. 을미개혁 때 태양력을 채택하고 '광무' 연호를 사용하였다.<br>
+      ㄹ. 을미개혁 때 단발령을 시행하였다.<br>
+      ㅁ. 제1차 갑오개혁 때 지계아문을 설치하여 지계를 발급하였다.</p>
+    </div>
+  </div>
+  <ol class="opts">
+    <li class="opt" data-i="1"><span class="oi">①</span><span>1개</span></li>
+    <li class="opt" data-i="2"><span class="oi">②</span><span>2개</span></li>
+    <li class="opt" data-i="3"><span class="oi">③</span><span>3개</span></li>
+    <li class="opt" data-i="4"><span class="oi">④</span><span>4개</span></li>
+    <li class="opt" data-i="5"><span class="oi">⑤</span><span>5개</span></li>
+  </ol>
+  <div class="q-actions"><button class="check">정답 확인</button><span class="q-hint">보기를 먼저 선택하세요</span></div>
+  <div class="sol"><div class="sol-ans"></div><p class="sol-ex">옳은 것은 <b>ㄱ·ㄴ·ㄹ (3개)</b>. <span class="x">ㄷ</span> 을미개혁의 연호는 '광무'가 아니라 '<b>건양</b>'이며, '광무'는 대한 제국의 연호다. <span class="x">ㅁ</span> 지계 발급은 갑오개혁이 아니라 대한 제국의 <b>광무개혁</b>이다.</p></div>
+</div>
+
+<!-- Q13 -->
+<div class="q" id="q13" data-answer="2">
+  <div class="q-head"><span class="q-no">13</span><span class="q-type t-src">사료 해석</span><span class="q-tag">갑오개혁</span></div>
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">국왕의 토로</span></div>
+    <div class="src-body">
+      <p class="src-q">짐이 한 가지 일, 한 가지 정사도 들어서 알지 못하니, 변경과 시행을 짐은 모른다. … 모든 명령이 다 (일본의) 지휘를 받게 되니, 짐은 한낱 자리만 지키고 있을 뿐이다.</p>
+      <span class="src-cite">— 『주한 일본 공사관 기록』</span>
+    </div>
+  </div>
+  <p class="q-stem">위 사료에 나타난 상황을 주도한 기구로 옳은 것은?</p>
+  <ol class="opts">
+    <li class="opt" data-i="1"><span class="oi">①</span><span>통리기무아문</span></li>
+    <li class="opt" data-i="2"><span class="oi">②</span><span>군국기무처</span></li>
+    <li class="opt" data-i="3"><span class="oi">③</span><span>교정청</span></li>
+    <li class="opt" data-i="4"><span class="oi">④</span><span>중추원</span></li>
+    <li class="opt" data-i="5"><span class="oi">⑤</span><span>원수부</span></li>
+  </ol>
+  <div class="q-actions"><button class="check">정답 확인</button><span class="q-hint">보기를 먼저 선택하세요</span></div>
+  <div class="sol"><div class="sol-ans"></div><p class="sol-ex">고종이 자신을 배제한 개혁에 분노한 상황으로, 제1차 갑오개혁의 초정부적 기구인 <b>군국기무처</b>와 관련된다. <span class="x">③</span> 교정청은 전주 화약 직후 정부가 자주적 개혁을 위해 설치했으나 일본의 경복궁 점령으로 폐지되고 군국기무처로 대체되었다(매력적인 함정). ⑤ 원수부는 대한 제국의 군 통수 기관이다.</p></div>
+</div>
+
+<!-- Q14 -->
+<div class="q" id="q14" data-answer="1">
+  <div class="q-head"><span class="q-no">14</span><span class="q-type t-src">사료 해석</span><span class="q-tag">독립 협회</span></div>
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">관민이 함께 결의한 문서</span></div>
+    <div class="src-body">
+      <p class="src-q">2. 외국과의 이권에 관한 조약은 각부 대신과 <span class="hi">중추원 의장</span>이 합동 날인하여 시행한다.<br>5. 칙임관은 정부에 그 뜻을 물어 과반수의 동의를 받아 임명한다.</p>
+    </div>
+  </div>
+  <p class="q-stem">이 문서를 결의한 단체의 활동으로 옳은 것은?</p>
+  <ol class="opts">
+    <li class="opt" data-i="1"><span class="oi">①</span><span>만민 공동회를 열어 러시아의 절영도 조차 요구를 저지하였다.</span></li>
+    <li class="opt" data-i="2"><span class="oi">②</span><span>일본의 황무지 개간권 요구에 반대하였다.</span></li>
+    <li class="opt" data-i="3"><span class="oi">③</span><span>105인 사건으로 조직이 해체되었다.</span></li>
+    <li class="opt" data-i="4"><span class="oi">④</span><span>대성 학교와 오산 학교를 설립하였다.</span></li>
+    <li class="opt" data-i="5"><span class="oi">⑤</span><span>고종의 강제 퇴위에 반대하는 운동을 벌였다.</span></li>
+  </ol>
+  <div class="q-actions"><button class="check">정답 확인</button><span class="q-hint">보기를 먼저 선택하세요</span></div>
+  <div class="sol"><div class="sol-ans"></div><p class="sol-ex"><b>헌의 6조</b>를 결의한 단체는 <b>독립 협회</b>로, 만민 공동회를 통해 러시아의 절영도 조차를 막았다. <span class="x">②</span> 황무지 개간권 저지는 보안회, <span class="x">③·④</span> 105인 사건·대성/오산 학교는 신민회, <span class="x">⑤</span> 고종 강제 퇴위 반대는 대한 자강회의 활동이다.</p></div>
+</div>
+
+<div class="qgroup-label">대한 제국 · 경제 침탈</div>
+
+<!-- Q15 -->
+<div class="q" id="q15" data-answer="4">
+  <div class="q-head"><span class="q-no">15</span><span class="q-type t-src">사료 해석</span><span class="q-tag">대한 제국</span></div>
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">국가의 최고 법규</span></div>
+    <div class="src-body">
+      <p class="src-q">2. 대한국의 정치는 만세에 변치 않을 <span class="hi">전제 정치</span>이다.<br>3. 대한국 대황제는 무한한 군권을 누린다.<br>5. 대한국 대황제는 육해군을 통솔하고 계엄·해엄을 명한다.</p>
+      <span class="src-cite">— 대한국 국제</span>
+    </div>
+  </div>
+  <p class="q-stem">이 법규를 반포한 정부의 정책으로 <span class="em">옳지 않은</span> 것은?</p>
+  <ol class="opts">
+    <li class="opt" data-i="1"><span class="oi">①</span><span>원수부를 설치하여 황제가 군 통수권을 장악하였다.</span></li>
+    <li class="opt" data-i="2"><span class="oi">②</span><span>양전 사업을 실시하고 지계를 발급하였다.</span></li>
+    <li class="opt" data-i="3"><span class="oi">③</span><span>'구본신참'을 개혁의 원칙으로 삼았다.</span></li>
+    <li class="opt" data-i="4"><span class="oi">④</span><span>중추원을 의회로 개편하여 입헌 군주제를 시행하였다.</span></li>
+    <li class="opt" data-i="5"><span class="oi">⑤</span><span>상공업 진흥을 위해 근대적 회사와 공장 설립을 지원하였다.</span></li>
+  </ol>
+  <div class="q-actions"><button class="check">정답 확인</button><span class="q-hint">보기를 먼저 선택하세요</span></div>
+  <div class="sol"><div class="sol-ans"></div><p class="sol-ex"><b>대한국 국제</b>(1899)는 황제권 무한·전제 정치를 명문화했다. <span class="x">④</span> '의회 개편·입헌 군주제'는 전제 군주제를 표방한 대한국 국제와 정면으로 배치된다. 나머지(원수부·지계·구본신참·식산흥업)는 모두 광무개혁의 내용이다.</p></div>
+</div>
+
+<!-- Q16 -->
+<div class="q" id="q16" data-answer="1">
+  <div class="q-head"><span class="q-no">16</span><span class="q-type t-src">사료 해석</span><span class="q-tag">화폐 정리 사업</span></div>
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">어느 경제 정책의 시행 규정</span></div>
+    <div class="src-body">
+      <p class="src-q">상태가 좋은 갑종 백동화는 개당 2전 5리로 새 화폐와 교환한다. 을종 백동화는 개당 1전으로 사들인다. 형태와 품질이 조악한 <span class="hi">병종 백동화는 사들이지 않는다.</span></p>
+      <span class="src-cite">— 『탁지부령 제1호』 1905</span>
+    </div>
+  </div>
+  <p class="q-stem">이 정책에 대한 설명으로 옳은 것은?</p>
+  <ol class="opts">
+    <li class="opt" data-i="1"><span class="oi">①</span><span>제1차 한일 협약으로 파견된 재정 고문 메가타가 주도하였다.</span></li>
+    <li class="opt" data-i="2"><span class="oi">②</span><span>동양 척식 주식회사를 설립하는 직접적 계기가 되었다.</span></li>
+    <li class="opt" data-i="3"><span class="oi">③</span><span>일본 상인의 거류지 무역이 시작되는 배경이 되었다.</span></li>
+    <li class="opt" data-i="4"><span class="oi">④</span><span>함경도에서 방곡령이 선포되는 결과를 가져왔다.</span></li>
+    <li class="opt" data-i="5"><span class="oi">⑤</span><span>대한 제국의 독자적 화폐 발행권을 강화하였다.</span></li>
+  </ol>
+  <div class="q-actions"><button class="check">정답 확인</button><span class="q-hint">보기를 먼저 선택하세요</span></div>
+  <div class="sol"><div class="sol-ans"></div><p class="sol-ex">백동화를 일본 제일 은행권으로 바꾼 <b>화폐 정리 사업</b>(1905)으로, 제1차 한일 협약에 따라 파견된 재정 고문 <b>메가타</b>가 주도했다. 화폐 가치 차등 교환으로 국내 상인·은행이 큰 타격을 입고 일본 차관 도입이 강요되었다. <span class="x">⑤</span> 오히려 화폐 주권이 일본 제일 은행에 종속되었다. ②③④는 시기·인과가 맞지 않는다.</p></div>
+</div>
+
+<!-- Q17 -->
+<div class="q" id="q17" data-answer="1">
+  <div class="q-head"><span class="q-no">17</span><span class="q-type t-src">사료 해석</span><span class="q-tag">경제 주권 수호</span></div>
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">어느 조약의 조항</span></div>
+    <div class="src-body">
+      <p class="src-q">만약 조선국에 가뭄·수해·병란 등이 있어 식량 부족이 우려되어 쌀 수출을 잠정 금지하고자 할 때에는, <span class="hi">1개월 전</span>에 지방관이 일본 영사관에 통고한다.</p>
+      <span class="src-cite">— 조일 통상 장정(1883)</span>
+    </div>
+  </div>
+  <p class="q-stem">위 조항과 관련된 사건에 대한 설명으로 옳은 것은?</p>
+  <ol class="opts">
+    <li class="opt" data-i="1"><span class="oi">①</span><span>함경도·황해도 등지에서 방곡령이 선포되었다.</span></li>
+    <li class="opt" data-i="2"><span class="oi">②</span><span>일본이 통고 절차를 존중하여 방곡령을 그대로 수용하였다.</span></li>
+    <li class="opt" data-i="3"><span class="oi">③</span><span>보안회가 주도하여 일본의 황무지 개간권을 저지하였다.</span></li>
+    <li class="opt" data-i="4"><span class="oi">④</span><span>독립 협회가 러시아의 절영도 조차를 막은 사건이다.</span></li>
+    <li class="opt" data-i="5"><span class="oi">⑤</span><span>청 상인의 내지 통상을 전면 허용한 조항이다.</span></li>
+  </ol>
+  <div class="q-actions"><button class="check">정답 확인</button><span class="q-hint">보기를 먼저 선택하세요</span></div>
+  <div class="sol"><div class="sol-ans"></div><p class="sol-ex">방곡령의 법적 근거가 된 조일 통상 장정 조항이다. 함경도(1889)·황해도 등에서 방곡령이 선포되었으나, <span class="x">②</span> 일본은 '1개월 전 통고' 규정 위반을 구실로 항의하여 방곡령 철회와 배상을 받아냈다. ③④⑤는 다른 사건·조약에 관한 설명이다.</p></div>
+</div>
+
+<div class="qgroup-label">국권 침탈과 수호 운동</div>
+
+<!-- Q18 -->
+<div class="q" id="q18" data-answer="1">
+  <div class="q-head"><span class="q-no">18</span><span class="q-type t-seq">순서 배열</span><span class="q-tag">국권 침탈 조약</span></div>
+  <p class="q-stem">일본의 국권 침탈 과정에서 체결된 조약을 순서대로 옳게 나열한 것은?</p>
+  <div class="src" style="border-left-color:var(--green-l)">
+    <div class="src-body" style="padding:12px 18px">
+      <p class="src-q" style="font-family:'Noto Sans KR';font-size:14px;color:var(--ink-soft);margin:0">(가) 정미 7조약(한일 신협약) &nbsp;·&nbsp; (나) 한일 의정서 &nbsp;·&nbsp; (다) 을사늑약 &nbsp;·&nbsp; (라) 제1차 한일 협약 &nbsp;·&nbsp; (마) 기유각서</p>
+    </div>
+  </div>
+  <ol class="opts">
+    <li class="opt" data-i="1"><span class="oi">①</span><span>(나) → (라) → (다) → (가) → (마)</span></li>
+    <li class="opt" data-i="2"><span class="oi">②</span><span>(나) → (다) → (라) → (가) → (마)</span></li>
+    <li class="opt" data-i="3"><span class="oi">③</span><span>(라) → (나) → (다) → (마) → (가)</span></li>
+    <li class="opt" data-i="4"><span class="oi">④</span><span>(나) → (라) → (가) → (다) → (마)</span></li>
+    <li class="opt" data-i="5"><span class="oi">⑤</span><span>(라) → (나) → (가) → (다) → (마)</span></li>
+  </ol>
+  <div class="q-actions"><button class="check">정답 확인</button><span class="q-hint">보기를 먼저 선택하세요</span></div>
+  <div class="sol"><div class="sol-ans"></div><p class="sol-ex">(나) 한일 의정서(1904. 2.) → (라) 제1차 한일 협약(1904. 8.) → (다) 을사늑약(1905. 11.) → (가) 정미 7조약(1907. 7.) → (마) 기유각서(1909. 7.)의 순서다.</p></div>
+</div>
+
+<!-- Q19 -->
+<div class="q" id="q19" data-answer="2">
+  <div class="q-head"><span class="q-no">19</span><span class="q-type t-cmp">사료 해석 · 비교</span><span class="q-tag">열강의 묵인</span></div>
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">일본의 한국 지배를 묵인한 두 약정</span></div>
+    <div class="src-body">
+      <p class="label">(가)</p>
+      <p class="src-q">미국은 일본이 한국에서 보호권을 확립하는 것이 러일 전쟁의 논리적 귀결이며 극동의 평화에 이바지할 것으로 인정한다.</p>
+      <p class="label b">(나)</p>
+      <p class="src-q">러시아는 일본이 한국에서 정치·군사·경제상의 탁월한 이익을 갖는다는 것을 승인하고, 이를 저지하거나 간섭하지 않을 것을 약속한다.</p>
+    </div>
+  </div>
+  <p class="q-stem">(가), (나)에 대한 설명으로 옳은 것은?</p>
+  <ol class="opts">
+    <li class="opt" data-i="1"><span class="oi">①</span><span>(가)는 일본이 영국의 인도 지배를 인정하는 대가로 체결되었다.</span></li>
+    <li class="opt" data-i="2"><span class="oi">②</span><span>(나)는 러일 전쟁을 마무리하는 강화 조약이다.</span></li>
+    <li class="opt" data-i="3"><span class="oi">③</span><span>(가)는 제2차 영일 동맹을 가리킨다.</span></li>
+    <li class="opt" data-i="4"><span class="oi">④</span><span>(가), (나)는 모두 을사늑약 체결 이후에 맺어졌다.</span></li>
+    <li class="opt" data-i="5"><span class="oi">⑤</span><span>(나)로 일본은 한국의 외교권을 직접 장악하였다.</span></li>
+  </ol>
+  <div class="q-actions"><button class="check">정답 확인</button><span class="q-hint">보기를 먼저 선택하세요</span></div>
+  <div class="sol"><div class="sol-ans"></div><p class="sol-ex">(가)는 <b>가쓰라·태프트 밀약</b>(미국, 1905. 7. — 미국의 필리핀 ↔ 일본의 한국), (나)는 <b>포츠머스 강화 조약</b>(러시아, 1905. 9. — 러일 전쟁 종결)이다. <span class="x">①</span> 미국의 필리핀 지배가 대가, <span class="x">③</span> 제2차 영일 동맹은 영국과의 약정, <span class="x">④</span> 두 약정 모두 을사늑약(1905. 11.) <b>이전</b>, <span class="x">⑤</span> 외교권 박탈은 을사늑약이다.</p></div>
+</div>
+
+<!-- Q20 -->
+<div class="q" id="q20" data-answer="1">
+  <div class="q-head"><span class="q-no">20</span><span class="q-type t-src">사료 해석</span><span class="q-tag">정미 7조약</span></div>
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">어느 조약과 부수 각서</span></div>
+    <div class="src-body">
+      <p class="src-q">1. 한국 정부는 시정 개선에 관하여 통감의 지도를 받을 것.<br>5. 한국 정부는 통감이 추천한 일본인을 한국 관리로 임명할 것.<br><span class="hi">(부수 비밀 각서) 한국 군대를 해산한다.</span></p>
+    </div>
+  </div>
+  <p class="q-stem">이 조약 체결 직후 나타난 결과로 옳은 것은?</p>
+  <ol class="opts">
+    <li class="opt" data-i="1"><span class="oi">①</span><span>해산 군인이 합류하여 정미의병이 의병 전쟁으로 발전하였다.</span></li>
+    <li class="opt" data-i="2"><span class="oi">②</span><span>외교권이 박탈되고 통감부가 설치되었다.</span></li>
+    <li class="opt" data-i="3"><span class="oi">③</span><span>사법권과 감옥 사무가 일본에 넘어갔다.</span></li>
+    <li class="opt" data-i="4"><span class="oi">④</span><span>재정 고문 메가타가 처음 파견되었다.</span></li>
+    <li class="opt" data-i="5"><span class="oi">⑤</span><span>대한 제국이 국외 중립을 선언하였다.</span></li>
+  </ol>
+  <div class="q-actions"><button class="check">정답 확인</button><span class="q-hint">보기를 먼저 선택하세요</span></div>
+  <div class="sol"><div class="sol-ans"></div><p class="sol-ex"><b>정미 7조약</b>(한일 신협약, 1907)과 부수 각서에 따른 <b>군대 해산</b> 직후, 해산 군인이 의병에 합류하면서 <b>정미의병</b>이 의병 전쟁으로 발전했다. <span class="x">②</span> 외교권 박탈은 을사늑약, <span class="x">③</span> 사법권 박탈은 기유각서(1909), <span class="x">④</span> 메가타 파견은 제1차 한일 협약, <span class="x">⑤</span> 국외 중립 선언은 러일 전쟁 직전(1904. 1.)의 일이다.</p></div>
+</div>
+
+<!-- Q21 -->
+<div class="q" id="q21" data-answer="5">
+  <div class="q-head"><span class="q-no">21</span><span class="q-type t-cmp">사료 해석 · 비교</span><span class="q-tag">을사늑약</span></div>
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">어느 조약에 대한 반응</span></div>
+    <div class="src-body">
+      <p class="label">(가)</p>
+      <p class="src-q">아, 국치와 민욕이 이에 이르렀으니 … 영환은 죽음으로 여러분을 돕기를 기약하노라. 우리 동포 형제여!</p>
+      <p class="label b">(나)</p>
+      <p class="src-q">저 개돼지만도 못한 정부 대신이라는 자들이 … 나라를 팔아먹는 도적이 되었도다. <span class="hi">아, 원통하고 분하도다. 우리 2천만 동포여!</span></p>
+    </div>
+  </div>
+  <p class="q-stem">(가), (나)와 같은 반응을 불러온 조약에 대한 설명으로 <span class="em">옳지 않은</span> 것은?</p>
+  <ol class="opts">
+    <li class="opt" data-i="1"><span class="oi">①</span><span>대한 제국의 외교권을 박탈하였다.</span></li>
+    <li class="opt" data-i="2"><span class="oi">②</span><span>통감부가 설치되는 근거가 되었다.</span></li>
+    <li class="opt" data-i="3"><span class="oi">③</span><span>고종이 끝내 비준하지 않아 불법이라는 비판을 받는다.</span></li>
+    <li class="opt" data-i="4"><span class="oi">④</span><span>헤이그에 특사를 파견하는 계기가 되었다.</span></li>
+    <li class="opt" data-i="5"><span class="oi">⑤</span><span>일본인을 각 부의 차관으로 임명하는 차관 정치가 시작되었다.</span></li>
+  </ol>
+  <div class="q-actions"><button class="check">정답 확인</button><span class="q-hint">보기를 먼저 선택하세요</span></div>
+  <div class="sol"><div class="sol-ans"></div><p class="sol-ex">(가) 민영환의 유서, (나) 장지연의 「시일야방성대곡」이 비판한 조약은 <b>을사늑약</b>(1905)이다. <span class="x">⑤</span> 일본인 <b>차관 정치</b>는 을사늑약이 아니라 <b>정미 7조약</b>(1907)부터 시작되었다. 외교권 박탈·통감부 설치·비준 결여로 인한 불법성·헤이그 특사 파견은 모두 을사늑약과 직결된다.</p></div>
+</div>
+
+<!-- Q22 -->
+<div class="q" id="q22" data-answer="1">
+  <div class="q-head"><span class="q-no">22</span><span class="q-type t-src">사료 해석</span><span class="q-tag">의거 활동</span></div>
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">법정에서의 진술</span></div>
+    <div class="src-body">
+      <p class="src-q">내가 이토를 죽인 것은 <span class="hi">한국 독립 전쟁의 한 부분</span>이요, 또한 동양 평화를 위한 것이다. 나는 의병 참모 중장의 자격으로 한 것이지 개인 자격으로 한 것이 아니므로, 마땅히 만국 공법에 따라 전쟁 포로로 대우해야 한다.</p>
+    </div>
+  </div>
+  <p class="q-stem">이 진술을 한 인물에 대한 설명으로 옳은 것은?</p>
+  <ol class="opts">
+    <li class="opt" data-i="1"><span class="oi">①</span><span>하얼빈역에서 이토 히로부미를 처단하였다.</span></li>
+    <li class="opt" data-i="2"><span class="oi">②</span><span>미국 샌프란시스코에서 외교 고문 스티븐스를 사살하였다.</span></li>
+    <li class="opt" data-i="3"><span class="oi">③</span><span>명동 성당 앞에서 이완용을 습격하였다.</span></li>
+    <li class="opt" data-i="4"><span class="oi">④</span><span>자신회를 조직하여 을사오적을 처단하려 하였다.</span></li>
+    <li class="opt" data-i="5"><span class="oi">⑤</span><span>13도 창의군을 이끌고 서울 진공 작전을 전개하였다.</span></li>
+  </ol>
+  <div class="q-actions"><button class="check">정답 확인</button><span class="q-hint">보기를 먼저 선택하세요</span></div>
+  <div class="sol"><div class="sol-ans"></div><p class="sol-ex">'의병 참모 중장', '만국 공법상 전쟁 포로' 주장은 <b>안중근</b>의 진술이다(1909, 하얼빈에서 이토 히로부미 처단, 옥중 『동양평화론』 저술). <span class="x">②</span> 스티븐스 사살은 장인환·전명운, <span class="x">③</span> 이완용 습격은 이재명, <span class="x">④</span> 자신회는 나철·오기호, <span class="x">⑤</span> 서울 진공 작전은 이인영의 활동이다.</p></div>
+</div>
+
+<!-- Q23 -->
+<div class="q" id="q23" data-answer="1">
+  <div class="q-head"><span class="q-no">23</span><span class="q-type t-cmp">사료 해석 · 비교</span><span class="q-tag">항일 의병</span></div>
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">두 의병의 격문</span></div>
+    <div class="src-body">
+      <p class="label">(가)</p>
+      <p class="src-q">국모(명성 황후)의 원수를 생각하며 이를 갈았는데 … 부모에게서 받은 머리털을 풀 베듯이 베어 버리니 이 무슨 변고란 말인가.</p>
+      <p class="label b">(나)</p>
+      <p class="src-q">우리는 일본인의 통치 아래 신음하고 있다. … 모두 일치단결하여 일본인과 그 패거리 및 매국노들을 처단하기에 힘쓰자.</p>
+      <span class="src-cite">— (나) 「해외 동포에게 보내는 격문」</span>
+    </div>
+  </div>
+  <p class="q-stem">(가), (나) 의병에 대한 설명으로 옳은 것은?</p>
+  <ol class="opts">
+    <li class="opt" data-i="1"><span class="oi">①</span><span>(가)는 단발령 시행에 반발하여 일어났다.</span></li>
+    <li class="opt" data-i="2"><span class="oi">②</span><span>(나)는 을사늑약 체결을 직접적 계기로 일어났다.</span></li>
+    <li class="opt" data-i="3"><span class="oi">③</span><span>(가)는 해산 군인이 합류하여 전투력이 강화되었다.</span></li>
+    <li class="opt" data-i="4"><span class="oi">④</span><span>(나)는 아관 파천 후 국왕의 권고로 자진 해산하였다.</span></li>
+    <li class="opt" data-i="5"><span class="oi">⑤</span><span>(가), (나)는 모두 평민 의병장 신돌석이 주도하였다.</span></li>
+  </ol>
+  <div class="q-actions"><button class="check">정답 확인</button><span class="q-hint">보기를 먼저 선택하세요</span></div>
+  <div class="sol"><div class="sol-ans"></div><p class="sol-ex">(가)는 <b>을미의병</b>(1895, 을미사변·단발령 — 유인석 등), (나)는 <b>정미의병</b>(1907, 고종 강제 퇴위·군대 해산 — 이인영 등)이다. <span class="x">②</span> 을사늑약 계기는 을사의병, <span class="x">③</span> 해산 군인 합류는 정미의병의 특징, <span class="x">④</span> 자진 해산은 을미의병, <span class="x">⑤</span> 신돌석은 을사의병의 평민 의병장이다.</p></div>
+</div>
+
+<!-- Q24 -->
+<div class="q" id="q24" data-answer="1">
+  <div class="q-head"><span class="q-no">24</span><span class="q-type t-src">사료 해석</span><span class="q-tag">신민회</span></div>
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">어느 단체의 활동 방침</span></div>
+    <div class="src-body">
+      <p class="src-q">새로 건설된 한인촌에 학교와 교회, <span class="hi">무관 학교</span> 등을 설립하여 문무를 겸비한 교육을 하고 무관을 양성한다. … 독립군이 양성되면 기회를 보아 독립 전쟁을 일으켜 국내로 진공한다.</p>
+      <span class="src-cite">— 『105인 사건 판결문』</span>
+    </div>
+  </div>
+  <p class="q-stem">이 단체에 대한 설명으로 옳은 것은?</p>
+  <ol class="opts">
+    <li class="opt" data-i="1"><span class="oi">①</span><span>공화정에 바탕을 둔 근대 국민 국가 수립을 지향하였다.</span></li>
+    <li class="opt" data-i="2"><span class="oi">②</span><span>입헌 군주제 수립을 목표로 중추원 의회 설립을 추진하였다.</span></li>
+    <li class="opt" data-i="3"><span class="oi">③</span><span>만민 공동회를 열어 민중의 정치 참여를 이끌었다.</span></li>
+    <li class="opt" data-i="4"><span class="oi">④</span><span>고종의 강제 퇴위 반대 운동을 벌이다 해산되었다.</span></li>
+    <li class="opt" data-i="5"><span class="oi">⑤</span><span>일본의 황무지 개간권 요구를 저지하였다.</span></li>
+  </ol>
+  <div class="q-actions"><button class="check">정답 확인</button><span class="q-hint">보기를 먼저 선택하세요</span></div>
+  <div class="sol"><div class="sol-ans"></div><p class="sol-ex">국외 독립운동 기지 건설(남만주 삼원보·신흥 강습소)을 추진한 비밀 결사 <b>신민회</b>로, 기존 단체와 달리 <b>공화정</b>에 바탕을 둔 근대 국민 국가 수립을 지향했다. <span class="x">②·③</span> 입헌 군주제·만민 공동회는 독립 협회, <span class="x">④</span> 고종 퇴위 반대는 대한 자강회, <span class="x">⑤</span> 황무지 개간권 저지는 보안회의 활동이다.</p></div>
+</div>
+
+<!-- Q25 -->
+<div class="q" id="q25" data-answer="1">
+  <div class="q-head"><span class="q-no">25</span><span class="q-type t-src">사료 해석</span><span class="q-tag">국채 보상 운동</span></div>
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">어느 운동의 취지서</span></div>
+    <div class="src-body">
+      <p class="src-q">지금 국채 <span class="hi">1,300만 원</span>이 있으니 이는 대한 제국의 존망에 직결된 것이라. … 2천만 인민이 3개월간 담배를 끊고 그 대금을 모으면 갚을 수 있을 것이다.</p>
+      <span class="src-cite">— 『대한매일신보』 1907</span>
+    </div>
+  </div>
+  <p class="q-stem">이 운동에 대한 설명으로 옳은 것은?</p>
+  <ol class="opts">
+    <li class="opt" data-i="1"><span class="oi">①</span><span>대구에서 김광제·서상돈의 발의로 시작되었다.</span></li>
+    <li class="opt" data-i="2"><span class="oi">②</span><span>일본의 황무지 개간권 요구에 맞선 운동이다.</span></li>
+    <li class="opt" data-i="3"><span class="oi">③</span><span>통감부의 적극적 지원을 받아 목표를 달성하였다.</span></li>
+    <li class="opt" data-i="4"><span class="oi">④</span><span>백정에 대한 사회적 차별 철폐를 요구하였다.</span></li>
+    <li class="opt" data-i="5"><span class="oi">⑤</span><span>회사령 폐지를 주장하며 전개되었다.</span></li>
+  </ol>
+  <div class="q-actions"><button class="check">정답 확인</button><span class="q-hint">보기를 먼저 선택하세요</span></div>
+  <div class="sol"><div class="sol-ans"></div><p class="sol-ex">통감부의 차관 도입으로 생긴 1,300만 원의 빚을 국민의 힘으로 갚자는 <b>국채 보상 운동</b>(1907)으로, <b>대구</b>에서 김광제·서상돈의 발의로 시작되었다. <span class="x">③</span> 통감부가 양기탁에게 횡령 누명을 씌우는 등 방해하여 중단되었다. ②는 보안회, ④는 형평 운동에 관한 설명이며, ⑤ 회사령은 1910년대 일이라 시기가 맞지 않는다.</p></div>
+</div>
+
+<!-- Q26 -->
+<div class="q" id="q26" data-answer="1">
+  <div class="q-head"><span class="q-no">26</span><span class="q-type t-cmp">사료 해석 · 비교</span><span class="q-tag">독도</span></div>
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">독도 관련 일본 측 자료</span></div>
+    <div class="src-body">
+      <p class="label">(가)</p>
+      <p class="src-q">다케시마(울릉도)와 마쓰시마(독도), 그 밖에 두 지방(이나바·호키)에 속하는 섬은 <span class="hi">없습니다.</span></p>
+      <p class="label b">(나)</p>
+      <p class="src-q">울릉도와 독도는 <span class="hi">일본과 관계없음</span>을 명심할 것.</p>
+    </div>
+  </div>
+  <p class="q-stem">(가), (나)에 대한 설명으로 옳은 것은?</p>
+  <ol class="opts">
+    <li class="opt" data-i="1"><span class="oi">①</span><span>(나)는 일본 메이지 정부의 최고 기관이 내린 지령이다.</span></li>
+    <li class="opt" data-i="2"><span class="oi">②</span><span>(가)는 대한 제국이 독도 영유를 선포한 칙령이다.</span></li>
+    <li class="opt" data-i="3"><span class="oi">③</span><span>(나)는 시마네현 고시 제40호이다.</span></li>
+    <li class="opt" data-i="4"><span class="oi">④</span><span>(가), (나)는 모두 독도가 일본의 영토임을 밝힌 자료이다.</span></li>
+    <li class="opt" data-i="5"><span class="oi">⑤</span><span>(가)는 대한 제국 칙령 제41호에 근거하여 작성되었다.</span></li>
+  </ol>
+  <div class="q-actions"><button class="check">정답 확인</button><span class="q-hint">보기를 먼저 선택하세요</span></div>
+  <div class="sol"><div class="sol-ans"></div><p class="sol-ex">(가)는 에도 막부의 질문에 대한 <b>돗토리번의 답변</b>, (나)는 <b>태정관 지령</b>(1877)으로, 모두 일본 스스로 독도가 자국 영토가 아님을 인정한 자료다. 특히 (나)는 메이지 정부의 최고 기관인 태정관이 내렸다. <span class="x">③</span> 시마네현 고시 제40호(1905)는 오히려 독도를 불법 편입한 정반대 자료, <span class="x">④</span> 두 자료는 '일본과 무관'을 밝힌 것이다.</p></div>
+</div>
+
+<!-- Q27 -->
+<div class="q" id="q27" data-answer="1">
+  <div class="q-head"><span class="q-no">27</span><span class="q-type t-src">사료 해석</span><span class="q-tag">조미 수호 통상 조약</span></div>
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">어느 조약의 제1관</span></div>
+    <div class="src-body">
+      <p class="src-q">타국의 불공평이나 경멸하는 일이 있을 때 일단 통지하면 서로 도와 잘 조처하여 두터운 우의를 보여 준다. <span style="color:var(--brass-d);font-size:13px">(거중 조정)</span></p>
+    </div>
+  </div>
+  <p class="q-stem">이 조항이 포함된 조약에 대한 설명으로 옳은 것은?</p>
+  <ol class="opts">
+    <li class="opt" data-i="1"><span class="oi">①</span><span>우리나라가 서양 국가와 맺은 최초의 조약이다.</span></li>
+    <li class="opt" data-i="2"><span class="oi">②</span><span>청을 배제하고 조선이 독자적으로 체결하였다.</span></li>
+    <li class="opt" data-i="3"><span class="oi">③</span><span>최혜국 대우 조항이 없는 평등 조약이다.</span></li>
+    <li class="opt" data-i="4"><span class="oi">④</span><span>운요호 사건을 계기로 체결되었다.</span></li>
+    <li class="opt" data-i="5"><span class="oi">⑤</span><span>일본에 영사 재판권을 인정하는 내용을 담았다.</span></li>
+  </ol>
+  <div class="q-actions"><button class="check">정답 확인</button><span class="q-hint">보기를 먼저 선택하세요</span></div>
+  <div class="sol"><div class="sol-ans"></div><p class="sol-ex">거중 조정 조항이 담긴 <b>조미 수호 통상 조약</b>(1882)으로, 우리나라가 <b>서양 국가와 맺은 최초의 조약</b>이다. <span class="x">②</span> 실제로는 청(이홍장)의 알선으로 체결되어 '청 배제'는 틀리며, <span class="x">③</span> 최혜국 대우와 영사 재판권을 인정한 불평등 조약, <span class="x">④·⑤</span>는 강화도 조약에 관한 설명이다.</p></div>
+</div>
+
+<!-- Q28 -->
+<div class="q" id="q28" data-answer="1">
+  <div class="q-head"><span class="q-no">28</span><span class="q-type t-cmp">사료 해석 · 비교</span><span class="q-tag">갑신정변</span></div>
+  <div class="src">
+    <div class="src-top"><span class="src-badge">사료</span><span class="src-title">한 사건에 대한 상반된 평가</span></div>
+    <div class="src-body">
+      <p class="label">(가)</p>
+      <p class="src-q">김옥균은 청의 종주권 아래 놓인 굴욕을 견디지 못하여 … 조선도 강력한 현대 국가가 되기를 절실히 바랐다.</p>
+      <p class="label b">(나)</p>
+      <p class="src-q">아아, 김옥균 무리의 경망한 행동은 위로 나랏일을 그르치고 아래로 민심을 흔들었다.</p>
+      <span class="src-cite">— (나) 『윤치호 일기』</span>
+    </div>
+  </div>
+  <p class="q-stem">(가), (나)의 평가 대상이 된 사건에 대한 설명으로 옳은 것은?</p>
+  <ol class="opts">
+    <li class="opt" data-i="1"><span class="oi">①</span><span>우정총국 개국 축하연을 이용하여 일어났다.</span></li>
+    <li class="opt" data-i="2"><span class="oi">②</span><span>전주 화약을 맺으며 막을 내렸다.</span></li>
+    <li class="opt" data-i="3"><span class="oi">③</span><span>구식 군인에 대한 차별이 직접적 원인이었다.</span></li>
+    <li class="opt" data-i="4"><span class="oi">④</span><span>청·일 양국 군대의 동시 철수를 규정한 제물포 조약으로 이어졌다.</span></li>
+    <li class="opt" data-i="5"><span class="oi">⑤</span><span>13도 창의군이 결성되는 계기가 되었다.</span></li>
+  </ol>
+  <div class="q-actions"><button class="check">정답 확인</button><span class="q-hint">보기를 먼저 선택하세요</span></div>
+  <div class="sol"><div class="sol-ans"></div><p class="sol-ex">김옥균에 대한 상반된 평가가 가리키는 사건은 <b>갑신정변</b>(1884)으로, <b>우정총국 개국 축하연</b>을 이용해 일어났다. <span class="x">②</span> 전주 화약은 동학 농민 운동, <span class="x">③</span> 구식 군인 차별은 임오군란, <span class="x">④</span> 동시 철수를 규정한 것은 톈진 조약(제물포 조약은 임오군란의 결과), <span class="x">⑤</span> 13도 창의군은 정미의병과 관련된다.</p></div>
+</div>
+
+<!-- BOTTOM -->
+<div class="bottom">
+  <button class="reveal-all" id="reveal-all">전체 정답 · 해설 펼치기</button>
+  <div class="final" id="final">
+    <h3>채점 결과</h3>
+    <div class="big"><span id="f-correct">0</span> / 28</div>
+    <p><span id="f-rate">0</span>% · <span id="f-msg">아직 채점하지 않은 문항이 있어요.</span></p>
+  </div>
+</div>
+
+</div><!-- /.wrap -->
+
+<script>
+(function(){
+  var qs = Array.prototype.slice.call(document.querySelectorAll('.q'));
+  var done=0, correct=0;
+  var sbDone=document.getElementById('sb-done'), sbCorrect=document.getElementById('sb-correct'),
+      sbRate=document.getElementById('sb-rate'), sbFill=document.getElementById('sb-fill');
+
+  function updateScore(){
+    sbDone.textContent=done;
+    sbCorrect.textContent=correct;
+    var rate = done? Math.round(correct/done*100):0;
+    sbRate.textContent=rate;
+    sbFill.style.width=(done/qs.length*100)+'%';
+  }
+
+  qs.forEach(function(q){
+    var opts=Array.prototype.slice.call(q.querySelectorAll('.opt'));
+    var btn=q.querySelector('.check');
+    var hint=q.querySelector('.q-hint');
+    var sel=null;
+    opts.forEach(function(o){
+      o.addEventListener('click',function(){
+        if(q.classList.contains('locked')) return;
+        opts.forEach(function(x){x.classList.remove('sel');});
+        o.classList.add('sel');
+        sel=parseInt(o.getAttribute('data-i'),10);
+        if(hint) hint.textContent='';
+      });
+    });
+    btn.addEventListener('click',function(){
+      if(q.classList.contains('locked')) return;
+      if(!sel){ if(hint) hint.textContent='먼저 보기를 선택하세요.'; return; }
+      var ans=parseInt(q.getAttribute('data-answer'),10);
+      var isRight=(sel===ans);
+      opts.forEach(function(o){
+        var i=parseInt(o.getAttribute('data-i'),10);
+        if(i===ans) o.classList.add('correct');
+        if(i===sel && !isRight) o.classList.add('wrong');
+      });
+      var sol=q.querySelector('.sol');
+      var ansLabel='①②③④⑤'.charAt(ans-1);
+      sol.querySelector('.sol-ans').textContent = (isRight?'정답입니다  ':'오답입니다  ')+'· 정답 '+ansLabel;
+      sol.classList.add(isRight?'r':'w');
+      q.classList.add('checked','locked');
+      btn.disabled=true; btn.textContent='채점 완료';
+      done++; if(isRight) correct++;
+      updateScore();
+    });
+  });
+
+  // reveal all
+  document.getElementById('reveal-all').addEventListener('click',function(){
+    qs.forEach(function(q){
+      if(!q.classList.contains('checked')){
+        var ans=parseInt(q.getAttribute('data-answer'),10);
+        q.querySelectorAll('.opt').forEach(function(o){
+          if(parseInt(o.getAttribute('data-i'),10)===ans) o.classList.add('correct');
+        });
+        var sol=q.querySelector('.sol');
+        sol.querySelector('.sol-ans').textContent='정답 '+'①②③④⑤'.charAt(ans-1);
+        sol.classList.add('r');
+        q.classList.add('checked','locked');
+        var b=q.querySelector('.check'); b.disabled=true; b.textContent='해설 공개';
+      }
+    });
+    var f=document.getElementById('final'); f.classList.add('show');
+    document.getElementById('f-correct').textContent=correct;
+    document.getElementById('f-rate').textContent= done? Math.round(correct/done*100):0;
+    var msg=document.getElementById('f-msg');
+    var rate=done?correct/done:0;
+    msg.textContent = (done<qs.length? ('채점한 '+done+'문항 기준입니다. ') : '') + (rate>=0.8?'아주 우수합니다.':rate>=0.6?'합격선입니다. 틀린 사료를 다시 보세요.':'사료 출처와 시기를 다시 정리해 보세요.');
+    f.scrollIntoView({behavior:'smooth'});
+  });
+
+  // back to top
+  var top=document.getElementById('top');
+  window.addEventListener('scroll',function(){ if(window.scrollY>600) top.classList.add('show'); else top.classList.remove('show'); },{passive:true});
+  top.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+
+  // reset
+  document.getElementById('sb-reset').addEventListener('click',function(){ location.reload(); });
+
+  updateScore();
+})();
+</script>
+</body>
+</html>
